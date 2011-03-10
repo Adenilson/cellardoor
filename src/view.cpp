@@ -8,6 +8,7 @@ ReminderView::ReminderView(QWidget *parent)
 {
     connect(this, SIGNAL(statusChanged(QDeclarativeView::Status)), this, SLOT(onStatusChanged(QDeclarativeView::Status)));
     resize(360, 640);
+    setResizeMode(SizeRootObjectToView);
 }
 
 ReminderView::~ReminderView()
