@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+      <!-- QML FILES -->
+    	       <file>qml/main.qml</file>
+
+      <!-- IMAGE FILES -->
+    	       <file></file>
+
+      <!-- FONT FILES -->
+
+    </qresource>
+</RCC>
