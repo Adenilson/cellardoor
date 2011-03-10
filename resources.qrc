@@ -2,9 +2,10 @@
     <qresource prefix="/">
       <!-- QML FILES -->
     	       <file>qml/main.qml</file>
+    	       <file>qml/Frame.qml</file>
 
       <!-- IMAGE FILES -->
-    	       <file></file>
+    	       <file>qml/imgs/splash_WOOD.png</file>
 
       <!-- FONT FILES -->
 
