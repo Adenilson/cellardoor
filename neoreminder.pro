@@ -52,7 +52,7 @@ symbian: {
         -leikcore \
         -lcone
 
-    ICON = images/wine.png
+    ICON = #images/wine.png
 
     addFiles.sources = #qml/fonts/
     addFiles.path = ./fonts
