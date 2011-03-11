@@ -13,7 +13,7 @@ Frame {
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
         anchors.topMargin: 85
-        border { left: 10; top: 10; right: 10; bottom: 10 }
+        border { left: 0; top: 0; right: 0; bottom: 0 }
         horizontalTileMode: BorderImage.Repeat
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_bluebar.png"
