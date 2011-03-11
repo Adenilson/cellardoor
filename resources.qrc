@@ -6,6 +6,7 @@
 
       <!-- IMAGE FILES -->
     	       <file>qml/imgs/splash_WOOD.png</file>
+	       <file>qml/imgs/splash_bluebar.png</file>
 
       <!-- FONT FILES -->
 
