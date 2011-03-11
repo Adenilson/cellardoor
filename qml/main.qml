@@ -21,7 +21,7 @@ Frame {
 
     Text {
         id: txtWelcome
-        text: "Welcome to"
+        text: qsTr("Welcome to")
     	color: "#FFFFFF"
 	    font { family: vgRounded.name; pixelSize: 21; italic: true }
         anchors.horizontalCenter: imgBar.horizontalCenter
@@ -43,7 +43,7 @@ Frame {
 
     Text {
         id: txtWelcome2
-        text: "your personal wine journal"
+        text: qsTr("your personal wine journal")
     	color: "#FFFFFF"
 	    font { family: vgRounded.name; pixelSize: 21; italic: true }
         anchors.horizontalCenter: imgBar.horizontalCenter
