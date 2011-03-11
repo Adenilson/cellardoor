@@ -9,6 +9,8 @@
 	       <file>qml/imgs/splash_bluebar.png</file>
 
       <!-- FONT FILES -->
+	       <file>qml/fonts/Nokia_Sans_Regular.ttf</file>
+	       <file>qml/fonts/VAG_Rounded.ttf</file>
 
     </qresource>
 </RCC>
