@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#
+# Configures to build the project
+#
+
+#-------------------------------------------------------------------------------
+# script initialization
+#-------------------------------------------------------------------------------
+
+relpath=`dirname $0`
+relpath=`(cd "$relpath"; /bin/pwd)`
+outpath=`/bin/pwd`
+
+PREFIX=/usr
+
+while [ "$#" -gt 0 ]; do
+	case "$1" in
+		--help)
+		echo "Options:"
+		echo
+		echo "   --prefix [PATH]       Set installation prefix (defaults to /usr)."
+		echo "   --help                Display this message."
+		echo
+		exit
+		;;
+		--prefix)
+		shift
+		PREFIX=$1
+		;;
+		*)
+		echo >&2 "Invalid option: $1"
+		exit
+		;;
+	esac
+	shift
+done
+
+#-------------------------------------------------------------------------------
+# save configuration into .qmake.cache
+#-------------------------------------------------------------------------------
+
+CACHEFILE="$outpath/.qmake.cache"
+
+[ -f "$CACHEFILE" ] && rm -f "$CACHEFILE"
+
+cat >>"$CACHEFILE" <<EOF
+PREFIX = \$\$quote($PREFIX)
+
+SOURCE_TREE = \$\$quote($relpath)
+BUILD_TREE = \$\$quote($outpath)
+
+EOF
+
+source $relpath/scripts/generate_translations $relpath
+
+qmake $relpath/celladoor.pro
+echo "Done! Now run \"make-symbian\" to build."
