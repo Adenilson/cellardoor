@@ -27,7 +27,9 @@ RESOURCES += \
     resources.qrc
 
 INCLUDEPATH += \
-               src/
+               src
+
+TRANSLATIONS = translations/celladoor_pt_BR.ts
 
 symbian: {
 
@@ -54,7 +56,7 @@ symbian: {
 
     ICON = #images/wine.png
 
-    addFiles.sources = #qml/fonts/
-    addFiles.path = ./fonts
+    addFiles.sources = translations/celladoor_pt_BR.qm
+    addFiles.path = .
     DEPLOYMENT += addFiles
 }
