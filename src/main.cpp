@@ -13,13 +13,13 @@ int main(int argc, char *argv[])
     //QApplication::setGraphicsSystem("opengl");
     app.setApplicationName(s_applicationName);
 
-    QString locale = QLocale::system().name();
+    const QString locale = QLocale::system().name();
     QTranslator translator;
     //XXX: HACK
 #ifdef Q_OS_SYMBIAN
-    translator.load(app.applicationName() + "_" + QLocale::system().name());
+    translator.load(app.applicationName() + "_" + locale);
 #else
-    translator.load("translations/" + app.applicationName() + "_" + QLocale::system().name());
+    translator.load("translations/" + app.applicationName() + "_" + locale);
 #endif
     app.installTranslator(&translator);
 
