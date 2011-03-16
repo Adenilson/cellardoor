@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SOURCE_TREE=$1
+QM_PREFIX='qm'
+TS_PREFIX='ts'
+TRANSLATIONS=$SOURCE_TREE/translations/
+TRANSLATIONS_PATH_SIZE=`expr length $TRANSLATIONS`
+
+function generate_translations {
+	echo "Generating translations ..."
+	for TRANSLATION in `find $TRANSLATIONS -name *.$TS_PREFIX`; do
+		basename=`basename $TRANSLATION .ts`
+		lrelease $TRANSLATION -qm $PWD/$basename.$QM_PREFIX
+	done
+}
+
+generate_translations
