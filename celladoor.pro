@@ -1,3 +1,5 @@
+include(scripts/scripts.pri)
+
 QT       += core network declarative
 
 TARGET = cellar
