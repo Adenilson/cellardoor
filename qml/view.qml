@@ -18,7 +18,7 @@ Frame {
 
     Image {
         id: imgBarmiddle
-        width: parent.width; height: 188
+        width: parent.width; height: 245
         anchors.bottom: imgBarlower.bottom
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
