@@ -9,14 +9,47 @@ Frame {
     BorderImage {
         id: imgBar
         width: parent.width; height: 294
-        anchors.top: frmSplash.top
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
-        anchors.topMargin: 85
+        //anchors.top: frmSplash.top
+        //anchors.topMargin: 85
+        y: 85
         border { left: 0; top: 0; right: 0; bottom: 0 }
         horizontalTileMode: BorderImage.Repeat
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_bluebar.png"
+        Behavior on y {
+            NumberAnimation { duration: 200 }
+        }
+
+        states: [
+
+            State {
+                name: "hidden"
+                PropertyChanges {
+                    target: imgBar
+                    y: -height
+                }
+
+            },
+
+            State {
+                name: "show"
+                PropertyChanges {
+                    target: imgBar
+                    y: 85
+                }
+
+            }
+        ]
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                    console.log("clicked!")
+                    imgBar.state = "hidden"
+            }
+        }
     }
 
     Text {
