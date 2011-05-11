@@ -3,13 +3,11 @@
 #include <QtDeclarative/QDeclarativeContext>
 #include <QtDeclarative>
 #include <QtGlobal>
-
-#ifndef Q_OS_SYMBIAN
-#define DEBUG
-#endif
+#include <QtCore/QDebug>
 
 ReminderController::ReminderController(QObject *parent)
-    : QObject(parent), m_view(new ReminderView)
+    : QObject(parent), m_view(new ReminderView),
+      m_sysInfo(new QSystemDeviceInfo(parent))
 {
     m_view->rootContext()->setContextProperty("controller", this);
 
@@ -18,14 +16,14 @@ ReminderController::ReminderController(QObject *parent)
 ReminderController::~ReminderController()
 {
     delete m_view;
+    delete m_sysInfo;
 }
 
 void ReminderController::initUI()
 {
-#ifdef DEBUG
-    m_view->setSource(QUrl("qml/main.qml"));
-#else
-    m_view->setSource(QUrl("qrc:/qml/main.qml"));
-#endif
-
+    //XXX: At least in mobility 1.2 beta1 in Symbian^3 it fails to load
+    if (m_sysInfo->model().contains("i686"))
+        m_view->setSource(QUrl("qrc:/qml/main.qml"));
+    else
+        m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
 }
