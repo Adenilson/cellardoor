@@ -7,4 +7,5 @@ import QtMultimediaKit 1.1
 SoundEffect {
         id: audioPlayer
         source: "audio/creaky_door_2.WAV"
+	volume: 1.0
 }
