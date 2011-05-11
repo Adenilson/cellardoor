@@ -6,6 +6,10 @@ Frame {
 	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
+    Effect {
+        id: objPlayer
+    }
+
     BorderImage {
         id: imgBar
         width: parent.width; height: 294
@@ -48,6 +52,7 @@ Frame {
             onClicked: {
                     console.log("clicked!")
                     imgBar.state = "hidden"
+                    objPlayer.play()
             }
         }
     }
