@@ -21,8 +21,10 @@ ReminderController::~ReminderController()
 
 void ReminderController::initUI()
 {
+
+    QString tmp(m_sysInfo->model());
     //XXX: At least in mobility 1.2 beta1 in Symbian^3 it fails to load
-    if (m_sysInfo->model().contains("i686"))
+    if (tmp.contains("i686") || tmp.contains("Atom"))
         m_view->setSource(QUrl("qrc:/qml/main.qml"));
     else
         m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
