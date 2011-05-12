@@ -3,7 +3,7 @@
 
 #include <QtDeclarative/QDeclarativeContext>
 
-ReminderView::ReminderView(QWidget *parent)
+CellarView::CellarView(QWidget *parent)
  : QDeclarativeView(parent)
 {
     connect(this, SIGNAL(statusChanged(QDeclarativeView::Status)), this, SLOT(onStatusChanged(QDeclarativeView::Status)));
@@ -11,11 +11,11 @@ ReminderView::ReminderView(QWidget *parent)
     setResizeMode(SizeRootObjectToView);
 }
 
-ReminderView::~ReminderView()
+CellarView::~CellarView()
 {
 }
 
-void ReminderView::onStatusChanged(QDeclarativeView::Status status)
+void CellarView::onStatusChanged(QDeclarativeView::Status status)
 {
     if (status == QDeclarativeView::Ready) {
 #if defined(Q_WS_MAEMO5) || defined(PUSHED_MEEGO_HARMATTAN) || defined(Q_OS_SYMBIAN)
@@ -26,7 +26,7 @@ void ReminderView::onStatusChanged(QDeclarativeView::Status status)
     }
 }
 
-bool ReminderView::event(QEvent *event)
+bool CellarView::event(QEvent *event)
 {
     switch (event->type()) {
     case QEvent::Gesture:

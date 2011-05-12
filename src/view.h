@@ -7,12 +7,12 @@
 
 class QDeclarativeContext;
 
-class ReminderView : public QDeclarativeView
+class CellarView : public QDeclarativeView
 {
     Q_OBJECT
 public:
-    ReminderView(QWidget *parent = 0);
-    ~ReminderView();
+    CellarView(QWidget *parent = 0);
+    ~CellarView();
 
 private Q_SLOTS:
     void onStatusChanged(QDeclarativeView::Status status);

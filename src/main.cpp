@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     translator.load(app.applicationName() + "_" + locale);
     app.installTranslator(&translator);
 
-    ReminderController controller;
+    CellarController controller;
     controller.initUI();
     Utils::setOrientation(Utils::PORTRAIT);
 

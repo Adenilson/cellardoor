@@ -4,21 +4,21 @@
 #include <QtCore/QObject>
 #include <QSystemDeviceInfo>
 
-class ReminderView;
+class CellarView;
 
 QTM_USE_NAMESPACE
 
-class ReminderController : public QObject
+class CellarController : public QObject
 {
     Q_OBJECT
 public:
-    ReminderController(QObject *parent = 0);
-    ~ReminderController();
+    CellarController(QObject *parent = 0);
+    ~CellarController();
 
     void initUI();
 
 private:
-    ReminderView *m_view;
+    CellarView *m_view;
     QSystemDeviceInfo *m_sysInfo;
 };
 

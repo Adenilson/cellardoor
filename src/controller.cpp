@@ -5,27 +5,30 @@
 #include <QtGlobal>
 #include <QtCore/QDebug>
 
-ReminderController::ReminderController(QObject *parent)
-    : QObject(parent), m_view(new ReminderView),
+CellarController::CellarController(QObject *parent)
+    : QObject(parent), m_view(new CellarView),
       m_sysInfo(new QSystemDeviceInfo(parent))
 {
     m_view->rootContext()->setContextProperty("controller", this);
 
 }
 
-ReminderController::~ReminderController()
+CellarController::~CellarController()
 {
     delete m_view;
     delete m_sysInfo;
 }
 
-void ReminderController::initUI()
+void CellarController::initUI()
 {
 
     QString tmp(m_sysInfo->model());
     //XXX: At least in mobility 1.2 beta1 in Symbian^3 it fails to load
-    if (tmp.contains("i686") || tmp.contains("Atom"))
+    //and in meego netbook 1.1 gstreamer will not play WAV
+    if (tmp.contains("i686"))
         m_view->setSource(QUrl("qrc:/qml/main.qml"));
-    else
+    else {
         m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
+        m_view->showFullScreen();
+    }
 }
