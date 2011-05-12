@@ -5,6 +5,7 @@ Rectangle {
     anchors.fill: parent
     width: 362; height: 642
 
+
     BorderImage {
         id: toolbar1
         width: parent.width/2; height: parent.height
@@ -16,36 +17,11 @@ Rectangle {
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_WOOD.png"
 
-        Behavior on x {
-            NumberAnimation { duration: 700 }
-        }
-
-        states: [
-
-            State {
-                name: "hidden"
-                PropertyChanges {
-                    target: toolbar1
-                    x: -toolbar1.width
-                }
-
-            },
-
-            State {
-                name: "show"
-                PropertyChanges {
-                    target: toolbar1
-                    x: 0
-                }
-
-            }
-        ]
-
         MouseArea {
             anchors.fill: parent
             onClicked: {
                     console.log("clicked!")
-                    toolbar1.state = "hidden"
+                    hideAnimated()
             }
         }
 
@@ -62,40 +38,18 @@ Rectangle {
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_WOOD.png"
 
-        Behavior on x {
-            NumberAnimation { duration: 800 }
-        }
-
-        states: [
-
-            State {
-                name: "hidden"
-                PropertyChanges {
-                    target: toolbar2
-                    x: toolbar2.x + toolbar2.width
-                }
-
-            },
-
-            State {
-                name: "show"
-                PropertyChanges {
-                    target: toolbar1
-                    x: parent.width/2
-                }
-
-            }
-        ]
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                    console.log("clicked!")
-                    toolbar2.state = "hidden"
-            }
-        }
-
     }
 
+    ParallelAnimation {
+        id: animSlide
+        NumberAnimation { target: toolbar1; property: "x";
+                          to: -toolbar1.width; duration: 700 }
+        NumberAnimation { target: toolbar2; property: "x";
+                          to: toolbar2.x + toolbar2.width; duration: 700 }
+    }
+
+    function hideAnimated() {
+        animSlide.running = true
+    }
 
 }
