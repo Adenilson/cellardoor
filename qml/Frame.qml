@@ -17,14 +17,6 @@ Rectangle {
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_WOOD.png"
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                    console.log("clicked!")
-                    hideAnimated()
-            }
-        }
-
     }
 
     BorderImage {
