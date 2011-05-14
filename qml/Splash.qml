@@ -47,11 +47,17 @@ Frame {
 
     }
 
+    Timer {
+        id: tmLabelCellar
+        interval: 1000; running: false; repeat: false;
+        onTriggered: imgBar.state = "hidden"
+    }
+
     function hideSplash() {
         //TODO: delay 2s
         hideAnimated()
         objPlayer.play()
-        imgBar.state = "hidden"
+        tmLabelCellar.running = true
     }
 
     Text {
