@@ -5,6 +5,7 @@
     	       <file>qml/mainNosound.qml</file>
     	       <file>qml/Frame.qml</file>
     	       <file>qml/Effect.qml</file>
+    	       <file>qml/Splash.qml</file>
 
       <!-- IMAGE FILES -->
     	       <file>qml/imgs/splash_WOOD.png</file>
