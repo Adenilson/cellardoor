@@ -36,5 +36,12 @@ Frame {
         source: "imgs/main_low_bar.png"
     }
 
+    List {
+        id: lstWine
+        anchors.top: imgBarup.bottom
+        anchors.topMargin: 30
+        anchors.left: imgBarup.left
+        anchors.right: imgBarup.right
+    }
 
 }
