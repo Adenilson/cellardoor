@@ -4,9 +4,8 @@ ListView {
     signal listClicked(int index)
     id: lstOss
 
-    clip: true
+    //clip: true
     width: parent.width
-    //width: 306; height: 297
 
     orientation: ListView.Horizontal
 
