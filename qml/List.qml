@@ -3,8 +3,6 @@ import Qt 4.7
 ListView {
     signal listClicked(int index)
     id: lstOss
-
-    //clip: true
     width: parent.width
 
     orientation: ListView.Horizontal
