@@ -6,6 +6,7 @@
     	       <file>qml/Frame.qml</file>
     	       <file>qml/Effect.qml</file>
     	       <file>qml/Splash.qml</file>
+    	       <file>qml/SplashNoSound.qml</file>
     	       <file>qml/view.qml</file>
     	       <file>qml/List.qml</file>
     	       <file>qml/Model.qml</file>
