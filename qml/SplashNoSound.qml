@@ -3,8 +3,10 @@ import Qt 4.7
 Frame {
     id: frmSplash
     signal hideDone()
+
     FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
     FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
+
 
     BorderImage {
         id: imgBar
@@ -17,7 +19,13 @@ Frame {
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_bluebar.png"
         Behavior on y {
-            NumberAnimation { duration: 200 }
+            NumberAnimation {
+                duration: 200;
+                onRunningChanged: {
+                    if (!running)
+                    frmSplash.hideDone()
+                }
+            }
         }
 
         states: [
@@ -43,17 +51,11 @@ Frame {
 
     }
 
-    Timer {
-        id: tmLabelCellar
-        interval: 1000; running: false; repeat: false;
-        onTriggered: imgBar.state = "hidden"
+    function hideSplash() {
+        hideAnimated()
     }
 
-    function hideSplash() {
-        //TODO: delay 2s
-        hideAnimated()
-        tmLabelCellar.running = true
-    }
+    onAnimationCompleted: imgBar.state = "hidden"
 
     Text {
         id: txtWelcome
