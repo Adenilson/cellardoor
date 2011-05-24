@@ -22,7 +22,13 @@ Frame {
         verticalTileMode: BorderImage.Stretch
         source: "imgs/splash_bluebar.png"
         Behavior on y {
-            NumberAnimation { duration: 200 }
+            NumberAnimation {
+                duration: 200;
+                onRunningChanged: {
+                    if (!running)
+                    frmSplash.hideDone()
+                }
+            }
         }
 
         states: [
@@ -48,18 +54,12 @@ Frame {
 
     }
 
-    Timer {
-        id: tmLabelCellar
-        interval: 1000; running: false; repeat: false;
-        onTriggered: imgBar.state = "hidden"
-    }
-
     function hideSplash() {
-        //TODO: delay 2s
         hideAnimated()
         objPlayer.play()
-        tmLabelCellar.running = true
     }
+
+    onAnimationCompleted: imgBar.state = "hidden"
 
     Text {
         id: txtWelcome
