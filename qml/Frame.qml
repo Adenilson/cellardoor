@@ -4,6 +4,7 @@ Rectangle {
     id: background
     anchors.fill: parent
     width: 362; height: 642
+    signal animationCompleted
 
 
     BorderImage {
@@ -38,6 +39,9 @@ Rectangle {
                           to: -toolbar1.width; duration: 700 }
         NumberAnimation { target: toolbar2; property: "x";
                           to: toolbar2.x + toolbar2.width; duration: 700 }
+
+        onRunningChanged: if (!running) background.animationCompleted()
+
     }
 
     function hideAnimated() {
