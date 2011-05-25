@@ -13,6 +13,21 @@ BorderImage {
         return text.toUpperCase(text)
     }
 
+    function selectType(type) {
+
+        //TODO: use a map for this
+        var result;
+        if (type == "Cabernet Sauvignon") {
+            result = "imgs/cabernet_sauvignon.png"
+        } else if (type == "Merlot") {
+            result = "imgs/merlot.png"
+        } else if (type == "Pinot Noir") {
+            result = "imgs/pinot_noir.png"
+        }
+
+        return result;
+    }
+
     Text {
         id: txtName
         text: name
@@ -28,6 +43,14 @@ BorderImage {
         source: "imgs/bar.png"
         anchors.top: txtName.bottom
         anchors.topMargin: 5
+        anchors.horizontalCenter: txtName.horizontalCenter
+    }
+
+    Image {
+        id: imgType
+        source: selectType(type)
+        anchors.top: txtName.bottom
+        anchors.topMargin: 12
         anchors.horizontalCenter: txtName.horizontalCenter
     }
 
