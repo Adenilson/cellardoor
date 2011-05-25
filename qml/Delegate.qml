@@ -54,4 +54,23 @@ BorderImage {
         anchors.horizontalCenter: txtName.horizontalCenter
     }
 
+
+    //TODO: move this 2 to a new widget file LabelType
+    Image {
+        id: imgBackground
+        source: "imgs/label.png"
+        anchors.top: imgType.bottom
+        anchors.topMargin: 8
+        anchors.horizontalCenter: imgType.horizontalCenter
+    }
+
+    Text {
+        id: txtType
+        text: type
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 20; }
+        anchors.horizontalCenter: imgBackground.horizontalCenter
+        anchors.verticalCenter: imgBackground.verticalCenter
+    }
+
 }
