@@ -39,7 +39,7 @@ Frame {
     List {
         id: lstWine
         anchors.top: imgBarup.bottom
-        anchors.topMargin: 30
+        //anchors.topMargin: 30
         anchors.left: imgBarup.left
         anchors.right: imgBarup.right
     }
