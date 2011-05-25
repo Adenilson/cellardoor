@@ -32,7 +32,7 @@ BorderImage {
         id: txtName
         text: name
         color: "#3E7E93"
-        font { family: nsRegular; pixelSize: 22; }
+        font { family: nsRegular.name; pixelSize: 22; }
         anchors.top: bkgItem.top
         anchors.topMargin: 7
         anchors.horizontalCenter: bkgItem.horizontalCenter
