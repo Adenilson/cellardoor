@@ -23,4 +23,12 @@ BorderImage {
         anchors.horizontalCenter: bkgItem.horizontalCenter
     }
 
+    Image {
+        id: imgBar
+        source: "imgs/bar.png"
+        anchors.top: txtName.bottom
+        anchors.topMargin: 5
+        anchors.horizontalCenter: txtName.horizontalCenter
+    }
+
 }
