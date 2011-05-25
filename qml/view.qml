@@ -42,6 +42,8 @@ Frame {
         //anchors.topMargin: 30
         anchors.left: imgBarup.left
         anchors.right: imgBarup.right
+        anchors.rightMargin: 30
+        anchors.leftMargin: 30
     }
 
 }
