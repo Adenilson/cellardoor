@@ -13,6 +13,16 @@ BorderImage {
         return text.toUpperCase(text)
     }
 
+    function dynLength(text) {
+        var result = 280
+
+        if (text.length < 12) {
+            result = text.length * 22
+        }
+
+        return result
+    }
+
     function selectType(type) {
 
         //TODO: use a map for this
@@ -56,12 +66,14 @@ BorderImage {
 
 
     //TODO: move this 2 to a new widget file LabelType
-    Image {
+    BorderImage {
         id: imgBackground
         source: "imgs/label.png"
+        border { left: 15; top: 0; right: 15; bottom: 0 }
         anchors.top: imgType.bottom
         anchors.topMargin: 8
         anchors.horizontalCenter: imgType.horizontalCenter
+        width: dynLength(type)
     }
 
     Text {
