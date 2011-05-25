@@ -106,6 +106,16 @@ BorderImage {
         anchors.horizontalCenter: txtProducer.horizontalCenter
     }
 
+    Text {
+        id: txtYear
+        text: year
+        color: "#E5DBB8"
+        font { family: nsRegular.name; pixelSize: 20; italic: true }
+        anchors.top: txtRegion.bottom
+        anchors.topMargin: 10
+        anchors.horizontalCenter: txtRegion.horizontalCenter
+    }
+
     //TODO: add a mouse area + click event
     Image {
         id: imgInfo
