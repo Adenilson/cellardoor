@@ -85,4 +85,34 @@ BorderImage {
         anchors.verticalCenter: imgBackground.verticalCenter
     }
 
+    //
+
+    Text {
+        id: txtProducer
+        text: "<b>Producer: </b>"+ producer
+        color: "#000000"
+        font { family: nsRegular.name; pixelSize: 14; }
+        anchors.top: txtType.bottom
+        anchors.topMargin: 10
+        anchors.horizontalCenter: txtType.horizontalCenter
+    }
+
+    Text {
+        id: txtRegion
+        text: "<b>Region: </b>" + region
+        color: "#000000"
+        font { family: nsRegular.name; pixelSize: 14; }
+        anchors.top: txtProducer.bottom
+        anchors.horizontalCenter: txtProducer.horizontalCenter
+    }
+
+    //TODO: add a mouse area + click event
+    Image {
+        id: imgInfo
+        source: "imgs/label_info.png"
+        anchors.bottom: bkgItem.bottom
+        anchors.bottomMargin: 10
+        anchors.horizontalCenter: bkgItem.horizontalCenter
+    }
+
 }
