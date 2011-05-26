@@ -9,8 +9,8 @@ Screen {
 
     Image {
         id: imgBarmiddle
-        width: parent.width; height: 245
-        anchors.bottom: lowerBar.bottom
+        width: parent.width
+        anchors.bottom: lowerBar.top
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
         fillMode: Image.Tile
@@ -20,7 +20,6 @@ Screen {
     List {
         id: lstWine
         anchors.top: upperBar.bottom
-        //anchors.topMargin: 30
         anchors.left: upperBar.left
         anchors.right: upperBar.right
         anchors.rightMargin: 30
