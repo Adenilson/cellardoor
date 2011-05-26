@@ -12,6 +12,7 @@
     	       <file>qml/List.qml</file>
     	       <file>qml/Model.qml</file>
     	       <file>qml/Delegate.qml</file>
+    	       <file>qml/InputOne.qml</file>
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
