@@ -3,9 +3,6 @@ import Qt 4.7
 Frame {
     id: frmScreen
 
-	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
-	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
-
     property alias upperBar: imgBarup
     property alias lowerBar: imgBarlower
 
