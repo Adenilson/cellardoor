@@ -8,7 +8,7 @@
     	       <file>qml/Splash.qml</file>
     	       <file>qml/SplashNoSound.qml</file>
     	       <file>qml/Screen.qml</file>
-    	       <file>qml/view.qml</file>
+    	       <file>qml/View.qml</file>
     	       <file>qml/List.qml</file>
     	       <file>qml/Model.qml</file>
     	       <file>qml/Delegate.qml</file>

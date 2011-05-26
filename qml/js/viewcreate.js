@@ -4,7 +4,7 @@ var mView;
 function create() {
     //Assumes that the file can be in a network (so I believe
     //that it will have an async behavior)
-    component = Qt.createComponent("view.qml");
+    component = Qt.createComponent("View.qml");
 
     if (component.status == Component.Ready) {
 	finishCreation();
