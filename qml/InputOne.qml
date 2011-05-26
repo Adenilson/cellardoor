@@ -2,6 +2,18 @@ import Qt 4.7
 
 Screen {
     id: frmInput1
+	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
+	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
+
+
+    Text {
+        id: txtCellar
+        text: "CellaDoor"
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.horizontalCenter: upperBar.horizontalCenter
+    }
 
     BorderImage {
         id: bkgItem
