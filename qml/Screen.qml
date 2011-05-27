@@ -22,7 +22,7 @@ Frame {
         anchors.bottom: frmScreen.bottom
         anchors.left: frmScreen.left
         anchors.right: frmScreen.right
-        fillMode: Image.Tile
+        fillMode: Image.TileHorizontally
         source: "imgs/main_low_bar.png"
     }
 
