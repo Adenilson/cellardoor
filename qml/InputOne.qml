@@ -5,6 +5,7 @@ Screen {
 	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
+    lowerBar.height: 90
 
     Text {
         id: txtCellar
@@ -14,6 +15,26 @@ Screen {
         anchors.verticalCenter: upperBar.verticalCenter
         anchors.horizontalCenter: upperBar.horizontalCenter
     }
+
+
+    Text {
+        id: txtAdding
+        text: qsTr("Adding a new wine to your Cellar")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 18; italic: true }
+        anchors.top: upperBar.top
+        anchors.topMargin: 80
+        anchors.horizontalCenter: upperBar.horizontalCenter
+    }
+
+    Image {
+        id: imgLine
+        anchors.top: txtAdding.bottom
+        anchors.topMargin: 17
+        anchors.horizontalCenter: upperBar.horizontalCenter
+        source: "imgs/line_break.png"
+    }
+
 
     BorderImage {
         id: bkgItem
@@ -26,6 +47,5 @@ Screen {
         anchors.leftMargin: 5
         anchors.rightMargin: 5
     }
-
 
 }
