@@ -56,60 +56,60 @@ Screen {
         anchors.leftMargin: 5
         anchors.rightMargin: 5
 
-        InputWidget {
-            id: wdgName
-            title: qsTr("Name")
-            text: "Casillero Del Diablo"
-            anchors.top: bkgItem.top
-            anchors.topMargin: 5
-            anchors.left: bkgItem.left
-            anchors.right: bkgItem.right
-        }
+    }
 
-        InputWidget {
-            id: wdgType
-            title: qsTr("Kind of Wine")
-            text: "Merlot"
-            anchors.top: wdgName.bottom
-            anchors.topMargin: 5
-            anchors.left: bkgItem.left
-            anchors.right: bkgItem.right
-        }
+    InputWidget {
+        id: wdgName
+        title: qsTr("Name")
+        text: "Casillero Del Diablo"
+        anchors.top: bkgItem.top
+        anchors.topMargin: 5
+        anchors.left: bkgItem.left
+        anchors.right: bkgItem.right
+    }
 
-        InputWidget {
-            id: wdgProducer
-            title: qsTr("Producer")
-            text: "Vinos Del Castilho"
-            anchors.top: wdgType.bottom
-            anchors.topMargin: 5
-            anchors.left: bkgItem.left
-            anchors.right: bkgItem.right
-        }
+    InputWidget {
+        id: wdgType
+        title: qsTr("Kind of Wine")
+        text: "Merlot"
+        anchors.top: wdgName.bottom
+        anchors.topMargin: 5
+        anchors.left: bkgItem.left
+        anchors.right: bkgItem.right
+    }
 
-        InputWidget {
-            id: wdgYear
-            title: qsTr("Vintage Year")
-            text: "17/02/2011"
-            height: 50; width: 150
-            anchors.top: wdgProducer.bottom
-            anchors.topMargin: 5
-            anchors.left: bkgItem.left
-            anchors.bottom: bkgItem.bottom
-            anchors.bottomMargin: 5
-        }
+    InputWidget {
+        id: wdgProducer
+        title: qsTr("Producer")
+        text: "Vinos Del Castilho"
+        anchors.top: wdgType.bottom
+        anchors.topMargin: 5
+        anchors.left: bkgItem.left
+        anchors.right: bkgItem.right
+    }
 
-        InputWidget {
-            id: wdgPrice
-            title: qsTr("Price")
-            text: "$30.00"
-            height: 50; width: 150
-            anchors.top: wdgProducer.bottom
-            anchors.topMargin: 5
-            anchors.right: bkgItem.right
-            anchors.bottom: bkgItem.bottom
-            anchors.bottomMargin: 5
-        }
+    InputWidget {
+        id: wdgYear
+        title: qsTr("Vintage Year")
+        text: "17/02/2011"
+        height: 50; width: 150
+        anchors.top: wdgProducer.bottom
+        anchors.topMargin: 5
+        anchors.left: bkgItem.left
+        anchors.bottom: bkgItem.bottom
+        anchors.bottomMargin: 5
+    }
 
+    InputWidget {
+        id: wdgPrice
+        title: qsTr("Price")
+        text: "$30.00"
+        height: 50; width: 150
+        anchors.top: wdgProducer.bottom
+        anchors.topMargin: 5
+        anchors.right: bkgItem.right
+        anchors.bottom: bkgItem.bottom
+        anchors.bottomMargin: 5
     }
 
 }
