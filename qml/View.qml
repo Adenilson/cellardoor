@@ -27,9 +27,10 @@ Screen {
 
     Button {
         id: btnOk
-        imgHeight: 58; imgWidth: 210
+        imgHeight: 58; imgWidth: 280
         labelText: qsTr("add new wine")
         txtColor: "#FFFFFF"
+        txtSize: 30
         current: "imgs/button_bkg.png"
         background: "imgs/button_bkg.png"
         pressed: "imgs/button_bkg.png"

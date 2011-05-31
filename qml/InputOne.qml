@@ -115,8 +115,9 @@ Screen {
 
     Button {
         id: btnOk
-        imgHeight: 58; imgWidth: 188
-        labelText: qsTr("OK")
+        imgHeight: 58; imgWidth: 200
+        txtSize: 26
+        labelText: qsTr("Finish")
         txtColor: "#FFFFFF"
         current: "imgs/button_bkg.png"
         background: "imgs/button_bkg.png"
