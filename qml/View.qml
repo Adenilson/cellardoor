@@ -5,6 +5,7 @@ import "js/list.js" as List
 Screen {
     id: frmSplash
 
+    lowerBar.height: 75
     Image {
         id: imgBarmiddle
         width: parent.width
