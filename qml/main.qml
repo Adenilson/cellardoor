@@ -8,7 +8,7 @@ Item {
     //width: 1024; height: 600
     Splash {
         id: wdgSplash
-        onHideDone: Factory.create()
+        onHideDone: Factory.create("View.qml")
     }
 
     Timer {
