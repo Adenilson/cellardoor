@@ -1,4 +1,5 @@
 import Qt 4.7
+import "js/list.js" as List
 
 Screen {
     id: frmInput1
@@ -110,6 +111,18 @@ Screen {
         anchors.right: bkgItem.right
         anchors.bottom: bkgItem.bottom
         anchors.bottomMargin: 5
+        //FIXME: just a test for accessing the list of widgets
+        MouseArea {
+            anchors.fill: parent
+
+            onClicked: {
+                var object = List.retrieve("winelist")
+                if (object != null) {
+                    var widget = object.mView
+                    console.log("### " + widget.height)
+                }
+            }
+        }
     }
 
 }
