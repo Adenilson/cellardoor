@@ -16,7 +16,7 @@ Item {
         color: "#CA893B"
         font { family: nsRegular.name; pixelSize: 16; italic: true }
         anchors.left: wdgInput.left
-        anchors.leftMargin: 10
+        anchors.leftMargin: 20
         anchors.top: wdgInput.top
     }
 
@@ -25,8 +25,9 @@ Item {
         id: imgBackground
         border { left: 10; top: 10; right: 10; bottom: 10 }
         anchors.top: txtTitle.bottom
-        anchors.topMargin: 10
-        anchors.left: txtTitle.left
+        anchors.topMargin: 5
+        anchors.left: wdgInput.left
+        anchors.leftMargin: 10
         anchors.right: wdgInput.right
         anchors.rightMargin: 10
         source: "imgs/edit_bkg.png"
@@ -39,7 +40,7 @@ Item {
         //FIXME: elide the text
         //elide: Text.ElideRight
         font { family: nsRegular.name; pixelSize: 18 }
-        anchors.left: imgBackground.left
+        anchors.left: txtTitle.left
         anchors.verticalCenter: imgBackground.verticalCenter
     }
 
