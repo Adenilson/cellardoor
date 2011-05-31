@@ -35,6 +35,15 @@ Screen {
         source: "imgs/line_break.png"
     }
 
+    Text {
+        id: txtSteps
+        text: qsTr("Step 1")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.top: imgLine.bottom
+        anchors.horizontalCenter: imgLine.horizontalCenter
+    }
+
 
     BorderImage {
         id: bkgItem
