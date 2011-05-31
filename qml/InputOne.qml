@@ -76,6 +76,40 @@ Screen {
             anchors.right: bkgItem.right
         }
 
+        InputWidget {
+            id: wdgProducer
+            title: qsTr("Producer")
+            text: "Vinos Del Castilho"
+            anchors.top: wdgType.bottom
+            anchors.topMargin: 5
+            anchors.left: bkgItem.left
+            anchors.right: bkgItem.right
+        }
+
+        InputWidget {
+            id: wdgYear
+            title: qsTr("Vintage Year")
+            text: "17/02/2011"
+            height: 50; width: 150
+            anchors.top: wdgProducer.bottom
+            anchors.topMargin: 5
+            anchors.left: bkgItem.left
+            anchors.bottom: bkgItem.bottom
+            anchors.bottomMargin: 5
+        }
+
+        InputWidget {
+            id: wdgPrice
+            title: qsTr("Price")
+            text: "$30.00"
+            height: 50; width: 150
+            anchors.top: wdgProducer.bottom
+            anchors.topMargin: 5
+            anchors.right: bkgItem.right
+            anchors.bottom: bkgItem.bottom
+            anchors.bottomMargin: 5
+        }
+
     }
 
 }
