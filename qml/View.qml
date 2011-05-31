@@ -1,4 +1,6 @@
 import Qt 4.7
+import "js/viewcreate.js" as Factory
+import "js/list.js" as List
 
 Screen {
     id: frmSplash
@@ -20,6 +22,33 @@ Screen {
         anchors.right: upperBar.right
         anchors.rightMargin: 30
         anchors.leftMargin: 30
+    }
+
+    Button {
+        id: btnOk
+        imgHeight: 58; imgWidth: 210
+        labelText: qsTr("add new wine")
+        txtColor: "#FFFFFF"
+        current: "imgs/button_bkg.png"
+        background: "imgs/button_bkg.png"
+        pressed: "imgs/button_bkg.png"
+        focused: "imgs/button_bkg.png"
+        anchors.bottom: lowerBar.bottom
+        anchors.horizontalCenter: lowerBar.horizontalCenter
+        onButtonClicked: {
+            var object = List.retrieve("inputone")
+            if (object == null) {
+                console.log("##### Not found, creating the input now!")
+                var input = new Factory.WidgetLoader()
+                input.create("InputOne.qml")
+                List.append("inputone", input)
+            } else {
+                var widget = object.mView
+                console.log("### Found: " + widget.height)
+                widget.visible = true
+            }
+        }
+
     }
 
 }
