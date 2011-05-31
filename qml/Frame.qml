@@ -2,8 +2,9 @@ import Qt 4.7
 
 Rectangle {
     id: background
-    anchors.fill: parent
-    width: 362; height: 642
+    //This will block any x/y animation
+    //anchors.fill: parent
+    width: parent.width; height: parent.height
     signal animationCompleted
 
 
