@@ -125,12 +125,10 @@ Screen {
         anchors.bottom: lowerBar.bottom
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
-            console.log("##### clicked!")
-                var object = List.retrieve("winelist")
-                if (object != null) {
-                    var widget = object.mView
-                    console.log("### " + widget.height)
-                }
+            console.log("##### Hiding the input screen!")
+            //TODO: emit a signal with the input data
+            //TODO: hide with style
+            frmInput1.visible = false
         }
 
     }
