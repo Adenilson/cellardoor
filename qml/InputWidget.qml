@@ -16,9 +16,21 @@ Item {
         color: "#CA893B"
         font { family: nsRegular.name; pixelSize: 16; italic: true }
         anchors.left: wdgInput.left
+        anchors.leftMargin: 10
         anchors.top: wdgInput.top
     }
 
+
+    BorderImage {
+        id: imgBackground
+        border { left: 10; top: 10; right: 10; bottom: 10 }
+        anchors.top: txtTitle.bottom
+        anchors.topMargin: 10
+        anchors.left: txtTitle.left
+        anchors.right: wdgInput.right
+        anchors.rightMargin: 10
+        source: "imgs/edit_bkg.png"
+    }
 
     TextEdit {
         id: txtDescription
@@ -26,9 +38,8 @@ Item {
         color: "#385661"
         //elide: Text.ElideRight
         font { family: nsRegular.name; pixelSize: 18 }
-        anchors.top: txtTitle.bottom
-        anchors.topMargin: 10
-        anchors.left: txtTitle.left
+        anchors.left: imgBackground.left
+        anchors.verticalCenter: imgBackground.verticalCenter
     }
 
 
