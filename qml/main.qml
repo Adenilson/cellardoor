@@ -1,6 +1,6 @@
 import Qt 4.7
 import "js/viewcreate.js" as Factory
-import "js/list.js" as List
+
 Item {
     id: appWindow
     width: 362; height: 642
@@ -12,7 +12,6 @@ Item {
         onHideDone: {
             var mainview = new Factory.WidgetLoader()
             mainview.create("View.qml")
-            List.append("winelist", mainview)
         }
     }
 
