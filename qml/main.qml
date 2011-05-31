@@ -6,9 +6,13 @@ Item {
     width: 362; height: 642
     //width: 480; height: 820
     //width: 1024; height: 600
+
     Splash {
         id: wdgSplash
-        onHideDone: Factory.create("View.qml")
+        onHideDone: {
+            var mainview = new Factory.WidgetLoader()
+            mainview.create("View.qml")
+        }
     }
 
     Timer {

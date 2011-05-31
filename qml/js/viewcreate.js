@@ -1,30 +1,34 @@
-var component;
-var mView;
+function WidgetLoader()
+{
+    this.component;
+    this.mView;
 
-function create(qmlfile) {
-    //Assumes that the file can be in a network (so I believe
-    //that it will have an async behavior)
-    component = Qt.createComponent(qmlfile);
+    this.create = function(qmlfile) {
+	//Assumes that the file can be in a network (so I believe
+	//that it will have an async behavior)
+	this.component = Qt.createComponent(qmlfile);
 
-    if (component.status == Component.Ready) {
-	finishCreation();
-
-    } else {
-	component.statusChanged.connect(finishCreation);
-    }
-}
-
-function finishCreation() {
-
-    if (component.status == Component.Ready) {
-
-	mView = component.createObject(appWindow);
-	if (mView == null) {
-	    console.log("Failed object creation!");
+	if (this.component.status == Component.Ready) {
+	    this.finishCreation();
 
 	} else {
-	    //Show it in animated way
+	    this.component.statusChanged.connect(finishCreation);
 	}
     }
 
+    this.finishCreation = function() {
+
+	if (this.component.status == Component.Ready) {
+
+	    this.mView = this.component.createObject(appWindow);
+	    if (this.mView == null) {
+		console.log("Failed object creation!");
+
+	    } else {
+		//Show it in animated way
+	    }
+	}
+
+    }
 }
+
