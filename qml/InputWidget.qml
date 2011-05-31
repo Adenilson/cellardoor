@@ -20,10 +20,11 @@ Item {
     }
 
 
-    Text {
+    TextEdit {
         id: txtDescription
         text: "Description"
         color: "#385661"
+        //elide: Text.ElideRight
         font { family: nsRegular.name; pixelSize: 18 }
         anchors.top: txtTitle.bottom
         anchors.topMargin: 10
