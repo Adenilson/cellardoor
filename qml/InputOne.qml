@@ -55,6 +55,17 @@ Screen {
         anchors.right: frmInput1.right
         anchors.leftMargin: 5
         anchors.rightMargin: 5
+
+        InputWidget {
+            id: wdgName
+            title: qsTr("Name")
+            text: "Casillero Del Diablo"
+            anchors.top: bkgItem.top
+            anchors.topMargin: 5
+            anchors.left: bkgItem.left
+            anchors.right: bkgItem.right
+        }
+
     }
 
 }
