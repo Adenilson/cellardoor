@@ -2,8 +2,8 @@ import Qt 4.7
 
 Item {
     id: wdgInput
-    property string title: txtTitle.text
-    property string text: txtDescription.text
+    property alias title: txtTitle.text
+    property alias text: txtDescription.text
     width: 400; height: 90
 
 	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
