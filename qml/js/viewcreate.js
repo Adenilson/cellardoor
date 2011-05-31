@@ -12,7 +12,7 @@ function WidgetLoader()
 	    this.finishCreation();
 
 	} else {
-	    this.component.statusChanged.connect(finishCreation);
+	    this.component.statusChanged.connect(this.finishCreation);
 	}
     }
 
