@@ -66,6 +66,16 @@ Screen {
             anchors.right: bkgItem.right
         }
 
+        InputWidget {
+            id: wdgType
+            title: qsTr("Kind of Wine")
+            text: "Merlot"
+            anchors.top: wdgName.bottom
+            anchors.topMargin: 5
+            anchors.left: bkgItem.left
+            anchors.right: bkgItem.right
+        }
+
     }
 
 }
