@@ -13,6 +13,8 @@
     	       <file>qml/Model.qml</file>
     	       <file>qml/Delegate.qml</file>
     	       <file>qml/InputOne.qml</file>
+    	       <file>qml/InputWidget.qml</file>
+    	       <file>qml/Button.qml</file>
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
