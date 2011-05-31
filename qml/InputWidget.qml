@@ -36,6 +36,7 @@ Item {
         id: txtDescription
         text: "Description"
         color: "#385661"
+        //FIXME: elide the text
         //elide: Text.ElideRight
         font { family: nsRegular.name; pixelSize: 18 }
         anchors.left: imgBackground.left
