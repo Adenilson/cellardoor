@@ -6,7 +6,10 @@ Item {
     width: 362; height: 642
     SplashNoSound {
         id: wdgSplash
-        onHideDone: Factory.create()
+        onHideDone: {
+            var mainview = new Factory.WidgetLoader()
+            mainview.create("View.qml")
+        }
     }
 
     Timer {
