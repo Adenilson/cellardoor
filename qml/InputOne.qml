@@ -111,18 +111,28 @@ Screen {
         anchors.right: bkgItem.right
         anchors.bottom: bkgItem.bottom
         anchors.bottomMargin: 5
-        //FIXME: just a test for accessing the list of widgets
-        MouseArea {
-            anchors.fill: parent
+    }
 
-            onClicked: {
+    Button {
+        id: btnOk
+        imgHeight: 58; imgWidth: 188
+        labelText: qsTr("OK")
+        txtColor: "#FFFFFF"
+        current: "imgs/button_bkg.png"
+        background: "imgs/button_bkg.png"
+        pressed: "imgs/button_bkg.png"
+        focused: "imgs/button_bkg.png"
+        anchors.bottom: lowerBar.bottom
+        anchors.horizontalCenter: lowerBar.horizontalCenter
+        onButtonClicked: {
+            console.log("##### clicked!")
                 var object = List.retrieve("winelist")
                 if (object != null) {
                     var widget = object.mView
                     console.log("### " + widget.height)
                 }
-            }
         }
+
     }
 
 }
