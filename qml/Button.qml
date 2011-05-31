@@ -13,6 +13,7 @@ Item {
     property alias imgWidth: background.width
     property alias imgHeight: background.height
     property alias txtColor: label.color
+    property int txtSize: 16
 
     Image {
         id: background
@@ -39,7 +40,7 @@ Item {
         id: label
         text: button.labelText
         color: "#352d2a"
-        font { pixelSize: 16 }
+        font { pixelSize: button.txtSize }
         anchors.horizontalCenter: background.horizontalCenter
         anchors.verticalCenter: background.verticalCenter
         //anchors.topMargin: 2
