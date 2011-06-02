@@ -49,7 +49,8 @@ Screen {
             } else {
                 var widget = object.mView
                 console.log("### Found: " + widget.height)
-                widget.setter(MainStorage)
+                //This will be used for edit operation
+                //widget.setter(MainStorage)
                 widget.visible = true
             }
         }
