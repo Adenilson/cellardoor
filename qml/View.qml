@@ -9,7 +9,7 @@ Screen {
     Image {
         id: imgBarmiddle
         width: parent.width
-        height: 180
+        height: 165
         anchors.bottom: lowerBar.top
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
