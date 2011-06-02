@@ -1,7 +1,7 @@
 #include "controller.h"
 #include "view.h"
 #include <QtDeclarative/QDeclarativeContext>
-#include <QtDeclarative>
+#include <QtDeclarative/QDeclarativePropertyMap>
 #include <QtGlobal>
 #include <QtCore/QDebug>
 
@@ -13,6 +13,9 @@ CellarController::CellarController(QObject *parent)
     m_view->rootContext()->setContextProperty("controller", this);
     (*m_map)["name"] = QVariant(QString("Santa Elena"));
     (*m_map)["type"] = QVariant(QString("Cabernet Sauvignon"));
+    connect(m_map, SIGNAL(valueChanged(const QString &, const QVariant &)),
+            this, SLOT(updateStorage(const QString &, const QVariant &)));
+
     m_view->rootContext()->setContextProperty("MainStorage", m_map);
 }
 
@@ -38,4 +41,9 @@ void CellarController::initUI()
 
         m_view->showFullScreen();
     }
+}
+
+void CellarController::updateStorage(const QString &key, const QVariant &value)
+{
+    qDebug() << "UI changed wine data...";
 }

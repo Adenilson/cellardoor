@@ -3,8 +3,8 @@
 
 #include <QtCore/QObject>
 #include <QSystemDeviceInfo>
-#include <QtDeclarative/QDeclarativePropertyMap>
 
+class QDeclarativePropertyMap;
 class CellarView;
 
 QTM_USE_NAMESPACE
@@ -17,6 +17,9 @@ public:
     ~CellarController();
 
     void initUI();
+
+protected slots:
+    void updateStorage(const QString &key, const QVariant &value);
 
 private:
     CellarView *m_view;
