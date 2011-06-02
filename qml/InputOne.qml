@@ -69,6 +69,11 @@ Screen {
         anchors.right: bkgItem.right
     }
 
+    function setter(storage) {
+        wdgName.text = storage.name
+        wdgType.text = storage.type
+    }
+
     InputWidget {
         id: wdgType
         title: qsTr("Kind of Wine")

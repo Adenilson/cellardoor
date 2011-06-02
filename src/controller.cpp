@@ -7,10 +7,13 @@
 
 CellarController::CellarController(QObject *parent)
     : QObject(parent), m_view(new CellarView),
-      m_sysInfo(new QSystemDeviceInfo(parent))
+      m_sysInfo(new QSystemDeviceInfo(parent)),
+      m_map(new QDeclarativePropertyMap(this))
 {
     m_view->rootContext()->setContextProperty("controller", this);
-
+    (*m_map)["name"] = QVariant(QString("Santa Elena"));
+    (*m_map)["type"] = QVariant(QString("Cabernet Sauvignon"));
+    m_view->rootContext()->setContextProperty("MainStorage", m_map);
 }
 
 CellarController::~CellarController()

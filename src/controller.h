@@ -3,6 +3,7 @@
 
 #include <QtCore/QObject>
 #include <QSystemDeviceInfo>
+#include <QtDeclarative/QDeclarativePropertyMap>
 
 class CellarView;
 
@@ -20,6 +21,7 @@ public:
 private:
     CellarView *m_view;
     QSystemDeviceInfo *m_sysInfo;
+    QDeclarativePropertyMap *m_map;
 };
 
 #endif
