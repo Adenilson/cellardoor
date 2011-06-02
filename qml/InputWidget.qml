@@ -41,6 +41,7 @@ Item {
         //elide: Text.ElideRight
         font { family: nsRegular.name; pixelSize: 18 }
         anchors.left: txtTitle.left
+        anchors.right: imgBackground.right
         anchors.verticalCenter: imgBackground.verticalCenter
     }
 
