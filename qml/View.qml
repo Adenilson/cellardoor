@@ -9,10 +9,11 @@ Screen {
     Image {
         id: imgBarmiddle
         width: parent.width
+        height: 180
         anchors.bottom: lowerBar.top
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
-        fillMode: Image.Tile
+        fillMode: Image.TileHorizontally
         source: "imgs/main_middle_bar.png"
     }
 
