@@ -78,6 +78,8 @@ Screen {
     function getter(storage) {
         storage.name = wdgName.text;
         storage.type = wdgType.text;
+        wdgName.text = ""
+        wdgType.text = ""
     }
 
     InputWidget {
