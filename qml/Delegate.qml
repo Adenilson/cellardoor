@@ -120,6 +120,7 @@ BorderImage {
     Image {
         id: imgInfo
         source: "imgs/label_info.png"
+        width: 290
         anchors.bottom: bkgItem.bottom
         anchors.bottomMargin: 10
         anchors.horizontalCenter: bkgItem.horizontalCenter
