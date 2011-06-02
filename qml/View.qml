@@ -45,6 +45,7 @@ Screen {
                 var input = new Factory.WidgetLoader()
                 input.create("InputOne.qml")
                 List.append("inputone", input)
+                input.mView.finish.connect(frmSplash.processInput)
             } else {
                 var widget = object.mView
                 console.log("### Found: " + widget.height)
@@ -54,5 +55,13 @@ Screen {
         }
 
     }
+
+    function processInput() {
+        console.log("############# Received")
+        var object = List.retrieve("inputone")
+        var widget = object.mView
+        widget.getter(MainStorage)
+    }
+
 
 }
