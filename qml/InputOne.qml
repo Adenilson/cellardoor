@@ -5,6 +5,7 @@ Screen {
     id: frmInput1
 	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
+    signal finish();
 
     lowerBar.height: 90
 
@@ -74,6 +75,11 @@ Screen {
         wdgType.text = storage.type
     }
 
+    function getter(storage) {
+        storage.name = wdgName.text;
+        storage.type = wdgType.text;
+    }
+
     InputWidget {
         id: wdgType
         title: qsTr("Kind of Wine")
@@ -132,9 +138,9 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
             console.log("##### Hiding the input screen!")
-            //TODO: emit a signal with the input data
             //TODO: hide with style
             frmInput1.visible = false
+            frmInput1.finish()
         }
 
     }
