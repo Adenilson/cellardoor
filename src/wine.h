@@ -8,11 +8,12 @@ class WineDataPrivate;
 class WineData: public QObject
 {
     Q_OBJECT
-/*
+
     Q_PROPERTY(int db_id READ id WRITE setId)
     Q_PROPERTY(QString db_name READ name WRITE setName)
     Q_PROPERTY(QString db_grape READ grape WRITE setGrape)
     Q_PROPERTY(char db_type READ type WRITE setType)
+/*
     Q_PROPERTY(QString db_producer READ producer WRITE setProducer)
     Q_PROPERTY(QString db_region READ region  WRITE setRegion)
     Q_PROPERTY(uint db_year READ year WRITE setYear)
@@ -41,6 +42,17 @@ public:
     ~WineData();
 
     //Setters/getters
+    int id() const;
+    void setId(int &id);
+
+    QString name() const;
+    void setName(QString &aname);
+
+    QString grape() const;
+    void setGrape(QString &agrape);
+
+    char type() const;
+    void setType(char atype);
 
 
 protected:

@@ -43,3 +43,45 @@ WineData::~WineData()
 {
     delete dptr;
 }
+
+int WineData::id() const
+{
+
+}
+
+void WineData::setId(int &id)
+{
+
+
+}
+
+QString WineData::name() const
+{
+
+
+}
+
+void WineData::setName(QString &aname)
+{
+
+}
+
+QString WineData::grape() const
+{
+
+
+}
+void WineData::setGrape(QString &agrape)
+{
+
+}
+
+char WineData::type() const
+{
+
+}
+
+void WineData::setType(char atype)
+{
+
+}
