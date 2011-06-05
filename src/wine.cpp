@@ -44,12 +44,9 @@ WineData::~WineData()
     delete dptr;
 }
 
-WineData::WineData(const WineData &data)
+WineData::WineData(const WineData &data): QObject(data.parent())
 {
     operator=(data);
-    if (data.parent()) {
-        setParent(data.parent());
-    }
 }
 
 WineData &WineData::operator=(const WineData &data)
@@ -75,99 +72,94 @@ WineData &WineData::operator=(const WineData &data)
     dptr->date = data.dptr->date;
     dptr->rate = data.dptr->rate;
 
+    return *this;
 }
 
 int WineData::id() const
 {
-
+    return dptr->id;
 }
 
 void WineData::setId(int &id)
 {
-
-
+    dptr->id = id;
 }
 
 QString WineData::name() const
 {
-
-
+    return dptr->name;
 }
 
 void WineData::setName(const QString &aname)
 {
-
+    dptr->name = aname;
 }
 
 QString WineData::grape() const
 {
-
-
+    return dptr->grape;
 }
 void WineData::setGrape(const QString &agrape)
 {
-
+    dptr->grape = agrape;
 }
 
 char WineData::type() const
 {
-
+    return dptr->type;
 }
 
 void WineData::setType(const char &atype)
 {
-
+    dptr->type = atype;
 }
 
 QString WineData::producer() const
 {
-
+    return dptr->producer;
 }
 
 void WineData::setProducer(const QString &aproducer)
 {
-
+    dptr->producer = aproducer;
 }
 
 QString WineData::region() const
 {
-
-
+    return dptr->region;
 }
 
 void WineData::setRegion(QString &aregion)
 {
-
-
+    dptr->region = aregion;
 }
 
 uint WineData::year() const
 {
-
+    return dptr->year;
 }
 
 void WineData::setYear(const uint ayear)
 {
-
+    dptr->year = ayear;
 }
 
 float WineData::price() const
 {
-
+    return dptr->price;
 }
 
 void WineData::setPrice(const float &aprice)
 {
-
+    dptr->price = aprice;
 }
 
 QString WineData::tasting() const
 {
-
-
+    return dptr->tasting;
 }
 
 void WineData::setTasting(const QString &ataste)
 {
-
+    dptr->tasting = ataste;
 }
