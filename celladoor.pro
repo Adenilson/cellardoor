@@ -17,12 +17,14 @@ INCLUDEPATH += /usr/include/QtMultimediaKit
 HEADERS += \
            src/controller.h \
            src/view.h \
-           src/utils.h
+           src/utils.h \
+           src/wine.h
 
 SOURCES += \
            src/controller.cpp \
            src/view.cpp \
            src/utils.cpp \
+           src/wine.cpp \
            src/main.cpp
 
 RESOURCES += \
