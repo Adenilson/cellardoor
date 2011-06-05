@@ -20,6 +20,7 @@ HEADERS += \
            src/utils.h \
            src/wine.h \
            src/genericmodelbase.h \
+           src/database.h \
            src/genericmodel.h
 
 
@@ -30,6 +31,7 @@ SOURCES += \
            src/wine.cpp \
            src/genericmodelbase.cpp \
            src/genericmodel.cpp \
+           src/database.cpp \
            src/main.cpp
 
 RESOURCES += \

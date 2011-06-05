@@ -2,6 +2,7 @@
 #define __WINEDATA_H__
 
 #include <QtCore/QObject>
+#include <QtCore/QStringList>
 
 class WineDataPrivate;
 
@@ -40,6 +41,8 @@ public:
     WineData &operator=(const WineData &data);
 
     ~WineData();
+
+    QStringList objectDbProperties() const;
 
     //Setters/getters
     int id() const;
