@@ -18,13 +18,18 @@ HEADERS += \
            src/controller.h \
            src/view.h \
            src/utils.h \
-           src/wine.h
+           src/wine.h \
+           src/genericmodelbase.h \
+           src/genericmodel.h
+
 
 SOURCES += \
            src/controller.cpp \
            src/view.cpp \
            src/utils.cpp \
            src/wine.cpp \
+           src/genericmodelbase.cpp \
+           src/genericmodel.cpp \
            src/main.cpp
 
 RESOURCES += \
