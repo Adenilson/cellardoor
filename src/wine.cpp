@@ -61,7 +61,7 @@ QString WineData::name() const
 
 }
 
-void WineData::setName(QString &aname)
+void WineData::setName(const QString &aname)
 {
 
 }
@@ -71,7 +71,7 @@ QString WineData::grape() const
 
 
 }
-void WineData::setGrape(QString &agrape)
+void WineData::setGrape(const QString &agrape)
 {
 
 }
@@ -81,7 +81,60 @@ char WineData::type() const
 
 }
 
-void WineData::setType(char atype)
+void WineData::setType(const char &atype)
+{
+
+}
+
+QString WineData::producer() const
+{
+
+}
+
+void WineData::setProducer(const QString &aproducer)
+{
+
+}
+
+QString WineData::region() const
+{
+
+
+}
+
+void WineData::setRegion(QString &aregion)
+{
+
+
+}
+
+uint WineData::year() const
+{
+
+}
+
+void WineData::setYear(const uint ayear)
+{
+
+}
+
+float WineData::price() const
+{
+
+}
+
+void WineData::setPrice(const float &aprice)
+{
+
+}
+
+QString WineData::tasting() const
+{
+
+
+}
+
+void WineData::setTasting(const QString &ataste)
 {
 
 }
