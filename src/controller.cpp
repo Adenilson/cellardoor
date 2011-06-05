@@ -1,5 +1,6 @@
 #include "controller.h"
 #include "view.h"
+#include "database.h"
 #include <QtDeclarative/QDeclarativeContext>
 #include <QtDeclarative/QDeclarativePropertyMap>
 #include <QtGlobal>
@@ -8,7 +9,9 @@
 CellarController::CellarController(QObject *parent)
     : QObject(parent), m_view(new CellarView),
       m_sysInfo(new QSystemDeviceInfo(parent)),
-      m_map(new QDeclarativePropertyMap(this))
+      m_map(new QDeclarativePropertyMap(this)),
+      m_modelWine(new GenericModel<WineData>(this)),
+      m_database(Database::instance(this))
 {
     m_view->rootContext()->setContextProperty("controller", this);
     (*m_map)["name"] = QVariant(QString("Santa Elena"));

@@ -3,9 +3,11 @@
 
 #include <QtCore/QObject>
 #include <QSystemDeviceInfo>
-
+#include "genericmodel.h"
+#include "wine.h"
 class QDeclarativePropertyMap;
 class CellarView;
+class Database;
 
 QTM_USE_NAMESPACE
 
@@ -25,6 +27,8 @@ private:
     CellarView *m_view;
     QSystemDeviceInfo *m_sysInfo;
     QDeclarativePropertyMap *m_map;
+    GenericModel<WineData> *m_modelWine;
+    Database *m_database;
 };
 
 #endif
