@@ -6,30 +6,30 @@
 class WineDataPrivate
 {
 public:
-    WineDataPrivate(): db_id(-1), db_type(0), db_year(2011),
-                       db_price(1.99), db_rate(10)
+    WineDataPrivate(): id(-1), type(0), year(2011),
+                       price(1.99), rate(10)
     { }
 
-    int db_id;
-    QString db_name;
-    QString db_grape;
-    char db_type;
-    QString db_producer;
-    QString db_region;
-    uint db_year;
-    float db_price;
-    QString db_tasting;
+    int id;
+    QString name;
+    QString grape;
+    char type;
+    QString producer;
+    QString region;
+    uint year;
+    float price;
+    QString tasting;
 
-    QString db_bottle;
-    QString db_glass;
-    QString db_cork;
+    QString bottle;
+    QString glass;
+    QString cork;
 
-    QString db_comments;
-    QString db_comparisons;
-    QString db_location;
-    QString db_coordinates;
-    QDate db_date;
-    char db_rate;
+    QString comments;
+    QString comparisons;
+    QString location;
+    QString coordinates;
+    QDate date;
+    char rate;
 
 };
 
@@ -42,6 +42,39 @@ WineData::WineData(QObject *parent): QObject(parent), dptr(new WineDataPrivate)
 WineData::~WineData()
 {
     delete dptr;
+}
+
+WineData::WineData(const WineData &data)
+{
+    operator=(data);
+    if (data.parent()) {
+        setParent(data.parent());
+    }
+}
+
+WineData &WineData::operator=(const WineData &data)
+{
+    //It works but looks ugly. Should I use the getter methods instead?
+    dptr->id = data.dptr->id;
+    dptr->name = data.dptr->name;
+    dptr->grape = data.dptr->grape;
+    dptr->type = data.dptr->type;
+    dptr->producer = data.dptr->producer;
+    dptr->region = data.dptr->region;
+    dptr->year = data.dptr->year;
+    dptr->price = data.dptr->price;
+    dptr->tasting = data.dptr->tasting;
+    dptr->bottle = data.dptr->bottle;
+    dptr->glass = data.dptr->glass;
+    dptr->cork = data.dptr->cork;
+    dptr->comments = data.dptr->comments;
+
+    dptr->comparisons = data.dptr->comparisons;
+    dptr->location = data.dptr->location;
+    dptr->coordinates = data.dptr->coordinates;
+    dptr->date = data.dptr->date;
+    dptr->rate = data.dptr->rate;
+
 }
 
 int WineData::id() const
