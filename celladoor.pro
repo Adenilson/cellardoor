@@ -1,13 +1,13 @@
 include(scripts/scripts.pri)
 
-QT       += core gui network declarative
+QT       += core gui network declarative sql
 
 TARGET = cellar
 
 TEMPLATE = app
 
 CONFIG += mobility debug warn_on depend_includepath link_pkgconfig
-MOBILITY = organizer systeminfo
+MOBILITY = organizer systeminfo multimedia
 
 unix:!symbian {
 INCLUDEPATH += /usr/include/QtMultimediaKit
