@@ -29,7 +29,6 @@ public:
     bool insertType(const Type &wine);
     bool deleteType(const Type &wine);
     bool updateType(const Type &wine);
-
     bool deleteTypeById(int id);
 
     QList<Type> retrieveTypes(Filter arg=NoFilter) const;
@@ -37,15 +36,12 @@ public:
 protected:
     Database(QObject *parent = 0);
 
-
 private:
     void createDatabase();
     void setupModels();
-
     bool setType(const Type &data, int row, bool hasAutoIncrement = false);
     Type fillUpType(const QSqlRecord &record) const;
 
-private:
     QSqlTableModel *m_wineModel;
 };
 
