@@ -1,5 +1,8 @@
 #include "utils.h"
 #include <QtGlobal>
+#include <QtCore/QStringList>
+#include <QtCore/QMetaObject>
+#include <QtCore/QMetaProperty>
 
 //TODO: conditional compilation module instead of ifdef's
 #ifdef Q_OS_SYMBIAN
@@ -33,5 +36,19 @@ void setOrientation(const Orientation &arg)
     return;
 }
 
+void extractObjectProperties(const QMetaObject *object,
+                                    QStringList *list,
+                                    const QString &prefix)
+{
+    QStringList &properties = *list;
+    const int count = object->propertyCount();
+    for (int i = 0; i < count; ++i) {
+        QString propertyName = object->property(i).name();
+        if (propertyName.startsWith(prefix)) {
+            properties << propertyName;
+        }
+    }
+
+}
 
 }

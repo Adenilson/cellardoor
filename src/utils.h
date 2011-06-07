@@ -9,12 +9,18 @@
  *
  */
 
+class QMetaObject;
+class QStringList;
+
 namespace Utils {
 
 typedef enum { PORTRAIT, LANDSCAPE, AUTO } Orientation;
 
 void setOrientation(const Orientation &arg = PORTRAIT);
 
+void extractObjectProperties(const QMetaObject *object,
+			     QStringList *list,
+			     const char *prefix = "db_");
 
 };
 
