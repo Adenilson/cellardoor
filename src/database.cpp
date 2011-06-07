@@ -1,4 +1,5 @@
 #include "database.h"
+#include "utils.h"
 
 #include <QtCore/QDir>
 #include <QtGui/QDesktopServices>
@@ -7,6 +8,8 @@
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 #include <QtCore/QCoreApplication>
+//TODO: support the prefix as a parameter
+const char DB_PREFIX[] = "db_";
 
 #include <QtCore/QDebug>
 
@@ -43,9 +46,12 @@ void Database::createDatabase()
 {
     QSqlQuery query(QSqlDatabase::database());
 
-    const QStringList propertiesList =  WineData().objectDbProperties()
-                                        .replaceInStrings(QRegExp("^db_"), "")
-                                        .replaceInStrings("id", "id integer primary key autoincrement");
+    QStringList propertiesList;
+    //TODO: support prefixes in properties to be persisted
+    Utils::extractObjectProperties(WineData().metaObject(),
+                                   &propertiesList, DB_PREFIX);
+
+    propertiesList.replaceInStrings(QRegExp(QString("^") + DB_PREFIX), "").replaceInStrings("id", "id integer primary key autoincrement");
     query.exec("create table if not exists wines (" + propertiesList.join(", ") + ")");
 }
 
@@ -137,10 +143,11 @@ error:
 
 bool Database::setWineData(const WineData &data, int row, bool hasAutoIncrement)
 {
-    QStringList propertiesList(data.objectDbProperties());
+    QStringList propertiesList;
+    Utils::extractObjectProperties(data.metaObject(), &propertiesList, DB_PREFIX);
     foreach(const QString &property, propertiesList) {
         if (!hasAutoIncrement || !property.contains("id")) {
-            int fieldIndex = m_wineModel->fieldIndex(QString(property).remove("db_"));
+            int fieldIndex = m_wineModel->fieldIndex(QString(property).remove(DB_PREFIX));
             if (fieldIndex >= 0) {
                 m_wineModel->setData(m_wineModel->index(row, fieldIndex),
                                          data.property(qPrintable(property)));
@@ -156,9 +163,10 @@ WineData Database::fillUpWineData(const QSqlRecord &record) const
 {
     WineData item;
 
-    const QStringList list(item.objectDbProperties());
+    QStringList list;
+    Utils::extractObjectProperties(item.metaObject(), &list, DB_PREFIX);
     foreach (const QString &property, list) {
-        item.setProperty(qPrintable(property), record.value(QString(property).remove("db_")));
+        item.setProperty(qPrintable(property), record.value(QString(property).remove(DB_PREFIX)));
     }
 
     return item;

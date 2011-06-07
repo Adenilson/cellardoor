@@ -51,23 +51,6 @@ WineData::WineData(const WineData &data): QObject(data.parent())
     operator=(data);
 }
 
-QStringList WineData::objectDbProperties() const
-{
-
-    QStringList properties;
-
-    const QMetaObject *metaobject = this->metaObject();
-    const int count = metaobject->propertyCount();
-    for (int i = 0; i < count; ++i) {
-        QString propertyName = metaobject->property(i).name();
-        if (propertyName.startsWith("db_")) {
-            properties << propertyName;
-        }
-    }
-
-    return properties;
-}
-
 WineData &WineData::operator=(const WineData &data)
 {
     //It works but looks ugly. Should I use the getter methods instead?

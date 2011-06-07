@@ -37,8 +37,8 @@ void setOrientation(const Orientation &arg)
 }
 
 void extractObjectProperties(const QMetaObject *object,
-                                    QStringList *list,
-                                    const QString &prefix)
+                             QStringList *list,
+                             const char *prefix)
 {
     QStringList &properties = *list;
     const int count = object->propertyCount();
