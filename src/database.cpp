@@ -1,4 +1,4 @@
-#include "database.h"
+//#include "database.h"
 #include "utils.h"
 
 #include <QtCore/QDir>
@@ -13,8 +13,9 @@ const char DB_PREFIX[] = "db_";
 
 #include <QtCore/QDebug>
 
-Database::Database(QObject *parent)
-  : QObject(parent)
+template <class Type>
+Database<Type>::Database(QObject *parent)
+  : DatabaseWorkaround(parent)
 {
     QSqlDatabase db(QSqlDatabase::addDatabase("QSQLITE"));
     const QDir dbDir(QDesktopServices::storageLocation(QDesktopServices::DataLocation));
@@ -42,20 +43,22 @@ Database::Database(QObject *parent)
     setupModels();
 }
 
-void Database::createDatabase()
+template <class Type>
+void Database<Type>::createDatabase()
 {
     QSqlQuery query(QSqlDatabase::database());
 
     QStringList propertiesList;
     //TODO: support prefixes in properties to be persisted
-    Utils::extractObjectProperties(WineData().metaObject(),
+    Utils::extractObjectProperties(Type().metaObject(),
                                    &propertiesList, DB_PREFIX);
 
     propertiesList.replaceInStrings(QRegExp(QString("^") + DB_PREFIX), "").replaceInStrings("id", "id integer primary key autoincrement");
     query.exec("create table if not exists wines (" + propertiesList.join(", ") + ")");
 }
 
-void Database::setupModels()
+template <class Type>
+void Database<Type>::setupModels()
 {
     QSqlDatabase db = QSqlDatabase::database();
 
@@ -64,7 +67,8 @@ void Database::setupModels()
     m_wineModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 }
 
-Database *Database::instance(QObject *parent)
+template <class Type>
+Database<Type> *Database<Type>::instance(QObject *parent)
 {
     static Database *s_instance = 0;
 
@@ -75,7 +79,8 @@ Database *Database::instance(QObject *parent)
     return s_instance;
 }
 
-bool Database::insertWine(const WineData &wine)
+template <class Type>
+bool Database<Type>::insertType(const Type &wine)
 {
     bool hasError = false;
 
@@ -86,18 +91,20 @@ bool Database::insertWine(const WineData &wine)
 
     m_wineModel->select();
     m_wineModel->insertRows(0, 1);
-    hasError = setWineData(wine, 0, true);
+    hasError = setType(wine, 0, true);
 
 error:
     return hasError;
 }
 
-bool Database::deleteWine(const WineData &wine)
+template <class Type>
+bool Database<Type>::deleteType(const Type &wine)
 {
-    return deleteWineById(wine.id());
+    return deleteTypeById(wine.id());
 }
 
-bool Database::deleteWineById(int id)
+template <class Type>
+bool Database<Type>::deleteTypeById(int id)
 {
     bool hasError = false;
 
@@ -110,7 +117,7 @@ bool Database::deleteWineById(int id)
     m_wineModel->select();
 
     if (!m_wineModel->rowCount()) {
-        qDebug() << "Wine does not exist";
+        qDebug() << "Type does not exist";
         goto error;
     }
 
@@ -121,7 +128,8 @@ error:
     return hasError;
 }
 
-bool Database::updateWine(const WineData &wine)
+template <class Type>
+bool Database<Type>::updateType(const Type &wine)
 {
     bool hasError = false;
 
@@ -133,7 +141,7 @@ bool Database::updateWine(const WineData &wine)
     m_wineModel->setFilter("id = " + QString::number(wine.id()));
     m_wineModel->select();
     if (m_wineModel->rowCount() == 1) {
-        hasError = setWineData(wine, 0);
+        hasError = setType(wine, 0);
         goto error;
     }
 
@@ -141,7 +149,8 @@ error:
     return hasError;
 }
 
-bool Database::setWineData(const WineData &data, int row, bool hasAutoIncrement)
+template <class Type>
+bool Database<Type>::setType(const Type &data, int row, bool hasAutoIncrement)
 {
     QStringList propertiesList;
     Utils::extractObjectProperties(data.metaObject(), &propertiesList, DB_PREFIX);
@@ -159,9 +168,10 @@ bool Database::setWineData(const WineData &data, int row, bool hasAutoIncrement)
 }
 
 
-WineData Database::fillUpWineData(const QSqlRecord &record) const
+template <class Type>
+Type Database<Type>::fillUpType(const QSqlRecord &record) const
 {
-    WineData item;
+    Type item;
 
     QStringList list;
     Utils::extractObjectProperties(item.metaObject(), &list, DB_PREFIX);
@@ -172,9 +182,10 @@ WineData Database::fillUpWineData(const QSqlRecord &record) const
     return item;
 }
 
-QList<WineData> Database::retrieveWines(Filter arg) const
+template <class Type>
+QList<Type> Database<Type>::retrieveTypes(Filter arg) const
 {
-    QList<WineData> wineList;
+    QList<Type> wineList;
 
     if (!m_wineModel) {
         qCritical() << "Unable to insert a wine";
@@ -188,7 +199,7 @@ QList<WineData> Database::retrieveWines(Filter arg) const
 
     for (int i = 0; i < m_wineModel->rowCount(); ++i) {
         const QSqlRecord record = m_wineModel->record(i);
-        wineList << fillUpWineData(record);
+        wineList << fillUpType(record);
     }
 
 exit:

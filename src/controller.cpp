@@ -11,7 +11,7 @@ CellarController::CellarController(QObject *parent)
       m_sysInfo(new QSystemDeviceInfo(parent)),
       m_map(new QDeclarativePropertyMap(this)),
       m_modelWine(new GenericModel<WineData>(this)),
-      m_database(Database::instance(this))
+      m_database(Database<WineData>::instance(this))
 {
     m_view->rootContext()->setContextProperty("controller", this);
     (*m_map)["name"] = QVariant(QString("Santa Elena"));

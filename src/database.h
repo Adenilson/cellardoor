@@ -4,25 +4,35 @@
 #include <QtCore/QObject>
 #include <QtSql/QSqlRecord>
 
-#include "wine.h"
-
 class QSqlTableModel;
 
-class Database : public QObject
+class DatabaseWorkaround: public QObject
 {
-    Q_ENUMS(Filter)
+Q_OBJECT
+    public:
+Q_ENUMS(Filter)
+    enum Filter { NoFilter, OrderByAgeDesc };
+
+protected:
+DatabaseWorkaround(QObject *parent = 0): QObject(parent)
+{ }
+
+};
+
+template <typename Type>
+class Database: public DatabaseWorkaround
+{
+
 public:
     static Database *instance(QObject *parent = 0);
 
-    enum Filter {NoFilter, OrderByAgeDesc};
+    bool insertType(const Type &wine);
+    bool deleteType(const Type &wine);
+    bool updateType(const Type &wine);
 
-    bool insertWine(const WineData &wine);
-    bool deleteWine(const WineData &wine);
-    bool updateWine(const WineData &wine);
+    bool deleteTypeById(int id);
 
-    bool deleteWineById(int id);
-
-    QList<WineData> retrieveWines(Filter arg=NoFilter) const;
+    QList<Type> retrieveTypes(Filter arg=NoFilter) const;
 
 protected:
     Database(QObject *parent = 0);
@@ -32,11 +42,13 @@ private:
     void createDatabase();
     void setupModels();
 
-    bool setWineData(const WineData &data, int row, bool hasAutoIncrement = false);
-    WineData fillUpWineData(const QSqlRecord &record) const;
+    bool setType(const Type &data, int row, bool hasAutoIncrement = false);
+    Type fillUpType(const QSqlRecord &record) const;
 
 private:
     QSqlTableModel *m_wineModel;
 };
+
+#include "database.cpp"
 
 #endif
