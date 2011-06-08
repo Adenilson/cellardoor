@@ -74,11 +74,21 @@ Screen {
     function setter(storage) {
         wdgName.text = storage.name
         wdgType.text = storage.type
+        //TODO: cleanup the other fields
+        wdgName.text = ""
+        wdgType.text = ""
     }
 
     function getter(storage) {
         storage.name = wdgName.text;
-        storage.type = wdgType.text;
+        //TODO: this must be a combobox
+        //storage.type = wdgType.text;
+        storage.grape = wdgType.text;
+        storage.producer = wdgProducer.text
+        //TODO: region, tasting, etc
+        storage.year = wdgYear.text
+        storage.price = wdgPrice.text
+        //TODO: cleanup the other fields
         wdgName.text = ""
         wdgType.text = ""
     }
