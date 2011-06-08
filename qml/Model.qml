@@ -3,8 +3,8 @@ import Qt 4.7
 ListModel {
     ListElement {
         //Visible in first level
-        name: "Casillero Del Diablo"; type: "Cabernet Sauvignon";
-        kind: 0; //red
+        name: "Casillero Del Diablo"; grape: "Cabernet Sauvignon";
+        type: 0; //red
         producer: "Vinos Del Castilho"; region: "Valle de Tulum";
         year: "2007"; price: 30;
         tasting: "Nutty flavor with great after taste and some blueberries
@@ -18,8 +18,8 @@ ListModel {
 
     }
 
-    ListElement { name: "Santa Helena"; type: "Merlot";
-        kind: 1; //white
+    ListElement { name: "Santa Helena"; grape: "Merlot";
+        type: 1; //white
         producer: "Vinos Del Castilho"; region: "Valle de Tulum";
         year: "2009"; price: 30;
         tasting: "Nutty flavor with great after taste and some blueberries
@@ -28,8 +28,8 @@ ListModel {
 
     }
 
-    ListElement { name: "Old Oak napa"; type: "Pinot Noir";
-        kind: 3; //other
+    ListElement { name: "Old Oak napa"; grape: "Pinot Noir";
+        type: 3; //other
         producer: "Vinos Del Castilho"; region: "Valle de Tulum";
         year: "2011"; price: 30;
         tasting: "Nutty flavor with great after taste and some blueberries

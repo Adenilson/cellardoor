@@ -58,7 +58,7 @@ BorderImage {
 
     Image {
         id: imgType
-        source: selectType(type)
+        source: selectType(grape)
         anchors.top: txtName.bottom
         anchors.topMargin: 12
         anchors.horizontalCenter: txtName.horizontalCenter
@@ -78,7 +78,7 @@ BorderImage {
 
     Text {
         id: txtType
-        text: type
+        text: grape
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 20; }
         anchors.horizontalCenter: imgBackground.horizontalCenter
