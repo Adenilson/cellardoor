@@ -52,8 +52,17 @@ void CellarController::updateStorage(const QString &key, const QVariant &value)
 
 void CellarController::createNewWine()
 {
-    //TODO:
     qDebug() << "Create a new wine!";
+    WineData obj;
+    obj.setName((*m_map)["name"].toString());
+    obj.setGrape((*m_map)["grape"].toString());
+    //TODO: missing in the UI
+    //obj.setType((*m_map)["type"]);
+    obj.setProducer((*m_map)["producer"].toString());
+    obj.setYear((*m_map)["year"].toInt());
+    obj.setPrice((*m_map)["price"].toFloat());
+    //TODO: missing fields (region, tasting, etc)
+    m_database->insertType(obj);
 }
 
 void CellarController::fillStorageProperties()
