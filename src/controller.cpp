@@ -13,13 +13,12 @@ CellarController::CellarController(QObject *parent)
       m_modelWine(new GenericModel<WineData>(this)),
       m_database(Database<WineData>::instance(this))
 {
-    m_view->rootContext()->setContextProperty("controller", this);
-    (*m_map)["name"] = QVariant(QString("Santa Elena"));
-    (*m_map)["type"] = QVariant(QString("Cabernet Sauvignon"));
+    m_view->rootContext()->setContextProperty("Controller", this);
     connect(m_map, SIGNAL(valueChanged(const QString &, const QVariant &)),
             this, SLOT(updateStorage(const QString &, const QVariant &)));
 
     m_view->rootContext()->setContextProperty("MainStorage", m_map);
+    fillStorageProperties();
 }
 
 CellarController::~CellarController()
@@ -49,4 +48,20 @@ void CellarController::initUI()
 void CellarController::updateStorage(const QString &key, const QVariant &value)
 {
     qDebug() << "UI changed wine data...";
+}
+
+void CellarController::createNewWine()
+{
+    //TODO:
+    qDebug() << "Create a new wine!";
+}
+
+void CellarController::fillStorageProperties()
+{
+    QStringList properties;
+    Utils::extractObjectProperties(WineData().metaObject(),
+                                   &properties);
+    foreach (const QString i, properties) {
+        (*m_map)[i] = QVariant(QString("empty"));
+    }
 }

@@ -22,8 +22,14 @@ public:
 
     void initUI();
 
+public slots:
+    void createNewWine();
+
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);
+
+protected:
+    void fillStorageProperties();
 
 private:
     CellarView *m_view;
