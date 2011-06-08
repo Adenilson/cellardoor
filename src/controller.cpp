@@ -6,6 +6,25 @@
 #include <QtGlobal>
 #include <QtCore/QDebug>
 
+/* TODOs:
+ * vs 1.0
+ * - use a model from the Database
+ * - allow edit operations
+ * - allow delete operations
+ * - implement missing forms
+ * - and create the register with the new fields
+ * - fancy animations
+ *
+ * vs 1.1
+ * - barcode scan
+ * vs 1.2
+ * - google products search
+ * vs 1.3
+ * - social networks integration
+ * vs 1.4
+ * - a catalog of wine types and information
+ */
+
 CellarController::CellarController(QObject *parent)
     : QObject(parent), m_view(new CellarView),
       m_sysInfo(new QSystemDeviceInfo(parent)),
@@ -52,7 +71,7 @@ void CellarController::updateStorage(const QString &key, const QVariant &value)
 
 void CellarController::createNewWine()
 {
-    qDebug() << "Create a new wine!";
+    qDebug() << "Creating a new wine...";
     WineData obj;
     obj.setName((*m_map)["name"].toString());
     obj.setGrape((*m_map)["grape"].toString());
