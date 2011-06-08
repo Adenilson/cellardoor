@@ -43,9 +43,10 @@ Screen {
             if (object == null) {
                 console.log("##### Not found, creating the input now!")
                 var input = new Factory.WidgetLoader()
+                frmSplash.visible = false;
                 input.create("InputOne.qml")
-                List.append("inputone", input)
                 input.mView.finish.connect(frmSplash.processInput)
+                List.append("inputone", input)
             } else {
                 var widget = object.mView
                 console.log("### Found: " + widget.height)
@@ -58,10 +59,12 @@ Screen {
     }
 
     function processInput() {
+        frmSplash.visible = true;
         console.log("############# Received")
         var object = List.retrieve("inputone")
         var widget = object.mView
         widget.getter(MainStorage)
+        Controller.createNewWine()
     }
 
 
