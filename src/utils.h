@@ -20,6 +20,7 @@ void setOrientation(const Orientation &arg = PORTRAIT);
 
 void extractObjectProperties(const QMetaObject *object,
 			     QStringList *list,
+			     bool cleanup = false,
 			     const char *prefix = "db_");
 
 };

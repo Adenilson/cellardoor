@@ -38,6 +38,7 @@ void setOrientation(const Orientation &arg)
 
 void extractObjectProperties(const QMetaObject *object,
                              QStringList *list,
+                             bool cleanup,
                              const char *prefix)
 {
     QStringList &properties = *list;
@@ -49,6 +50,9 @@ void extractObjectProperties(const QMetaObject *object,
         }
     }
 
+    if (cleanup) {
+        properties.replaceInStrings(prefix, "");
+    }
 }
 
 }
