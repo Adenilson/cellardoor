@@ -60,7 +60,7 @@ void CellarController::fillStorageProperties()
 {
     QStringList properties;
     Utils::extractObjectProperties(WineData().metaObject(),
-                                   &properties);
+                                   &properties, true);
     foreach (const QString i, properties) {
         (*m_map)[i] = QVariant(QString("empty"));
     }
