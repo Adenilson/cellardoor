@@ -51,7 +51,7 @@ void Database<Type>::createDatabase()
     QStringList propertiesList;
     //TODO: support prefixes in properties to be persisted
     Utils::extractObjectProperties(Type().metaObject(),
-                                   &propertiesList, DB_PREFIX);
+                                   &propertiesList, false, DB_PREFIX);
 
     propertiesList.replaceInStrings(QRegExp(QString("^") + DB_PREFIX), "").replaceInStrings("id", "id integer primary key autoincrement");
     query.exec("create table if not exists wines (" + propertiesList.join(", ") + ")");
@@ -153,7 +153,8 @@ template <class Type>
 bool Database<Type>::setType(const Type &data, int row, bool hasAutoIncrement)
 {
     QStringList propertiesList;
-    Utils::extractObjectProperties(data.metaObject(), &propertiesList, DB_PREFIX);
+    Utils::extractObjectProperties(data.metaObject(),
+                                   &propertiesList, false, DB_PREFIX);
     foreach(const QString &property, propertiesList) {
         if (!hasAutoIncrement || !property.contains("id")) {
             int fieldIndex = m_wineModel->fieldIndex(QString(property).remove(DB_PREFIX));
@@ -174,7 +175,7 @@ Type Database<Type>::fillUpType(const QSqlRecord &record) const
     Type item;
 
     QStringList list;
-    Utils::extractObjectProperties(item.metaObject(), &list, DB_PREFIX);
+    Utils::extractObjectProperties(item.metaObject(), &list, false, DB_PREFIX);
     foreach (const QString &property, list) {
         item.setProperty(qPrintable(property), record.value(QString(property).remove(DB_PREFIX)));
     }
