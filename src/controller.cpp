@@ -69,6 +69,8 @@ void CellarController::initUI()
 
 void CellarController::updateStorage(const QString &key, const QVariant &value)
 {
+    Q_UNUSED(key);
+    Q_UNUSED(value);
     qDebug() << "UI changed wine data...";
 }
 
