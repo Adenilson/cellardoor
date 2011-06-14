@@ -1,21 +1,22 @@
 #include "genericmodel.h"
-
+#include "utils.h"
 #include <QtCore/QMetaProperty>
-
+#include <QtCore/QStringList>
 #include <QDebug>
 
 template <class ModelTemplate>
-GenericModel<ModelTemplate>::GenericModel(QObject *parent)
-    : GenericModelBase(parent)
+GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
+    : GenericModelBase(parent), m_cleanup(cleanupPrefix)
 {
     const ModelTemplate object;
     QHash<int, QByteArray> roles;
-    const int propertyCount = object.metaObject()->propertyCount();
-    QMetaProperty metaProperty;
 
-    for (int i = 0; i < propertyCount; ++i) {
-        metaProperty = object.metaObject()->property(i);
-        roles[i] = metaProperty.name();
+    QStringList properties;
+    ModelTemplate tmp;
+    Utils::extractObjectProperties(tmp.metaObject(), &properties, m_cleanup);
+
+    for (int i = 0; i < properties.count(); ++i) {
+        roles[i] = properties[i].toUtf8();
     }
 
     setRoleNames(roles);

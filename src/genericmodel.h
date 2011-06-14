@@ -11,7 +11,7 @@ class GenericModel : public GenericModelBase
 {
 
 public:
-    GenericModel(QObject *parent = 0);
+    GenericModel(QObject *parent = 0, bool cleanupPrefix = true);
     ~GenericModel();
 
     void addItem(const ModelTemplate &item);
@@ -31,6 +31,7 @@ protected:
 
 private:
     QList<ModelTemplate> m_items;
+    bool m_cleanup;
 };
 
 #include "genericmodel.cpp"
