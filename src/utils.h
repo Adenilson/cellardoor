@@ -16,12 +16,14 @@ namespace Utils {
 
 typedef enum { PORTRAIT, LANDSCAPE, AUTO } Orientation;
 
+static const char PropertyPrefix[] = "db_";
+
 void setOrientation(const Orientation &arg = PORTRAIT);
 
 void extractObjectProperties(const QMetaObject *object,
 			     QStringList *list,
 			     bool cleanup = false,
-			     const char *prefix = "db_");
+			     const char *prefix = PropertyPrefix);
 
 };
 
