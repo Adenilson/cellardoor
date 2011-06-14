@@ -46,7 +46,8 @@ WineData::~WineData()
     delete dptr;
 }
 
-WineData::WineData(const WineData &data): QObject(data.parent())
+WineData::WineData(const WineData &data): QObject(data.parent()),
+                                          dptr(new WineDataPrivate)
 {
     operator=(data);
 }
