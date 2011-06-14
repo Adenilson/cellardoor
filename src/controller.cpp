@@ -8,7 +8,7 @@
 
 /* TODOs:
  * vs 1.0
- * - use a model from the Database
+ * - properly convert data into DB
  * - allow edit operations
  * - allow delete operations
  * - implement missing forms
