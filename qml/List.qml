@@ -7,7 +7,8 @@ ListView {
 
     orientation: ListView.Horizontal
 
-    model: Model { id: myModel }
+    //model: Model { id: myModel }
+    model: WineModel
     delegate: Delegate {
         id: myDelegate
         onClicked: lstOss.listClicked(index)
