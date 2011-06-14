@@ -37,6 +37,7 @@ CellarController::CellarController(QObject *parent)
             this, SLOT(updateStorage(const QString &, const QVariant &)));
 
     m_view->rootContext()->setContextProperty("MainStorage", m_map);
+    m_view->rootContext()->setContextProperty("WineModel", m_modelWine);
     fillStorageProperties();
 }
 
@@ -62,6 +63,8 @@ void CellarController::initUI()
 
         m_view->showFullScreen();
     }
+
+    m_modelWine->addItems(m_database->retrieveTypes());
 }
 
 void CellarController::updateStorage(const QString &key, const QVariant &value)
