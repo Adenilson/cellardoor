@@ -64,11 +64,19 @@ Screen {
     InputWidget {
         id: wdgName
         title: qsTr("Name")
-        text: "Casillero Del Diablo"
+        text: "Wine name here"
         anchors.top: bkgItem.top
         anchors.topMargin: 5
         anchors.left: bkgItem.left
         anchors.right: bkgItem.right
+    }
+
+    function cleanup() {
+        wdgName.text = "Wine name here"
+        wdgType.text = "Grape type e.g Merlot"
+        wdgProducer.text = "Wineyard"
+        wdgYear.text = "YYYY"
+        wdgPrice.text = "$bucks"
     }
 
     function setter(storage) {
@@ -96,7 +104,7 @@ Screen {
     InputWidget {
         id: wdgType
         title: qsTr("Kind of Wine")
-        text: "Merlot"
+        text: "Grape type e.g Merlot"
         anchors.top: wdgName.bottom
         anchors.topMargin: 5
         anchors.left: bkgItem.left
@@ -106,7 +114,7 @@ Screen {
     InputWidget {
         id: wdgProducer
         title: qsTr("Producer")
-        text: "Vinos Del Castilho"
+        text: "Wineyeard"
         anchors.top: wdgType.bottom
         anchors.topMargin: 5
         anchors.left: bkgItem.left
@@ -116,7 +124,7 @@ Screen {
     InputWidget {
         id: wdgYear
         title: qsTr("Vintage Year")
-        text: "17/02/2011"
+        text: "YYYY"
         height: 50; width: 150
         anchors.top: wdgProducer.bottom
         anchors.topMargin: 5
@@ -128,7 +136,7 @@ Screen {
     InputWidget {
         id: wdgPrice
         title: qsTr("Price")
-        text: "$30.00"
+        text: "$bucks"
         height: 50; width: 150
         anchors.top: wdgProducer.bottom
         anchors.topMargin: 5

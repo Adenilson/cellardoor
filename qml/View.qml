@@ -64,6 +64,7 @@ Screen {
         var object = List.retrieve("inputone")
         var widget = object.mView
         widget.getter(MainStorage)
+        widget.cleanup()
         Controller.createNewWine()
     }
 
