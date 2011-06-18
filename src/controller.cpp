@@ -1,10 +1,12 @@
 #include "controller.h"
 #include "view.h"
 #include "database.h"
+#include "utils.h"
 #include <QtDeclarative/QDeclarativeContext>
 #include <QtDeclarative/QDeclarativePropertyMap>
 #include <QtGlobal>
 #include <QtCore/QDebug>
+#include <QtCore/QTimer>
 
 /* TODOs:
  * vs 1.0
@@ -65,6 +67,8 @@ void CellarController::initUI()
     }
 
     m_modelWine->addItems(m_database->retrieveTypes());
+    //TODO: set it within QML and only when required
+    QTimer::singleShot(4000, this, SLOT(setScreen()));
 }
 
 void CellarController::updateStorage(const QString &key, const QVariant &value)
@@ -97,4 +101,9 @@ void CellarController::fillStorageProperties()
     foreach (const QString i, properties) {
         (*m_map)[i] = QVariant(QString("empty"));
     }
+}
+
+void CellarController::setScreen(int orientation)
+{
+    Utils::setOrientation(static_cast<Utils::Orientation>(orientation));
 }

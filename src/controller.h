@@ -27,6 +27,7 @@ public slots:
 
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);
+    void setScreen(int orientation = 2);
 
 protected:
     void fillStorageProperties();
