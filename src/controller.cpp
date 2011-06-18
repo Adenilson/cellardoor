@@ -2,8 +2,10 @@
 #include "view.h"
 #include "database.h"
 #include "utils.h"
+#include <QtGui/QApplication>
 #include <QtDeclarative/QDeclarativeContext>
 #include <QtDeclarative/QDeclarativePropertyMap>
+#include <QtDeclarative/QDeclarativeEngine>
 #include <QtGlobal>
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
@@ -27,8 +29,8 @@
  * - a catalog of wine types and information
  */
 
-CellarController::CellarController(QObject *parent)
-    : QObject(parent), m_view(new CellarView),
+CellarController::CellarController(QObject *parent, QApplication *application)
+    : QObject(parent), m_app(application), m_view(new CellarView),
       m_sysInfo(new QSystemDeviceInfo(parent)),
       m_map(new QDeclarativePropertyMap(this)),
       m_modelWine(new GenericModel<WineData>(this)),
@@ -40,6 +42,9 @@ CellarController::CellarController(QObject *parent)
 
     m_view->rootContext()->setContextProperty("MainStorage", m_map);
     m_view->rootContext()->setContextProperty("WineModel", m_modelWine);
+
+    connect(m_view->engine(), SIGNAL(quit()), this, SLOT(quit()));
+
     fillStorageProperties();
 }
 
@@ -106,4 +111,11 @@ void CellarController::fillStorageProperties()
 void CellarController::setScreen(int orientation)
 {
     Utils::setOrientation(static_cast<Utils::Orientation>(orientation));
+}
+
+void CellarController::quit()
+{
+    if (m_app) {
+        m_app->exit();
+    }
 }

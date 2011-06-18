@@ -9,7 +9,7 @@
 
 class QDeclarativePropertyMap;
 class CellarView;
-
+class QApplication;
 
 QTM_USE_NAMESPACE
 
@@ -17,13 +17,14 @@ class CellarController : public QObject
 {
     Q_OBJECT
 public:
-    CellarController(QObject *parent = 0);
+    CellarController(QObject *parent = 0, QApplication *application = 0);
     ~CellarController();
 
     void initUI();
 
 public slots:
     void createNewWine();
+    void quit();
 
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);
@@ -33,6 +34,7 @@ protected:
     void fillStorageProperties();
 
 private:
+    QApplication *m_app;
     CellarView *m_view;
     QSystemDeviceInfo *m_sysInfo;
     QDeclarativePropertyMap *m_map;

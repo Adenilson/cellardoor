@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     translator.load(app.applicationName() + "_" + locale);
     app.installTranslator(&translator);
 
-    CellarController controller;
+    CellarController controller(0, &app);
     controller.initUI();
     Utils::setOrientation(Utils::PORTRAIT);
 
