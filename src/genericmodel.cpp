@@ -6,7 +6,7 @@
 
 template <class ModelTemplate>
 GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
-    : GenericModelBase(parent), m_cleanup(cleanupPrefix)
+    : GenericModelBase(parent), m_cleanup(cleanupPrefix), m_propertyCount(0)
 {
     const ModelTemplate object;
     QHash<int, QByteArray> roles;
@@ -15,7 +15,8 @@ GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
     ModelTemplate tmp;
     Utils::extractObjectProperties(tmp.metaObject(), &properties, m_cleanup);
 
-    for (int i = 0; i < properties.count(); ++i) {
+    m_propertyCount = properties.count();
+    for (int i = 0; i < m_propertyCount; ++i) {
         roles[i] = properties[i].toUtf8();
     }
 
@@ -85,12 +86,12 @@ QVariant GenericModel<ModelTemplate>::data(const QModelIndex &index, int role) c
 
     QVariant dataValue;
     const ModelTemplate item = m_items[index.row()];
-    const int propertyCount = item.metaObject()->propertyCount();
     QMetaProperty metaProperty;
 
-    for (int propertyIndex = 0; propertyIndex < propertyCount; ++propertyIndex) {
+    for (int propertyIndex = 0; propertyIndex < m_propertyCount; ++propertyIndex) {
         if (role == propertyIndex) {
-            metaProperty = item.metaObject()->property(propertyIndex);
+            const QMetaObject *tmp = item.metaObject();
+            metaProperty = tmp->property(propertyIndex + tmp->propertyOffset());
             dataValue = item.property(metaProperty.name());
         }
     }

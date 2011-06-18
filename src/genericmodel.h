@@ -32,6 +32,7 @@ protected:
 private:
     QList<ModelTemplate> m_items;
     bool m_cleanup;
+    int m_propertyCount;
 };
 
 #include "genericmodel.cpp"
