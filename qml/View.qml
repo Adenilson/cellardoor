@@ -4,6 +4,7 @@ import "js/list.js" as List
 
 Screen {
     id: frmSplash
+	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
     lowerBar.height: 75
     Image {
@@ -15,6 +16,21 @@ Screen {
         anchors.right: frmSplash.right
         fillMode: Image.TileHorizontally
         source: "imgs/main_middle_bar.png"
+    }
+
+    Text {
+        id: txtExit
+        text: qsTr("Exit")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.right: upperBar.right
+        anchors.rightMargin: 15
+        MouseArea {
+            anchors.fill: parent
+            onPressed: Qt.quit()
+        }
+
     }
 
     List {
