@@ -82,9 +82,7 @@ Screen {
     function setter(storage) {
         wdgName.text = storage.name
         wdgType.text = storage.type
-        //TODO: cleanup the other fields
-        wdgName.text = ""
-        wdgType.text = ""
+        //TODO: copy the other fields
     }
 
     function getter(storage) {
@@ -93,12 +91,17 @@ Screen {
         //storage.type = wdgType.text;
         storage.grape = wdgType.text;
         storage.producer = wdgProducer.text
-        //TODO: region, tasting, etc
         storage.year = wdgYear.text
-        storage.price = wdgPrice.text
-        //TODO: cleanup the other fields
-        wdgName.text = ""
-        wdgType.text = ""
+
+        var tmp = wdgPrice.text.indexOf("$")
+        if (tmp != -1) {
+            tmp = wdgPrice.text.substr(tmp + 1, wdgPrice.text.length)
+        } else {
+            tmp = wdgPrice.text
+        }
+        storage.price = tmp
+
+        //TODO: region, tasting, etc
     }
 
     InputWidget {
