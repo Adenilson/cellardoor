@@ -19,6 +19,15 @@ Screen {
     }
 
     Text {
+        id: txtCellar
+        text: "CellaDoor"
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.horizontalCenter: upperBar.horizontalCenter
+    }
+
+    Text {
         id: txtExit
         text: qsTr("Exit")
         color: "#FFFFFF"
