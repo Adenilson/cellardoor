@@ -96,6 +96,8 @@ void CellarController::createNewWine()
     obj.setPrice((*m_map)["price"].toFloat());
     //TODO: missing fields (region, tasting, etc)
     m_database->insertType(obj);
+
+    m_modelWine->addItem(obj);
 }
 
 void CellarController::fillStorageProperties()
