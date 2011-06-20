@@ -130,3 +130,11 @@ int CellarController::wineCount()
 
     return result;
 }
+
+void CellarController::deleteWine(int id)
+{
+    m_database->deleteTypeById(id);
+    WineData obj;
+    obj.setId(id);
+    m_modelWine->removeItem(obj);
+}
