@@ -71,12 +71,15 @@ Screen {
                 frmSplash.visible = false;
                 input.create("InputOne.qml")
                 input.mView.finish.connect(frmSplash.processInput)
+                input.mView.cancel.connect(frmSplash.cancel)
                 List.append("inputone", input)
             } else {
                 var widget = object.mView
                 console.log("### Found: " + widget.height)
                 //This will be used for edit operation
                 //widget.setter(MainStorage)
+                frmSplash.visible = false;
+                //TODO: show with style
                 widget.visible = true
             }
         }
@@ -93,5 +96,11 @@ Screen {
         Controller.createNewWine()
     }
 
+    function cancel() {
+        frmSplash.visible = true;
+        var object = List.retrieve("inputone")
+        var widget = object.mView
+        widget.cleanup()
+    }
 
 }
