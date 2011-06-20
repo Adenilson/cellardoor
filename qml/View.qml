@@ -8,6 +8,7 @@ Screen {
 
     //width: 360; height: 640
     lowerBar.height: 75
+    property int selectedId: 0
 
     Image {
         id: imgBarmiddle
@@ -53,14 +54,35 @@ Screen {
         anchors.leftMargin: 30
 
         onListClicked: {
+            if (wdgSubmenu.visible) {
+                wdgSubmenu.visible = false
+            }
             console.log("###### clicked: " + index)
             //TODO: show detailed view
         }
 
         onListPressAndHold: {
             console.log("########x: " + x + "\ty: " + y + "\tid: " + id)
-            //For while, just delete
-            Controller.deleteWine(id);
+
+            frmSplash.selectedId = id
+            wdgSubmenu.x = x; wdgSubmenu.y = y;
+            wdgSubmenu.visible = true
+        }
+    }
+
+    Submenu {
+        id: wdgSubmenu
+        visible: false
+        onEditOption: {
+            wdgSubmenu.visible = false
+            console.log("########## TODO: edit");
+
+        }
+
+        onDeleteOption: {
+            wdgSubmenu.visible = false
+            console.log("########## delete");
+            Controller.deleteWine(frmSplash.selectedId);
             txtCounter.counter = Controller.wineCount()
         }
     }
