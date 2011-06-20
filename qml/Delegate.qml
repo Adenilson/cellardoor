@@ -14,6 +14,7 @@ BorderImage {
     MouseArea {
         anchors.fill: parent
 		hoverEnabled: true
+        onClicked: bkgItem.clicked(index, model.id)
         onPressAndHold: bkgItem.pressAndHold(index, model.id, mouse.x, mouse.y)
     }
 
