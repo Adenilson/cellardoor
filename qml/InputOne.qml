@@ -7,6 +7,7 @@ Screen {
 	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
     signal finish();
+    signal cancel();
 
     lowerBar.height: 90
 
@@ -19,6 +20,23 @@ Screen {
         anchors.horizontalCenter: upperBar.horizontalCenter
     }
 
+    Text {
+        id: txtCancel
+        text: qsTr("Cancel")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.right: upperBar.right
+        anchors.rightMargin: 3
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {
+                frmInput1.cancel()
+                frmInput1.visible = false
+            }
+        }
+
+    }
 
     Text {
         id: txtAdding
