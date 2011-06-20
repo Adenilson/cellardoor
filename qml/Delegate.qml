@@ -132,6 +132,12 @@ BorderImage {
         anchors.bottom: bkgItem.bottom
         anchors.bottomMargin: 10
         anchors.horizontalCenter: bkgItem.horizontalCenter
+        MouseArea {
+            anchors.fill: parent
+		    hoverEnabled: true
+            onClicked: bkgItem.clicked(index)
+        }
+
     }
 
 }
