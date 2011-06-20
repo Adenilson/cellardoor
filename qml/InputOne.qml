@@ -179,8 +179,6 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
             console.log("##### Hiding the input screen!")
-            //TODO: hide with style
-            frmInput1.visible = false
             frmInput1.finish()
         }
 
