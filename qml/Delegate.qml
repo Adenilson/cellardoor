@@ -3,11 +3,19 @@ import Qt 4.7
 BorderImage {
     id: bkgItem
     signal clicked(int index)
+    signal pressAndHold(int index, int x, int y)
+
     width: 306; height: 297
     border { left: 10; top: 10; right: 10; bottom: 10 }
     source: "imgs/main_item_bkg.png"
 
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
+
+    MouseArea {
+        anchors.fill: parent
+		hoverEnabled: true
+        onPressAndHold: bkgItem.pressAndHold(model.db_id, mouse.x, mouse.y)
+    }
 
     function upperCase(text) {
         return text.toUpperCase(text)
