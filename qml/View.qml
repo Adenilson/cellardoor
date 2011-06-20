@@ -86,6 +86,19 @@ Screen {
 
     }
 
+    Text {
+        id: txtCounter
+        property string counter: Controller.wineCount()
+        text: qsTr("You have tasted") + " " + counter + " " + qsTr("wines")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 20; }
+        anchors.horizontalCenter: lowerBar.horizontalCenter
+        anchors.bottom: lowerBar.top
+        anchors.bottomMargin: 30
+
+    }
+
+
     function processInput() {
         console.log("############# Received")
         var object = List.retrieve("inputone")
@@ -95,6 +108,7 @@ Screen {
         widget.getter(MainStorage)
         widget.cleanup()
         Controller.createNewWine()
+        txtCounter.counter = Controller.wineCount()
     }
 
     function cancel() {
