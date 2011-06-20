@@ -87,19 +87,21 @@ Screen {
     }
 
     function processInput() {
-        frmSplash.visible = true;
         console.log("############# Received")
         var object = List.retrieve("inputone")
         var widget = object.mView
+        widget.visible = false
+        frmSplash.visible = true;
         widget.getter(MainStorage)
         widget.cleanup()
         Controller.createNewWine()
     }
 
     function cancel() {
-        frmSplash.visible = true;
         var object = List.retrieve("inputone")
         var widget = object.mView
+        widget.visible = false
+        frmSplash.visible = true;
         widget.cleanup()
     }
 
