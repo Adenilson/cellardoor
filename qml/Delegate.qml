@@ -2,8 +2,8 @@ import Qt 4.7
 
 BorderImage {
     id: bkgItem
-    signal clicked(int index)
-    signal pressAndHold(int index, int x, int y)
+    signal clicked(int index, int id)
+    signal pressAndHold(int index, int id, int x, int y)
 
     width: 306; height: 297
     border { left: 10; top: 10; right: 10; bottom: 10 }
@@ -14,7 +14,7 @@ BorderImage {
     MouseArea {
         anchors.fill: parent
 		hoverEnabled: true
-        onPressAndHold: bkgItem.pressAndHold(model.db_id, mouse.x, mouse.y)
+        onPressAndHold: bkgItem.pressAndHold(index, model.id, mouse.x, mouse.y)
     }
 
     function upperCase(text) {
@@ -135,7 +135,7 @@ BorderImage {
         MouseArea {
             anchors.fill: parent
 		    hoverEnabled: true
-            onClicked: bkgItem.clicked(index)
+            onClicked: bkgItem.clicked(index, id)
         }
 
     }

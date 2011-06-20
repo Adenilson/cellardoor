@@ -3,8 +3,8 @@ import Qt 4.7
 ListView {
     id: lstOss
     width: parent.width
-    signal listClicked(int index)
-    signal listPressAndHold(int index, int x, int y)
+    signal listClicked(int index, int id)
+    signal listPressAndHold(int id, int x, int y)
 
     orientation: ListView.Horizontal
 
@@ -12,10 +12,10 @@ ListView {
     model: WineModel
     delegate: Delegate {
         id: myDelegate
-        onClicked: lstOss.listClicked(index)
+        onClicked: lstOss.listClicked(index, id)
         onPressAndHold:  {
             var obj = myDelegate.mapToItem(lstOss, x, y)
-            lstOss.listPressAndHold(index, obj.x, obj.y)
+            lstOss.listPressAndHold(id, obj.x, obj.y)
         }
 
     }
