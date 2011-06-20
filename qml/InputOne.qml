@@ -74,7 +74,7 @@ Screen {
     function cleanup() {
         wdgName.text = "Wine name here"
         wdgType.text = "Grape type e.g Merlot"
-        wdgProducer.text = "Wineyard"
+        wdgProducer.text = "Vineyard"
         wdgYear.text = "YYYY"
         wdgPrice.text = "$bucks"
     }
@@ -117,7 +117,7 @@ Screen {
     InputWidget {
         id: wdgProducer
         title: qsTr("Producer")
-        text: "Wineyeard"
+        text: "Vineyard"
         anchors.top: wdgType.bottom
         anchors.topMargin: 5
         anchors.left: bkgItem.left
