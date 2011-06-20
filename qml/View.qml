@@ -61,7 +61,7 @@ Screen {
             console.log("########x: " + x + "\ty: " + y + "\tid: " + id)
             //For while, just delete
             Controller.deleteWine(id);
-
+            txtCounter.counter = Controller.wineCount()
         }
     }
 
