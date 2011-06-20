@@ -121,3 +121,12 @@ void CellarController::quit()
         m_app->exit();
     }
 }
+
+int CellarController::wineCount()
+{
+    int result = 0;
+    if (m_modelWine)
+        result = m_modelWine->rowCount();
+
+    return result;
+}

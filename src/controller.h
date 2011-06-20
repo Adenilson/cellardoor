@@ -23,6 +23,7 @@ public:
     void initUI();
 
 public slots:
+    int wineCount();
     void createNewWine();
     void quit();
 
