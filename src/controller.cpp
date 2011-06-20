@@ -14,7 +14,7 @@
  * vs 1.0
  * - properly convert data into DB
  * - allow edit operations
- * - allow delete operations
+ * - camera capture
  * - implement missing forms
  * - and create the register with the new fields
  * - fancy animations
