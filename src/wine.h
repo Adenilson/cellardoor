@@ -38,6 +38,7 @@ public:
     WineData(const WineData &data);
 
     WineData &operator=(const WineData &data);
+    bool operator==(const WineData &data) const;
 
     ~WineData();
 

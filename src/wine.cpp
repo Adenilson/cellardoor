@@ -166,3 +166,14 @@ void WineData::setTasting(const QString &ataste)
 {
     dptr->tasting = ataste;
 }
+
+bool WineData::operator==(const WineData &data) const
+{
+    bool result = false;
+    //XXX: I only need the ID
+    if (dptr) {
+        result = (dptr->id == data.dptr->id);
+    }
+
+    return result;
+}
