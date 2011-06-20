@@ -6,7 +6,9 @@ Screen {
     id: frmSplash
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
+    //width: 360; height: 640
     lowerBar.height: 75
+
     Image {
         id: imgBarmiddle
         width: parent.width
@@ -49,6 +51,18 @@ Screen {
         anchors.right: upperBar.right
         anchors.rightMargin: 30
         anchors.leftMargin: 30
+
+        onListClicked: {
+            console.log("###### clicked: " + index)
+            //TODO: show detailed view
+        }
+
+        onListPressAndHold: {
+            console.log("########x: " + x + "\ty: " + y + "\tid: " + id)
+            //For while, just delete
+            Controller.deleteWine(id);
+
+        }
     }
 
     Button {
