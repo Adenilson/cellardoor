@@ -125,3 +125,9 @@ const QObject *GenericModel<ModelTemplate>::accessDataByIndex(int index)
     //XXX: check if object exists
     return qobject_cast<const QObject *>(&m_items.at(index));
 }
+
+template <class ModelTemplate>
+QList<ModelTemplate>& GenericModel<ModelTemplate>::items()
+{
+    return m_items;
+}

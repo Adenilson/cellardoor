@@ -19,6 +19,8 @@ public:
     void addItems(const QList<ModelTemplate> &items);
     void removeItem(const ModelTemplate &item);
 
+    QList<ModelTemplate> &items();
+
     void clear();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
