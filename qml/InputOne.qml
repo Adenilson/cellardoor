@@ -99,7 +99,9 @@ Screen {
     function setter(storage) {
         wdgName.text = storage.name
         wdgType.text = storage.type
-        //TODO: copy the other fields
+        wdgProducer.text = storage.producer
+        wdgYear.text = storage.year
+        wdgPrice.text = "$" + storage.price
     }
 
     function getter(storage) {
