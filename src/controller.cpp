@@ -138,3 +138,26 @@ void CellarController::deleteWine(int id)
     obj.setId(id);
     m_modelWine->removeItem(obj);
 }
+
+void CellarController::fillStorage(int id)
+{
+    WineData obj;
+    QDeclarativePropertyMap &global = *m_map;
+    QList<WineData> &items = m_modelWine->items();
+    int tmp;
+
+    obj.setId(id);
+    tmp = items.indexOf(obj);
+    if (tmp == -1) {
+        //TODO: emit a signal with error
+        return;
+    }
+
+    obj = items[tmp];
+    global["name"] = obj.name();
+    global["grape"] = obj.grape();
+    global["producer"] = obj.producer();
+    global["year"] = obj.year();
+    global["price"] = obj.price();
+    //TODO: emit a signal with done
+}
