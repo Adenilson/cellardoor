@@ -75,8 +75,31 @@ Screen {
         visible: false
         onEditOption: {
             wdgSubmenu.visible = false
-            console.log("########## TODO: edit");
+            console.log("########## edit");
+            Controller.fillStorage(frmSplash.selectedId);
 
+            //TODO: this code must be moved to a common function
+            var object = List.retrieve("inputone")
+            var widget = null
+            if (object == null) {
+                console.log("##### Not found, creating the input now!")
+                var input = new Factory.WidgetLoader()
+                frmSplash.visible = false;
+                input.create("InputOne.qml")
+                input.mView.finish.connect(frmSplash.processInput)
+                input.mView.cancel.connect(frmSplash.cancel)
+                List.append("inputone", input)
+                widget = input.mView
+
+            } else {
+                widget = object.mView
+                console.log("### Found: " + widget.height)
+                frmSplash.visible = false;
+                //TODO: show with style
+                widget.visible = true
+            }
+
+            widget.setter(MainStorage)
         }
 
         onDeleteOption: {
@@ -112,8 +135,6 @@ Screen {
             } else {
                 var widget = object.mView
                 console.log("### Found: " + widget.height)
-                //This will be used for edit operation
-                //widget.setter(MainStorage)
                 frmSplash.visible = false;
                 //TODO: show with style
                 widget.visible = true
