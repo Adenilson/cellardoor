@@ -18,6 +18,7 @@ public:
     void prependItem(const ModelTemplate &item);
     void addItems(const QList<ModelTemplate> &items);
     void removeItem(const ModelTemplate &item);
+    bool updateItem(const ModelTemplate &item);
 
     QList<ModelTemplate> &items();
 

@@ -113,6 +113,23 @@ bool GenericModel<ModelTemplate>::setData(const QModelIndex & index, const QVari
 }
 
 template <class ModelTemplate>
+bool GenericModel<ModelTemplate>::updateItem(const ModelTemplate &item)
+{
+    int pos = m_items.indexOf(item);
+    if (pos == -1)
+        return false;
+
+    QModelIndex m_index;
+    m_index = index(pos);
+    if (!(m_index.isValid()))
+        return false;
+
+    m_items.replace(pos, item);
+    emit dataChanged(m_index, m_index);
+    return true;
+}
+
+template <class ModelTemplate>
 QModelIndex GenericModel<ModelTemplate>::indexOfObject(const ModelTemplate &object)
 {
     const int indexElement = m_items.indexOf(object);
