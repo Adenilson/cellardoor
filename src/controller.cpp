@@ -179,7 +179,7 @@ void CellarController::editWine(int id)
 
     if (m_database->updateType(obj)) {
 
-        m_modelWine->setAllData(obj);
+        m_modelWine->updateItem(obj);
 
     } else {
 
