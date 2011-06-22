@@ -12,11 +12,11 @@
 
 /* TODOs:
  * vs 1.0
- * - properly convert data into DB
- * - allow edit operations
- * - camera capture
- * - implement missing forms
- * - and create the register with the new fields
+ * - camera capture (form 3)
+ * - futher info (form 2)
+ * - ui for image browsing
+ * - query by: kind (red/white/etc), name, region
+ * - geolocation (places of wine, reverse backmapping by name)
  * - fancy animations
  *
  * vs 1.1
