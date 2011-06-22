@@ -65,8 +65,9 @@ Screen {
 
         onListPressAndHold: {
             console.log("########x: " + x + "\ty: " + y + "\tid: " + id)
+            var delta = 30
             frmSplash.selectedId = id
-            wdgSubmenu.x = x; wdgSubmenu.y = y;
+            wdgSubmenu.x = x - delta; wdgSubmenu.y = y - delta;
             wdgSubmenu.visible = true
         }
     }
