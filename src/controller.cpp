@@ -178,9 +178,11 @@ void CellarController::editWine(int id)
     //TODO: missing fields (region, tasting, etc)
 
     if (m_database->updateType(obj)) {
-        //TODO: a method in GenericModel to update the whole item
-        qDebug() << "Implement model edit";
+
+        m_modelWine->setAllData(obj);
+
     } else {
+
         qDebug() << "Can't edit. Are you sure that this exits?";
     }
 }
