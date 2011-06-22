@@ -9,7 +9,7 @@ Screen {
     //width: 360; height: 640
     lowerBar.height: 75
     property int selectedId: 0
-
+    property bool editing: false
     Image {
         id: imgBarmiddle
         width: parent.width
@@ -100,6 +100,7 @@ Screen {
             }
 
             widget.setter(MainStorage)
+            frmSplash.editing = true
         }
 
         onDeleteOption: {
@@ -160,12 +161,19 @@ Screen {
         console.log("############# Received")
         var object = List.retrieve("inputone")
         var widget = object.mView
-        widget.visible = false
-        frmSplash.visible = true;
         widget.getter(MainStorage)
         widget.cleanup()
-        Controller.createNewWine()
-        txtCounter.counter = Controller.wineCount()
+
+        if (frmSplash.editing) {
+            frmSplash.editing = false
+            Controller.editWine(frmSplash.selectedId)
+        } else {
+            Controller.createNewWine()
+            txtCounter.counter = Controller.wineCount()
+        }
+
+        widget.visible = false
+        frmSplash.visible = true;
     }
 
     function cancel() {
