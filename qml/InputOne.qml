@@ -98,7 +98,7 @@ Screen {
 
     function setter(storage) {
         wdgName.text = storage.name
-        wdgType.text = storage.type
+        wdgType.text = storage.grape
         wdgProducer.text = storage.producer
         wdgYear.text = storage.year
         wdgPrice.text = "$" + storage.price
