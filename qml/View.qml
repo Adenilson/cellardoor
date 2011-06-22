@@ -52,6 +52,8 @@ Screen {
         anchors.right: upperBar.right
         anchors.rightMargin: 30
         anchors.leftMargin: 30
+        anchors.bottom: lowerBar.top
+        anchors.bottomMargin: 200
 
         onListClicked: {
             if (wdgSubmenu.visible) {
@@ -63,7 +65,6 @@ Screen {
 
         onListPressAndHold: {
             console.log("########x: " + x + "\ty: " + y + "\tid: " + id)
-
             frmSplash.selectedId = id
             wdgSubmenu.x = x; wdgSubmenu.y = y;
             wdgSubmenu.visible = true
