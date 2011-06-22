@@ -161,3 +161,26 @@ void CellarController::fillStorage(int id)
     global["price"] = obj.price();
     //TODO: emit a signal with done
 }
+
+void CellarController::editWine(int id)
+{
+    qDebug() << "Editing a wine card...";
+
+    WineData obj;
+    obj.setId(id);
+    obj.setName((*m_map)["name"].toString());
+    obj.setGrape((*m_map)["grape"].toString());
+    //TODO: missing in the UI
+    //obj.setType((*m_map)["type"]);
+    obj.setProducer((*m_map)["producer"].toString());
+    obj.setYear((*m_map)["year"].toInt());
+    obj.setPrice((*m_map)["price"].toFloat());
+    //TODO: missing fields (region, tasting, etc)
+
+    if (m_database->updateType(obj)) {
+        //TODO: a method in GenericModel to update the whole item
+        qDebug() << "Implement model edit";
+    } else {
+        qDebug() << "Can't edit. Are you sure that this exits?";
+    }
+}
