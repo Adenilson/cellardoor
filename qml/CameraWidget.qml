@@ -11,6 +11,10 @@ Item {
     property string picture
     signal snaped()
 
+    function stop() {
+        camera.stop()
+    }
+
     BorderImage {
         id: bkgItem
         width: 350; height: 375
