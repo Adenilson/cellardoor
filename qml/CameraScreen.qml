@@ -9,8 +9,14 @@ Item {
     property int margin: 5
     property bool working: true
     property string picture
+    signal snaped()
 
     function snap() {
+        if (wdgCamera.working == false) {
+            camera.focus = visible
+            camera.start()
+        }
+
         camera.captureImage()
         wdgCamera.working = false
         camera.focus = !visible
@@ -20,6 +26,12 @@ Item {
         camera.focus = visible
         camera.start()
         camera.captureImage()
+    }
+
+    function stop() {
+        wdgCamera.working = false
+        camera.focus = !visible
+        camera.stop()
     }
 
     Camera {
