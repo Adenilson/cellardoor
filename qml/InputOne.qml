@@ -181,7 +181,9 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
             console.log("##### Hiding the input screen!")
-            frmInput1.finish()
+            
+            //TODO: this will be done in the last form
+            //frmInput1.finish()
         }
 
     }
