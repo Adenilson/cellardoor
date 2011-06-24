@@ -9,6 +9,7 @@ Item {
     property int margin: 5
     property bool working: true
     property string picture
+    signal snaped()
 
     BorderImage {
         id: bkgItem
@@ -33,6 +34,7 @@ Item {
         anchors.topMargin: 5
         anchors.leftMargin: 5
         anchors.rightMargin: 5
+        Component.onCompleted: snaped.connect(wdgCamera.snaped)
     }
 
     /* The button will not be correctly positioned in portrait mode
