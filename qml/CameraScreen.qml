@@ -51,6 +51,7 @@ Item {
             wdgCamera.picture = Controller.workingDir() + path
             //Works in Symbian
             //wdgPicture.source = path
+            wdgCamera.snaped()
         }
 
         MouseArea {
