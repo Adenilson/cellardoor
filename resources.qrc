@@ -17,6 +17,7 @@
     	       <file>qml/Submenu.qml</file>
     	       <file>qml/TextButton.qml</file>
     	       <file>qml/CameraWidget.qml</file>
+    	       <file>qml/CameraScreen.qml</file>
     	       <file>qml/Input.qml</file>
     	       <file>qml/InputOne.qml</file>
 
