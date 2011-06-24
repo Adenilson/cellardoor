@@ -23,6 +23,7 @@ Item {
         anchors.horizontalCenter: wdgCamera.horizontalCenter
         anchors.bottom: wdgCamera.bottom
         anchors.leftMargin: 12
+        anchors.bottomMargin: 50
         onButtonClicked: {
             camera.snap()
         }
