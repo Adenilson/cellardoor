@@ -43,6 +43,7 @@ Item {
         anchors.leftMargin: 5
         anchors.rightMargin: 5
         Component.onCompleted: snaped.connect(wdgCamera.snaped)
+        onSnaped: wdgPicture.source = camera.picture
     }
 
     /* The button will not be correctly positioned in portrait mode
@@ -63,12 +64,12 @@ Item {
 
     Image {
         id: wdgPicture
-        height: 72
-        width: 100
-        anchors.left: parent.left
-        //anchors.bottom: btnSnap.bottom
-        anchors.bottom: parent.bottom
-        anchors.leftMargin: 10
+        height: 59
+        width: 83
+        anchors.left: bkgItem.left
+        anchors.bottom: bkgItem.top
+        anchors.leftMargin: 6
+        anchors.bottomMargin: -62
     }
 
 }
