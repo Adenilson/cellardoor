@@ -53,6 +53,8 @@ Item {
         }
 
         onImageSaved: {
+            //Works in qmlviewer
+            //wdgCamera.picture = path
             //Works in Linux
             wdgCamera.picture = Controller.workingDir() + path
             //Works in Symbian
