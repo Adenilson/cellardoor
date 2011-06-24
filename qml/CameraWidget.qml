@@ -3,65 +3,24 @@ import QtMultimediaKit 1.1
 
 Item {
     id: wdgCamera
-    height: 360; width: 640
-    property int margin: 50
+    height: 400; width: 300
+    property int margin: 5
     property bool working: true
+    property string picture
 
-    Camera {
+    CameraScreen {
         id: camera
-        x: 50; y: 10
-        width: parent.width - wdgCamera.margin
-        height: parent.height - wdgCamera.margin
-        focus: visible
-
-        onImageCaptured: {
-            wdgPicture.source =  preview + ".jpg"
-            console.log("#### image captured...")
-        }
-
-        onImageSaved: {
-            //Works in Linux
-            wdgPicture.source = Controller.workingDir() + path
-            //Works in Symbian
-            //wdgPicture.source = path
-            console.log("#### saved!:" + Controller.workingDir() + path)
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                camera.captureImage()
-                wdgCamera.working = false
-                camera.focus = !visible
-                camera.stop()
-                wdgCamera.working = true
-                camera.focus = visible
-                camera.start()
-                camera.captureImage()
-            }
-        }
-
+        anchors.topMargin: 10
     }
 
     Button {
         id: btnSnap
         labelText: qsTr("Snap!")
-        anchors.left: wdgCamera.left
-        anchors.top: wdgCamera.top
+        anchors.horizontalCenter: wdgCamera.horizontalCenter
+        anchors.bottom: wdgCamera.bottom
         anchors.leftMargin: 12
         onButtonClicked: {
-            //XXX: should work, but...
-            //if (wdgCamera.working) {
-                camera.captureImage()
-                wdgCamera.working = false
-                camera.focus = !visible
-                camera.stop()
-            //} else {
-                wdgCamera.working = true
-                camera.focus = visible
-                camera.start()
-                camera.captureImage()
-            //}
+            camera.snap()
         }
     }
 
@@ -70,7 +29,7 @@ Item {
         height: 72
         width: 100
         anchors.left: parent.left
-        anchors.top: btnSnap.bottom
+        anchors.bottom: btnSnap.bottom
         anchors.leftMargin: 10
     }
 
