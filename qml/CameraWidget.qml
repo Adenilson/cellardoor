@@ -7,12 +7,16 @@ Item {
     width: parent.width; height: parent.height * 0.6
     property int upperBorder: 50
     property int margin: 5
-    property bool working: true
+    property bool working: camera.working
     property string picture
     signal snaped()
 
     function stop() {
         camera.stop()
+    }
+
+    function start() {
+        camera.start()
     }
 
     BorderImage {
