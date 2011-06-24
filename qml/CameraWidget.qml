@@ -15,7 +15,11 @@ Item {
 
     Button {
         id: btnSnap
-        labelText: qsTr("Snap!")
+        labelText: ""
+        current: "imgs/snap_photo.png"
+        background: "imgs/snap_photo.png"
+        pressed: "imgs/snap_photo.png"
+        focused: "imgs/snap_photo.png"
         anchors.horizontalCenter: wdgCamera.horizontalCenter
         anchors.bottom: wdgCamera.bottom
         anchors.leftMargin: 12
