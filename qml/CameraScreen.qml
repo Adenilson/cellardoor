@@ -34,6 +34,12 @@ Item {
         camera.stop()
     }
 
+    function start() {
+        wdgCamera.working = true
+        camera.focus = visible
+        camera.start()
+    }
+
     Camera {
         id: camera
         width: parent.width - wdgCamera.margin
