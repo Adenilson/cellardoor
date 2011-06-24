@@ -15,13 +15,30 @@ Item {
         focus: visible
 
         onImageCaptured: {
-            wdgPicture.source = preview + ".jpg"
+            wdgPicture.source =  preview + ".jpg"
             console.log("#### image captured...")
         }
 
         onImageSaved: {
-            wdgPicture.source = path
-            console.log("#### saved!:" + path)
+            //Works in Linux
+            wdgPicture.source = Controller.workingDir() + path
+            //Works in Symbian
+            //wdgPicture.source = path
+            console.log("#### saved!:" + Controller.workingDir() + path)
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                camera.captureImage()
+                wdgCamera.working = false
+                camera.focus = !visible
+                camera.stop()
+                wdgCamera.working = true
+                camera.focus = visible
+                camera.start()
+                camera.captureImage()
+            }
         }
 
     }
