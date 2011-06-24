@@ -29,6 +29,7 @@ public slots:
     int wineCount();
     void createNewWine();
     void quit();
+    QString workingDir();
 
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);

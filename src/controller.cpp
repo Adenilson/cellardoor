@@ -9,6 +9,7 @@
 #include <QtGlobal>
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
+#include <QtCore/QDir>
 
 /* TODOs:
  * vs 1.0
@@ -185,4 +186,13 @@ void CellarController::editWine(int id)
 
         qDebug() << "Can't edit. Are you sure that this exits?";
     }
+}
+
+
+QString CellarController::workingDir()
+{
+    QString result("file://");
+    result += QDir::currentPath();
+    result += "/";
+    return result;
 }
