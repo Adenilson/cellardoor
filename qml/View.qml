@@ -87,7 +87,7 @@ Screen {
                 console.log("##### Not found, creating the input now!")
                 var input = new Factory.WidgetLoader()
                 frmSplash.visible = false;
-                input.create("InputOne.qml")
+                input.create("Input.qml")
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
                 List.append("inputone", input)
@@ -131,7 +131,7 @@ Screen {
                 console.log("##### Not found, creating the input now!")
                 var input = new Factory.WidgetLoader()
                 frmSplash.visible = false;
-                input.create("InputOne.qml")
+                input.create("Input.qml")
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
                 List.append("inputone", input)

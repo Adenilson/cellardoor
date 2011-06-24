@@ -12,12 +12,14 @@
     	       <file>qml/List.qml</file>
     	       <file>qml/Model.qml</file>
     	       <file>qml/Delegate.qml</file>
-    	       <file>qml/InputOne.qml</file>
     	       <file>qml/InputWidget.qml</file>
     	       <file>qml/Button.qml</file>
     	       <file>qml/Submenu.qml</file>
     	       <file>qml/TextButton.qml</file>
     	       <file>qml/CameraWidget.qml</file>
+    	       <file>qml/Input.qml</file>
+    	       <file>qml/InputOne.qml</file>
+
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
