@@ -13,7 +13,6 @@
 
 /* TODOs:
  * vs 1.0
- * - camera capture has to have stop/start functions
  * - fix newly added bug (fails to edit or delete thanks to missing ID)
  * - futher info (form 2)
  * - ui for image browsing
