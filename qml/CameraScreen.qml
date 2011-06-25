@@ -55,10 +55,16 @@ Item {
         onImageSaved: {
             //Works in qmlviewer
             //wdgCamera.picture = path
-            //Works in Linux
-            wdgCamera.picture = Controller.workingDir() + path
-            //Works in Symbian
-            //wdgPicture.source = path
+            if (Controller.system() == 0) {
+                wdgCamera.picture = Controller.workingDir() + path
+            } else if (Controller.system() == 1) {
+                wdgCamera.picture = path
+            } else {
+                console.log("### Need to test in windows...")
+            }
+
+            console.log("Value is: " + Controller.system() + "\t
+            path:" + path)
             wdgCamera.snaped()
         }
 
