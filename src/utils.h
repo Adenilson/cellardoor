@@ -15,6 +15,8 @@ class QStringList;
 namespace Utils {
 
 typedef enum { PORTRAIT, LANDSCAPE, AUTO } Orientation;
+typedef enum { LINUX, SYMBIAN, WINDOWS } Environment;
+
 
 static const char PropertyPrefix[] = "db_";
 
@@ -24,6 +26,8 @@ void extractObjectProperties(const QMetaObject *object,
 			     QStringList *list,
 			     bool cleanup = false,
 			     const char *prefix = PropertyPrefix);
+
+int environment();
 
 };
 

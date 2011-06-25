@@ -55,4 +55,18 @@ void extractObjectProperties(const QMetaObject *object,
     }
 }
 
+int environment()
+{
+    int result = 0;
+#if defined(Q_WS_X11)
+    result = LINUX;
+#elif defined(Q_WS_S60)
+    result = SYMBIAN;
+#else
+    result = WINDOWS;
+#endif
+
+    return result;
+}
+
 }
