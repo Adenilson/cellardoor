@@ -196,3 +196,8 @@ QString CellarController::workingDir()
     result += "/";
     return result;
 }
+
+int CellarController::system()
+{
+    return Utils::environment();
+}
