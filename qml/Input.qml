@@ -3,7 +3,7 @@ import "js/list.js" as List
 
 Screen {
     id: frmInput1
-    width: 360; height: 640
+    //width: 360; height: 640
 	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
     signal finish();
@@ -86,13 +86,22 @@ Screen {
         //A tad verbose but better than hardcoded
         upperBorder: (lowerBar.height + txtAdding.height +
         imgLine.height + txtSteps.height) * 1.10
+        visible: true
+    }
+
+    CameraWidget {
+        id: wdgThird
+        upperBorder: (lowerBar.height + txtAdding.height +
+        imgLine.height + txtSteps.height) * 1.10
+        onSnaped: console.log("#### I got an image!")
+        visible: false
     }
 
     Button {
         id: btnOk
         imgHeight: 58; imgWidth: 200
         txtSize: 26
-        labelText: qsTr("Finish")
+        labelText: qsTr("Next")
         txtColor: "#FFFFFF"
         current: "imgs/button_bkg.png"
         background: "imgs/button_bkg.png"
@@ -101,9 +110,10 @@ Screen {
         anchors.bottom: lowerBar.bottom
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
-            console.log("##### Hiding the input screen!")
             //TODO: this will be done in the last form
-            frmInput1.finish()
+            //frmInput1.finish()
+            wdgFirst.visible = false
+            wdgThird.visible = true
         }
 
     }
