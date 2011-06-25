@@ -45,22 +45,6 @@ Item {
         onSnaped: wdgPicture.source = camera.picture
     }
 
-    /* The button will not be correctly positioned in portrait mode
-    Button {
-        id: btnSnap
-        labelText: ""
-        current: "imgs/snap_photo.png"
-        background: "imgs/snap_photo.png"
-        pressed: "imgs/snap_photo.png"
-        focused: "imgs/snap_photo.png"
-        anchors.horizontalCenter: wdgCamera.horizontalCenter
-        anchors.top: bkgItem.bottom
-        onButtonClicked: {
-            camera.snap()
-        }
-    }
-    */
-
     Image {
         id: wdgPicture
         height: 59
