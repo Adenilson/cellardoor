@@ -7,6 +7,8 @@
 #include <QtSql/QSqlTableModel>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
+#include <QtSql/QSqlRecord>
+#include <QtSql/QSqlField>
 #include <QtCore/QCoreApplication>
 //TODO: support the prefix as a parameter
 const char DB_PREFIX[] = "db_";
@@ -80,18 +82,46 @@ Database<Type> *Database<Type>::instance(QObject *parent)
 }
 
 template <class Type>
-bool Database<Type>::insertType(const Type &wine)
+bool Database<Type>::insertType(Type &wine)
 {
     bool hasError = false;
 
     if (!m_wineModel) {
         qCritical() << "Unable to insert a wine";
-        goto error;
+        return hasError;
     }
 
     m_wineModel->select();
     m_wineModel->insertRows(0, 1);
     hasError = setType(wine, 0, true);
+
+    if (!hasError) {
+        qCritical() << "Failed to insert a wine";
+        return hasError;
+    }
+
+    //FIXME: this will work sometimes will fail
+    m_wineModel->setSort(0, Qt::DescendingOrder);
+    if (!m_wineModel->select()) {
+        qCritical() << "Failed to update the model...";
+        return hasError;
+    }
+
+    qDebug() << "COUNT: " << m_wineModel->rowCount();
+    QSqlRecord tmp(m_wineModel->record(0));
+    if (!tmp.isEmpty()) {
+        QSqlField data(tmp.field("id"));
+        if (!data.isNull()) {
+            int id = data.value().toInt();
+            wine.setId(id);
+            qDebug() << "######## ID: " << id;
+        } else {
+            qDebug() << "Failed to find the field."
+                     << data;
+        }
+    } else
+        qDebug() << "Failed to update the ID";
+
 
 error:
     return hasError;

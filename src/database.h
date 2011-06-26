@@ -26,7 +26,7 @@ class Database: public DatabaseWorkaround
 public:
     static Database *instance(QObject *parent = 0);
 
-    bool insertType(const Type &wine);
+    bool insertType(Type &wine);
     bool deleteType(const Type &wine);
     bool updateType(const Type &wine);
     bool deleteTypeById(int id);
