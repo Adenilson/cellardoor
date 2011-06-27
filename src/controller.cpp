@@ -72,7 +72,10 @@ void CellarController::initUI()
         m_view->showFullScreen();
     }
 
-    m_modelWine->addItems(m_database->retrieveTypes());
+    QList<WineData> dataItems(m_database->retrieveTypes());
+    if (dataItems.count())
+        m_modelWine->addItems(dataItems);
+
     //TODO: set it within QML and only when required
     QTimer::singleShot(4000, this, SLOT(setScreen()));
 }
