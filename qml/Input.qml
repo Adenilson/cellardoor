@@ -118,14 +118,12 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
 	        if (frmInput1.state == "third") {
-                btnOk.labelText = qsTr("Next")
                 wdgThird.stop()
                 frmInput1.finish()
                 frmInput1.state = "first"
             } else if (frmInput1.state == "second") {
                 frmInput1.state = "third"
                 wdgThird.start()
-                btnOk.labelText = qsTr("Finish")
             } else if (frmInput1.state == "first") {
                 frmInput1.state = "second"
             }
@@ -152,6 +150,11 @@ Screen {
                 visible: false
             }
 
+            PropertyChanges {
+                target: btnOk
+                labelText: qsTr("Next")
+            }
+
         },
 
         State {
@@ -169,6 +172,11 @@ Screen {
             PropertyChanges {
                 target: wdgThird
                 visible: false
+            }
+
+            PropertyChanges {
+                target: btnOk
+                labelText: qsTr("Next")
             }
 
         },
@@ -190,6 +198,10 @@ Screen {
                 visible: true
             }
 
+            PropertyChanges {
+                target: btnOk
+                labelText: qsTr("Finish")
+            }
 
 
         }
