@@ -111,9 +111,18 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
             //TODO: this will be done in the last form
-            //frmInput1.finish()
-            wdgFirst.visible = false
-            wdgThird.visible = true
+	        if (wdgFirst.visible == false) {
+                wdgThird.stop()
+                frmInput1.finish()
+                wdgFirst.visible = true
+                wdgThird.visible = false
+
+            } else {
+                wdgFirst.visible = false
+                wdgThird.visible = true
+                wdgThird.start()
+                btnOk.labelText = qsTr("Finish")
+            }
         }
 
     }
