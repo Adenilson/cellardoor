@@ -20,7 +20,7 @@
     	       <file>qml/CameraScreen.qml</file>
     	       <file>qml/Input.qml</file>
     	       <file>qml/InputOne.qml</file>
-
+    	       <file>qml/InputSecond.qml</file>
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
