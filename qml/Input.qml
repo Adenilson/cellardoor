@@ -47,6 +47,8 @@ Screen {
             anchors.fill: parent
             onPressed: {
                 frmInput1.cancel()
+                frmInput1.state = "first"
+                wdgThird.stop()
             }
         }
 
