@@ -89,6 +89,13 @@ Screen {
         visible: true
     }
 
+    InputSecond {
+        id: wdgSecond
+        upperBorder: (lowerBar.height + txtAdding.height +
+        imgLine.height + txtSteps.height) * 1.10
+        visible: false
+    }
+
     CameraWidget {
         id: wdgThird
         upperBorder: (lowerBar.height + txtAdding.height +
@@ -114,11 +121,13 @@ Screen {
                 wdgThird.stop()
                 frmInput1.finish()
                 frmInput1.state = "first"
-            } else if (frmInput1.state == "first") {
+            } else if (frmInput1.state == "second") {
                 frmInput1.state = "third"
                 wdgThird.start()
                 btnOk.labelText = qsTr("Finish")
-            } /*TODO: second form/state */
+            } else if (frmInput1.state == "first") {
+                frmInput1.state = "second"
+            }
         }
 
     }
@@ -131,12 +140,12 @@ Screen {
                 target: wdgFirst
                 visible: true
             }
-/*
+
             PropertyChanges {
                 target: wdgSecond
                 visible: false
             }
-*/
+
             PropertyChanges {
                 target: wdgThird
                 visible: false
@@ -150,12 +159,12 @@ Screen {
                 target: wdgFirst
                 visible: false
             }
-/*
+
             PropertyChanges {
                 target: wdgSecond
                 visible: true
             }
-*/
+
             PropertyChanges {
                 target: wdgThird
                 visible: false
@@ -169,12 +178,12 @@ Screen {
                 target: wdgFirst
                 visible: false
             }
-/*
+
             PropertyChanges {
                 target: wdgSecond
                 visible: false
             }
-*/
+
             PropertyChanges {
                 target: wdgThird
                 visible: true
