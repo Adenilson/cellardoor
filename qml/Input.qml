@@ -110,21 +110,79 @@ Screen {
         anchors.bottom: lowerBar.bottom
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
-            //TODO: this will be done in the last form
-	        if (wdgFirst.visible == false) {
+	        if (frmInput1.state == "third") {
                 wdgThird.stop()
                 frmInput1.finish()
-                wdgFirst.visible = true
-                wdgThird.visible = false
-
-            } else {
-                wdgFirst.visible = false
-                wdgThird.visible = true
+                frmInput1.state = "first"
+            } else if (frmInput1.state == "first") {
+                frmInput1.state = "third"
                 wdgThird.start()
                 btnOk.labelText = qsTr("Finish")
-            }
+            } /*TODO: second form/state */
         }
 
     }
+
+    state: "first"
+    states: [
+        State {
+            name: "first"
+            PropertyChanges {
+                target: wdgFirst
+                visible: true
+            }
+/*
+            PropertyChanges {
+                target: wdgSecond
+                visible: false
+            }
+*/
+            PropertyChanges {
+                target: wdgThird
+                visible: false
+            }
+
+        },
+
+        State {
+            name: "second"
+            PropertyChanges {
+                target: wdgFirst
+                visible: false
+            }
+/*
+            PropertyChanges {
+                target: wdgSecond
+                visible: true
+            }
+*/
+            PropertyChanges {
+                target: wdgThird
+                visible: false
+            }
+
+        },
+
+        State {
+            name: "third"
+            PropertyChanges {
+                target: wdgFirst
+                visible: false
+            }
+/*
+            PropertyChanges {
+                target: wdgSecond
+                visible: false
+            }
+*/
+            PropertyChanges {
+                target: wdgThird
+                visible: true
+            }
+
+
+
+        }
+    ]
 
 }
