@@ -63,8 +63,7 @@ Item {
                 console.log("### Need to test in windows...")
             }
 
-            console.log("Value is: " + Controller.system() + "\t
-            path:" + path)
+            console.log("Value is: " + Controller.system() + "\tpath:" + path)
             wdgCamera.snaped()
         }
 
