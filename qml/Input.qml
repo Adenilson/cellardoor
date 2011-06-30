@@ -118,6 +118,7 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
 	        if (frmInput1.state == "third") {
+                btnOk.labelText = qsTr("Next")
                 wdgThird.stop()
                 frmInput1.finish()
                 frmInput1.state = "first"
