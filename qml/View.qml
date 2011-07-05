@@ -87,7 +87,19 @@ Screen {
                 console.log("##### Not found, creating the input now!")
                 var input = new Factory.WidgetLoader()
                 frmSplash.visible = false;
-                input.create("Input.qml")
+                //XXX: If the environment lacks Camera, go with no cam form
+                if (Controller.system() == 2) {
+                    input.create("InputNocam.qml")
+                    console.log("######## Nocam WIN")
+                } else if (Controller.system() == 1) {
+                    input.create("InputNocam.qml")
+                    console.log("######## Nocam SYMBIAN")
+                } else if (Controller.system() == 0) {
+                    input.create("Input.qml")
+                    console.log("######## Camera Linux")
+                }
+
+
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
                 List.append("inputone", input)
@@ -131,7 +143,18 @@ Screen {
                 console.log("##### Not found, creating the input now!")
                 var input = new Factory.WidgetLoader()
                 frmSplash.visible = false;
-                input.create("Input.qml")
+                //XXX: If the environment lacks Camera, go with no cam form
+                if (Controller.system() == 2) {
+                    input.create("InputNocam.qml")
+                    console.log("######## Nocam WIN")
+                } else if (Controller.system() == 1) {
+                    input.create("InputNocam.qml")
+                    console.log("######## Nocam SYMBIAN")
+                } else if (Controller.system() == 0) {
+                    input.create("Input.qml")
+                    console.log("######## Camera Linux")
+                }
+
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
                 List.append("inputone", input)
