@@ -11,6 +11,8 @@
 #include <QtCore/QTimer>
 #include <QtCore/QDir>
 
+using namespace Utils;
+
 /* TODOs:
  * vs 1.0
  * - fix newly added bug (fails to edit or delete thanks to missing ID)
@@ -32,7 +34,6 @@
 
 CellarController::CellarController(QObject *parent, QApplication *application)
     : QObject(parent), m_app(application), m_view(new CellarView),
-      m_sysInfo(new QSystemDeviceInfo(parent)),
       m_map(new QDeclarativePropertyMap(this)),
       m_modelWine(new GenericModel<WineData>(this)),
       m_database(Database<WineData>::instance(this))
@@ -52,25 +53,23 @@ CellarController::CellarController(QObject *parent, QApplication *application)
 CellarController::~CellarController()
 {
     delete m_view;
-    delete m_sysInfo;
 }
 
 void CellarController::initUI()
 {
+    Environment tmp = static_cast<Environment>(Utils::environment());
 
-    QString tmp(m_sysInfo->model());
-    //XXX: At least in mobility 1.2 beta1 in Symbian^3 it fails to load
-    if (tmp.contains("i686"))
+    switch (tmp) {
+    case SYMBIAN:
+        m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
+        break;
+
+    default:
         m_view->setSource(QUrl("qrc:/qml/main.qml"));
-    else {
-        if (tmp.contains("Atom")) {
-            m_view->setSource(QUrl("qrc:/qml/main.qml"));
-        } else {
-            m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
-        }
-
-        m_view->showFullScreen();
+        break;
     }
+
+    m_view->showFullScreen();
 
     QList<WineData> dataItems(m_database->retrieveTypes());
     if (dataItems.count())

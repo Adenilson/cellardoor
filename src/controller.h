@@ -2,7 +2,6 @@
 #define _REMINDER_CONTROLLER_H_
 
 #include <QtCore/QObject>
-#include <QSystemDeviceInfo>
 #include "genericmodel.h"
 #include "wine.h"
 #include "database.h"
@@ -10,8 +9,6 @@
 class QDeclarativePropertyMap;
 class CellarView;
 class QApplication;
-
-QTM_USE_NAMESPACE
 
 class CellarController : public QObject
 {
@@ -44,7 +41,6 @@ protected:
 private:
     QApplication *m_app;
     CellarView *m_view;
-    QSystemDeviceInfo *m_sysInfo;
     QDeclarativePropertyMap *m_map;
     GenericModel<WineData> *m_modelWine;
     Database<WineData> *m_database;
