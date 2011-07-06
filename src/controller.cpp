@@ -15,8 +15,7 @@ using namespace Utils;
 
 /* TODOs:
  * vs 1.0
- * - fix newly added bug (fails to edit or delete thanks to missing ID)
- * - futher info (form 2)
+ * - persistence of new data (form2 and 3)
  * - ui for image browsing
  * - query by: kind (red/white/etc), name, region
  * - geolocation (places of wine, reverse backmapping by name)
