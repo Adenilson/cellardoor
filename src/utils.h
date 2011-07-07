@@ -15,7 +15,7 @@ class QStringList;
 namespace Utils {
 
 typedef enum { PORTRAIT, LANDSCAPE, AUTO } Orientation;
-typedef enum { LINUX, SYMBIAN, WINDOWS } Environment;
+typedef enum { LINUX, SYMBIAN, MAEMO, WINDOWS, OSX } Environment;
 
 
 static const char PropertyPrefix[] = "db_";

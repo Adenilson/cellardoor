@@ -62,8 +62,12 @@ int environment()
     result = LINUX;
 #elif defined(Q_WS_S60)
     result = SYMBIAN;
-#else
+#elif defined(Q_WS_WIN)
     result = WINDOWS;
+#elif defined(Q_WS_MAEMO)
+    result = MAEMO;
+#elif defined(Q_WS_MAC)
+    result = OSX;
 #endif
 
     return result;
