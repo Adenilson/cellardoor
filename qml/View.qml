@@ -88,17 +88,13 @@ Screen {
                 var input = new Factory.WidgetLoader()
                 frmSplash.visible = false;
                 //XXX: If the environment lacks Camera, go with no cam form
-                if (Controller.system() == 2) {
+                var sysenv = Controller.system()
+                //It is WIN or OSX
+                if (sysenv > 2) {
                     input.create("InputNocam.qml")
-                    console.log("######## Nocam WIN")
-                } else if (Controller.system() == 1) {
-                    input.create("InputNocam.qml")
-                    console.log("######## Nocam SYMBIAN")
-                } else if (Controller.system() == 0) {
+                } else {
                     input.create("Input.qml")
-                    console.log("######## Camera Linux")
                 }
-
 
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
@@ -144,15 +140,12 @@ Screen {
                 var input = new Factory.WidgetLoader()
                 frmSplash.visible = false;
                 //XXX: If the environment lacks Camera, go with no cam form
-                if (Controller.system() == 2) {
+                var sysenv = Controller.system()
+                //It is WIN or OSX
+                if (sysenv > 2) {
                     input.create("InputNocam.qml")
-                    console.log("######## Nocam WIN")
-                } else if (Controller.system() == 1) {
-                    input.create("InputNocam.qml")
-                    console.log("######## Nocam SYMBIAN")
-                } else if (Controller.system() == 0) {
+                } else {
                     input.create("Input.qml")
-                    console.log("######## Camera Linux")
                 }
 
                 input.mView.finish.connect(frmSplash.processInput)
