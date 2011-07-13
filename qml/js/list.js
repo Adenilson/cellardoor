@@ -9,3 +9,8 @@ function retrieve(name)
 {
     return dict[name]
 }
+
+function remove(name)
+{
+    dict[name] = null
+}
