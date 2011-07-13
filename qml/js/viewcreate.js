@@ -26,6 +26,7 @@ function WidgetLoader()
 
 	    } else {
 		//Show it in animated way
+		console.log("Creation suceeded...");
 	    }
 	}
 
