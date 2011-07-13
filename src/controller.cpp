@@ -62,6 +62,7 @@ void CellarController::initUI()
     case SYMBIAN:
         m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
         m_view->showFullScreen();
+        break;
 
     case MAEMO:
         m_view->setSource(QUrl("qrc:/qml/main.qml"));
