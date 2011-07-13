@@ -192,6 +192,13 @@ Screen {
 
         widget.visible = false
         frmSplash.visible = true;
+        //XXX: symbian slows down scrolling in main view when camera
+        //widget was created.
+        if (Controller.system() == 1) {
+            widget.destroy(1000);
+            List.remove("inputone");
+        }
+
     }
 
     function cancel() {
@@ -200,6 +207,13 @@ Screen {
         widget.visible = false
         frmSplash.visible = true;
         widget.cleanup()
+        //XXX: symbian slows down scrolling in main view when camera
+        //widget was created.
+        if (Controller.system() == 1) {
+            widget.destroy(1000);
+            List.remove("inputone");
+        }
+
     }
 
 }
