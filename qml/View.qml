@@ -57,7 +57,6 @@ Screen {
             //BUG: currentIndex returns the same value
             //txtPosition.text = lstWine.currentIndex + 1 + " / " + Controller.wineCount();
             txtPosition.text = index + 1 + " / " + Controller.wineCount();
-            console.log("###### UPDATE " + lstWine.currentItem.index);
         }
     }
 
