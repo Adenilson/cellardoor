@@ -48,12 +48,13 @@ Screen {
     List {
         id: lstWine
         anchors.top: upperBar.bottom
+        anchors.topMargin: 40
         anchors.left: upperBar.left
+        anchors.leftMargin: 30
         anchors.right: upperBar.right
         anchors.rightMargin: 30
-        anchors.leftMargin: 30
         anchors.bottom: lowerBar.top
-        anchors.bottomMargin: 200
+        anchors.bottomMargin: 165
 
         onListClicked: {
             if (wdgSubmenu.visible) {
