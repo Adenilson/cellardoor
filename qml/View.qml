@@ -117,7 +117,7 @@ Screen {
             wdgSubmenu.visible = false
             console.log("########## delete");
             Controller.deleteWine(frmSplash.selectedId);
-            txtCounter.counter = Controller.wineCount()
+            txtCounter.updateText()
         }
     }
 
@@ -164,13 +164,30 @@ Screen {
 
     Text {
         id: txtCounter
-        property string counter: Controller.wineCount()
-        text: qsTr("You have tasted") + " " + counter + " " + qsTr("wines")
+        text: updateText()
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 20; }
         anchors.horizontalCenter: lowerBar.horizontalCenter
         anchors.bottom: lowerBar.top
         anchors.bottomMargin: 30
+
+        function updateText() {
+            var result;
+            var counter = Controller.wineCount()
+            if (counter == 0) {
+                result = qsTr("Holly Grapes! You haven't tasted a") + "\n" +
+                qsTr("single wine, let's fix it!")
+            } else if (counter == 1) {
+                result = qsTr("You have tasted") + " " + counter + " " +
+                qsTr("wine")
+            } else {
+                result = qsTr("You have tasted") + " " + counter + " " +
+                qsTr("wines")
+            }
+
+            txtCounter.text = result;
+        }
+
 
     }
 
@@ -187,7 +204,7 @@ Screen {
             Controller.editWine(frmSplash.selectedId)
         } else {
             Controller.createNewWine()
-            txtCounter.counter = Controller.wineCount()
+            txtCounter.updateText()
         }
 
         widget.visible = false
