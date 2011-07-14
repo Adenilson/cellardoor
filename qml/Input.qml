@@ -13,7 +13,7 @@ Screen {
 
     function cleanup() {
         wdgFirst.cleanup()
-        //TODO: add calls to the other widgets
+        wdgSecond.cleanup()
     }
 
     function setter(storage) {
