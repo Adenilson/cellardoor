@@ -45,6 +45,23 @@ Screen {
 
     }
 
+    Text {
+        id: txtPosition
+        text: lstWine.currentIndex + 1 + " / " + Controller.wineCount()
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 22; italic: true }
+        anchors.top: upperBar.bottom
+        anchors.topMargin: 4
+        anchors.horizontalCenter: upperBar.horizontalCenter
+        function updateLabel(index) {
+            //BUG: currentIndex returns the same value
+            //txtPosition.text = lstWine.currentIndex + 1 + " / " + Controller.wineCount();
+            txtPosition.text = index + 1 + " / " + Controller.wineCount();
+            console.log("###### UPDATE " + lstWine.currentItem.index);
+        }
+    }
+
+
     List {
         id: lstWine
         anchors.top: upperBar.bottom
@@ -60,7 +77,8 @@ Screen {
             if (wdgSubmenu.visible) {
                 wdgSubmenu.visible = false
             }
-            console.log("###### clicked: " + index)
+            console.log("###### clicked: " + index);
+            txtPosition.updateLabel(index);
             //TODO: show detailed view
         }
 
@@ -71,6 +89,10 @@ Screen {
             wdgSubmenu.x = x - delta; wdgSubmenu.y = y - delta;
             wdgSubmenu.visible = true
         }
+
+        //BUG: currentIndex returns the same value
+        //onFlickEnded: txtPosition.updateLabel()
+        //onFlickStarted: txtPosition.updateLabel()
     }
 
     Submenu {
