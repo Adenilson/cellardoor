@@ -55,6 +55,30 @@ Screen {
     }
 
     Text {
+        id: txtBack
+        text: qsTr("Back")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.left: upperBar.left
+        anchors.leftMargin: 3
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {
+                if (frmInput1.state == "first") {
+                    return;
+                } else if (frmInput1.state == "second") {
+                    frmInput1.state = "first"
+                } else {
+                    wdgThird.stop()
+                    frmInput1.state = "second"
+                }
+            }
+        }
+
+    }
+
+    Text {
         id: txtAdding
         text: qsTr("Adding a new wine to your Cellar")
         color: "#FFFFFF"
