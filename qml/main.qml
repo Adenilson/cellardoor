@@ -4,8 +4,9 @@ import "js/viewcreate.js" as Factory
 Item {
     id: appWindow
     width: 362; height: 642
-    //width: 480; height: 854
+    //width: 480; height: 800
     //width: 1024; height: 600
+    //width: 1280; height: 600
     //width:540; height:960
 
     Splash {
