@@ -83,15 +83,15 @@ Screen {
         text: qsTr("Adding a new wine to your Cellar")
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 18; italic: true }
-        anchors.top: upperBar.top
-        anchors.topMargin: 80
+        anchors.top: upperBar.bottom
+        anchors.topMargin: 3
         anchors.horizontalCenter: upperBar.horizontalCenter
     }
 
     Image {
         id: imgLine
         anchors.top: txtAdding.bottom
-        anchors.topMargin: 17
+        anchors.topMargin: 3
         anchors.horizontalCenter: upperBar.horizontalCenter
         source: "imgs/line_break.png"
     }
@@ -111,21 +111,21 @@ Screen {
         id: wdgFirst
         //A tad verbose but better than hardcoded
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 1.10
+        imgLine.height + txtSteps.height) * 0.87
         visible: true
     }
 
     InputSecond {
         id: wdgSecond
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 1.10
+        imgLine.height + txtSteps.height) * 0.87
         visible: false
     }
 
     CameraWidget {
         id: wdgThird
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 1.10
+        imgLine.height + txtSteps.height) * 0.87
         onSnaped: console.log("#### I got an image!")
         visible: false
     }
