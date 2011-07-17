@@ -11,6 +11,11 @@
 #include <aknappui.h>
 #endif
 
+#ifndef Q_WS_WIN
+#include <QSystemDeviceInfo>
+QTM_USE_NAMESPACE
+#endif
+
 namespace Utils {
 
 void setOrientation(const Orientation &arg)
@@ -71,6 +76,23 @@ int environment()
 #endif
 
     return result;
+}
+
+bool fullscreen()
+{
+    bool result = false;
+#ifndef Q_WS_WIN
+    QSystemDeviceInfo m_sysInfo;
+    QString tmp(m_sysInfo.model());
+
+    if (tmp.contains("Atom")) {
+        result = true;
+    }
+
+#endif
+
+    return result;
+
 }
 
 }

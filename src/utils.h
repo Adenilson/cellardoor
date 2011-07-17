@@ -29,6 +29,8 @@ void extractObjectProperties(const QMetaObject *object,
 
 int environment();
 
+bool fullscreen();
+
 };
 
 #endif
