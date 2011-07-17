@@ -65,7 +65,7 @@ symbian: {
         -leikcore \
         -lcone
 
-    ICON = #images/wine.png
+    ICON = icon.svg
 
     addFiles.sources = translations/celladoor_pt_BR.qm
     addFiles.path = .
