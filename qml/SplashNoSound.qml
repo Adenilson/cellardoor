@@ -67,6 +67,14 @@ Frame {
         anchors.topMargin: 50
     }
 
+    Image {
+        id: imgLine
+        anchors.top: txtWelcome.bottom
+        anchors.topMargin: 5
+        anchors.horizontalCenter: txtWelcome.horizontalCenter
+        source: "imgs/line_break.png"
+    }
+
     Text {
         id: txtAppname
         text: "CellaDoor"
@@ -78,6 +86,13 @@ Frame {
         anchors.topMargin: 30
     }
 
+    Image {
+        id: imgLine2
+        anchors.top: txtAppname.bottom
+        anchors.topMargin: -30
+        anchors.horizontalCenter: txtAppname.horizontalCenter
+        source: "imgs/line_break.png"
+    }
 
     Text {
         id: txtWelcome2
