@@ -81,6 +81,7 @@ int environment()
 bool fullscreen()
 {
     bool result = false;
+//FIXME: most probably will fail in OSX
 #ifndef Q_WS_WIN
     QSystemDeviceInfo m_sysInfo;
     QString tmp(m_sysInfo.model());
