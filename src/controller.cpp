@@ -69,6 +69,11 @@ void CellarController::initUI()
         m_view->showFullScreen();
         break;
 
+    case WINDOWS:
+      m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
+      m_view->show();
+      break;
+
     default:
         m_view->setSource(QUrl("qrc:/qml/main.qml"));
         if (Utils::fullscreen())
