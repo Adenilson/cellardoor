@@ -48,7 +48,27 @@ Screen {
             onPressed: {
                 frmInput1.cancel()
                 frmInput1.state = "first"
-                wdgThird.stop()
+            }
+        }
+
+    }
+
+    Text {
+        id: txtBack
+        text: qsTr("Back")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.left: upperBar.left
+        anchors.leftMargin: 3
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {
+                if (frmInput1.state == "first") {
+                    return;
+                } else if (frmInput1.state == "second") {
+                    frmInput1.state = "first"
+                }
             }
         }
 
@@ -59,15 +79,15 @@ Screen {
         text: qsTr("Adding a new wine to your Cellar")
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 18; italic: true }
-        anchors.top: upperBar.top
-        anchors.topMargin: 80
+        anchors.top: upperBar.bottom
+        anchors.topMargin: 3
         anchors.horizontalCenter: upperBar.horizontalCenter
     }
 
     Image {
         id: imgLine
         anchors.top: txtAdding.bottom
-        anchors.topMargin: 17
+        anchors.topMargin: 3
         anchors.horizontalCenter: upperBar.horizontalCenter
         source: "imgs/line_break.png"
     }
@@ -75,7 +95,7 @@ Screen {
 
     Text {
         id: txtSteps
-        text: qsTr("Step 1")
+        text: qsTr("Step 1 of 2")
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 28; }
         anchors.top: imgLine.bottom
@@ -87,14 +107,14 @@ Screen {
         id: wdgFirst
         //A tad verbose but better than hardcoded
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 1.10
+        imgLine.height + txtSteps.height) * 0.87
         visible: true
     }
 
     InputSecond {
         id: wdgSecond
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 1.10
+        imgLine.height + txtSteps.height) * 0.87
         visible: false
     }
 
@@ -136,8 +156,8 @@ Screen {
             }
 
             PropertyChanges {
-                target: wdgThird
-                visible: false
+                target: txtSteps
+                text: qsTr("Step 1 of 2")
             }
 
             PropertyChanges {
@@ -160,8 +180,8 @@ Screen {
             }
 
             PropertyChanges {
-                target: wdgThird
-                visible: false
+                target: txtSteps
+                text: qsTr("Step 2 of 2")
             }
 
             PropertyChanges {
