@@ -71,7 +71,10 @@ void CellarController::initUI()
 
     default:
         m_view->setSource(QUrl("qrc:/qml/main.qml"));
-        m_view->show();
+        if (Utils::fullscreen())
+            m_view->showFullScreen();
+        else
+            m_view->show();
         break;
     }
 
