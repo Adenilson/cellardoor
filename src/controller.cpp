@@ -109,8 +109,13 @@ void CellarController::createNewWine()
     obj.setProducer((*m_map)["producer"].toString());
     obj.setYear((*m_map)["year"].toInt());
     obj.setPrice((*m_map)["price"].toFloat());
+
     obj.setTasting((*m_map)["tasting"].toString());
-    //TODO: missing fields (region, etc)
+    obj.setComparison((*m_map)["comparison"].toString());
+    obj.setLocation((*m_map)["location"].toString());
+    obj.setDate((*m_map)["date"].toString());
+    obj.setRate((*m_map)["rate"].toString());
+
     m_database->insertType(obj);
 
     m_modelWine->addItem(obj);
@@ -175,7 +180,12 @@ void CellarController::fillStorage(int id)
     global["producer"] = obj.producer();
     global["year"] = obj.year();
     global["price"] = obj.price();
+
     global["tasting"] = obj.tasting();
+    global["comparison"] = obj.comparison();
+    global["location"] = obj.location();
+    global["date"] = obj.date();
+    global["rate"] = obj.rate();
     //TODO: emit a signal with done
 }
 
@@ -192,8 +202,12 @@ void CellarController::editWine(int id)
     obj.setProducer((*m_map)["producer"].toString());
     obj.setYear((*m_map)["year"].toInt());
     obj.setPrice((*m_map)["price"].toFloat());
+
     obj.setTasting((*m_map)["tasting"].toString());
-    //TODO: missing fields (region, etc)
+    obj.setComparison((*m_map)["comparison"].toString());
+    obj.setLocation((*m_map)["location"].toString());
+    obj.setDate((*m_map)["date"].toString());
+    obj.setRate((*m_map)["rate"].toString());
 
     if (m_database->updateType(obj)) {
 
