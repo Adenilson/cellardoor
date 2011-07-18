@@ -26,12 +26,10 @@ public:
     QString glass;
     QString cork;
 
-    QString comments;
-    QString comparisons;
+    QString comparison;
     QString location;
-    QString coordinates;
-    QDate date;
-    char rate;
+    QString date;
+    QString rate;
 
 };
 
@@ -67,11 +65,11 @@ WineData &WineData::operator=(const WineData &data)
     dptr->bottle = data.dptr->bottle;
     dptr->glass = data.dptr->glass;
     dptr->cork = data.dptr->cork;
-    dptr->comments = data.dptr->comments;
+    //dptr->comments = data.dptr->comments;
 
-    dptr->comparisons = data.dptr->comparisons;
+    dptr->comparison = data.dptr->comparison;
     dptr->location = data.dptr->location;
-    dptr->coordinates = data.dptr->coordinates;
+    //dptr->coordinates = data.dptr->coordinates;
     dptr->date = data.dptr->date;
     dptr->rate = data.dptr->rate;
 
@@ -176,4 +174,45 @@ bool WineData::operator==(const WineData &data) const
     }
 
     return result;
+}
+
+QString WineData::comparison() const
+{
+    return dptr->comparison;
+}
+
+void WineData::setComparison(const QString &comparison)
+{
+    dptr->comparison = comparison;
+}
+
+QString WineData::location() const
+{
+    return dptr->location;
+
+}
+
+void WineData::setLocation(const QString &place)
+{
+    dptr->location = place;
+}
+
+QString WineData::date() const
+{
+    return dptr->date;
+}
+
+void WineData::setDate(const QString &date)
+{
+    dptr->date = date;
+}
+
+QString WineData::rate() const
+{
+    return dptr->rate;
+}
+
+void WineData::setRate(const QString &rate)
+{
+    dptr->rate = rate;
 }

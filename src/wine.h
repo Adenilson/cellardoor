@@ -23,14 +23,13 @@ class WineData: public QObject
     Q_PROPERTY(QString db_bottle READ bottle WRITE setBottle)
     Q_PROPERTY(QString db_glass READ glass WRITE setGlass)
     Q_PROPERTY(QString db_cork READ cork WRITE setCork)
-
-    Q_PROPERTY(QString db_comments READ comments WRITE setComments)
-    Q_PROPERTY(QString db_comparisons READ comparisons WRITE setComparisons)
-    Q_PROPERTY(QString db_location READ location  WRITE setLocation)
     Q_PROPERTY(QString db_coordinates READ coordinates WRITE setCoordinates)
-    Q_PROPERTY(QDate db_date READ date WRITE setDate)
-    Q_PROPERTY(char db_rate READ rate WRITE setRate)
 */
+    Q_PROPERTY(QString db_comparison READ comparison WRITE setComparison)
+    Q_PROPERTY(QString db_location READ location  WRITE setLocation)
+    Q_PROPERTY(QString db_date READ date WRITE setDate)
+    Q_PROPERTY(QString db_rate READ rate WRITE setRate)
+
 
 public:
     WineData(QObject *parent = 0);
@@ -70,6 +69,18 @@ public:
     QString tasting() const;
     void setTasting(const QString &ataste);
 
+    QString comparison() const;
+    void setComparison(const QString &comparison);
+
+    QString location() const;
+    void setLocation(const QString &place);
+
+    QString date() const;
+    void setDate(const QString &date);
+
+    QString rate() const;
+    void setRate(const QString &rate);
+
 protected:
     WineDataPrivate *dptr;
 
@@ -78,4 +89,3 @@ protected:
 
 
 #endif
-
