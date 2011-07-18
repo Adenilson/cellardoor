@@ -42,7 +42,7 @@ Item {
     }
 
     function setter(storage) {
-        wdgTaste.text = storage.taste
+        wdgTaste.text = storage.tasting
         wdgComparison.text = storage.comparison
         wdgWhere.text = storage.where
         wdgWhen.text = storage.when
@@ -50,7 +50,7 @@ Item {
     }
 
     function getter(storage) {
-        storage.taste = wdgTaste.text;
+        storage.tasting = wdgTaste.text;
         storage.comparison = wdgComparison.text;
         storage.where = wdgWhere.text
         storage.when = wdgWhen.text
