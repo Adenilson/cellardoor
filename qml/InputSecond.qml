@@ -44,16 +44,16 @@ Item {
     function setter(storage) {
         wdgTaste.text = storage.tasting
         wdgComparison.text = storage.comparison
-        wdgWhere.text = storage.where
-        wdgWhen.text = storage.when
+        wdgWhere.text = storage.location
+        wdgWhen.text = storage.date
         wdgRate.text = storage.rate
     }
 
     function getter(storage) {
         storage.tasting = wdgTaste.text;
         storage.comparison = wdgComparison.text;
-        storage.where = wdgWhere.text
-        storage.when = wdgWhen.text
+        storage.location = wdgWhere.text
+        storage.date = wdgWhen.text
         storage.rate = wdgRate.text
     }
 
