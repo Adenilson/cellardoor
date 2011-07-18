@@ -19,7 +19,6 @@ Screen {
     function setter(storage) {
         wdgFirst.setter(storage)
         wdgSecond.setter(storage)
-        //TODO: add calls to the other widgets
     }
 
     function getter(storage) {
