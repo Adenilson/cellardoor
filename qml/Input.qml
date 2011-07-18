@@ -23,7 +23,7 @@ Screen {
 
     function getter(storage) {
         wdgFirst.getter(storage)
-        //TODO: add calls to the other widgets
+        wdgSecond.getter(storage)
     }
 
     Text {
