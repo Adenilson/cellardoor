@@ -95,7 +95,7 @@ void CellarController::updateStorage(const QString &key, const QVariant &value)
 {
     Q_UNUSED(key);
     Q_UNUSED(value);
-    qDebug() << "UI changed wine data...";
+    qDebug() << "UI changed wine data..." << value.toString();
 }
 
 void CellarController::createNewWine()
@@ -109,7 +109,8 @@ void CellarController::createNewWine()
     obj.setProducer((*m_map)["producer"].toString());
     obj.setYear((*m_map)["year"].toInt());
     obj.setPrice((*m_map)["price"].toFloat());
-    //TODO: missing fields (region, tasting, etc)
+    obj.setTasting((*m_map)["tasting"].toString());
+    //TODO: missing fields (region, etc)
     m_database->insertType(obj);
 
     m_modelWine->addItem(obj);
@@ -174,6 +175,7 @@ void CellarController::fillStorage(int id)
     global["producer"] = obj.producer();
     global["year"] = obj.year();
     global["price"] = obj.price();
+    global["tasting"] = obj.tasting();
     //TODO: emit a signal with done
 }
 
@@ -190,7 +192,8 @@ void CellarController::editWine(int id)
     obj.setProducer((*m_map)["producer"].toString());
     obj.setYear((*m_map)["year"].toInt());
     obj.setPrice((*m_map)["price"].toFloat());
-    //TODO: missing fields (region, tasting, etc)
+    obj.setTasting((*m_map)["tasting"].toString());
+    //TODO: missing fields (region, etc)
 
     if (m_database->updateType(obj)) {
 
