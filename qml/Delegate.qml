@@ -82,7 +82,7 @@ BorderImage {
         anchors.top: imgType.bottom
         anchors.topMargin: 8
         anchors.horizontalCenter: imgType.horizontalCenter
-        width: dynLength(type)
+        width: dynLength(grape)
     }
 
     Text {
