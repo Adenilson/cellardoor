@@ -5,9 +5,11 @@ Rectangle {
     width: 150
     height: 100
     color: "red"
-
+    property string label: qsTr("Red")
     signal enabled();
     signal disabled();
+
+	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
     MouseArea {
         anchors.fill: parent
@@ -39,6 +41,18 @@ Rectangle {
         anchors.left: wdgRect.left
         anchors.top: wdgRect.top
         anchors.bottom: wdgRect.bottom
+    }
+
+    Text {
+        id: txtCheck
+        text: wdgParent.label
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 22 }
+        anchors.left: wdgRect.right
+        anchors.leftMargin: 10
+        anchors.top: wdgRect.top
+        anchors.topMargin: 5
+
     }
 
     state: "enabled"
