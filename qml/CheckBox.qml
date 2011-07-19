@@ -1,10 +1,10 @@
 import Qt 4.7
 
-Rectangle {
+Item {
     id: wdgParent
-    width: 150
-    height: 100
-    color: "red"
+    width: 100
+    height: 40
+
     property string label: qsTr("Red")
     signal enabled();
     signal disabled();
