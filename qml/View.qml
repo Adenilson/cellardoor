@@ -21,6 +21,30 @@ Screen {
         source: "imgs/main_middle_bar.png"
     }
 
+    CheckBox {
+        id: chkRed
+        anchors.top: imgBarmiddle.top
+        anchors.topMargin: 15
+        anchors.left: imgBarmiddle.left
+    }
+
+    CheckBox {
+        id: chkWhite
+        label: qsTr("White")
+        anchors.top: imgBarmiddle.top
+        anchors.topMargin: 15
+        anchors.horizontalCenter: imgBarmiddle.horizontalCenter
+    }
+
+    CheckBox {
+        id: chkOther
+        label: qsTr("Other")
+        anchors.top: imgBarmiddle.top
+        anchors.topMargin: 15
+        anchors.right: imgBarmiddle.right
+    }
+
+
     Text {
         id: txtCellar
         text: "CellaDoor"
