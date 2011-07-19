@@ -35,6 +35,7 @@ Item {
 
     function cleanup() {
         wdgName.text = "Wine name here"
+        wdgColor.text = "Red"
         wdgType.text = "Grape type e.g Merlot"
         wdgProducer.text = "Vineyard"
         wdgYear.text = "YYYY"
@@ -43,6 +44,7 @@ Item {
 
     function setter(storage) {
         wdgName.text = storage.name
+        wdgColor.text = storage.type
         wdgType.text = storage.grape
         wdgProducer.text = storage.producer
         wdgYear.text = storage.year
@@ -52,7 +54,7 @@ Item {
     function getter(storage) {
         storage.name = wdgName.text;
         //TODO: this must be a combobox
-        //storage.type = wdgType.text;
+        storage.type = wdgColor.text
         storage.grape = wdgType.text;
         storage.producer = wdgProducer.text
         storage.year = wdgYear.text
@@ -69,12 +71,23 @@ Item {
     }
 
     InputWidget {
+        id: wdgColor
+        title: qsTr("Color")
+        text: "Red"
+        height: 50; width: 120
+        anchors.top: wdgName.bottom
+        anchors.topMargin: 5
+        anchors.left: bkgItem.left
+    }
+
+    InputWidget {
         id: wdgType
         title: qsTr("Kind of Wine")
         text: "Grape type e.g Merlot"
         anchors.top: wdgName.bottom
         anchors.topMargin: 5
-        anchors.left: bkgItem.left
+        anchors.left: wdgColor.right
+        anchors.leftMargin: 10
         anchors.right: bkgItem.right
     }
 
