@@ -82,7 +82,7 @@ Frame {
 
     Text {
         id: txtAppname
-        text: "CellaDoor"
+        text: "CellarDoor"
     	color: "#FFFFFF"
 	    font { family: nsRegular.name; pixelSize: 42; }
         anchors.horizontalCenter: imgBar.horizontalCenter
