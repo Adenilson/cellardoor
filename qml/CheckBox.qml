@@ -75,6 +75,7 @@ Rectangle {
         }
     ]
 
-    //TODO: label
+    //TODO: fade transition on check state change
+
 }
 
