@@ -15,9 +15,9 @@ using namespace Utils;
 
 /* TODOs:
  * vs 1.0
- * - persistence of new data (form2 and 3)
+ * - ui for querying: kind (red/white/etc), name, region, price
+ * - persistence of image (form 3)
  * - ui for image browsing
- * - query by: kind (red/white/etc), name, region
  * - geolocation (places of wine, reverse backmapping by name)
  * - fancy animations
  *
