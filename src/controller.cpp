@@ -15,7 +15,7 @@ using namespace Utils;
 
 /* TODOs:
  * vs 1.0
- * - ui for querying: kind (red/white/etc), name, region, price
+ * - Checkbox image: replace it with Designer's asset
  * - persistence of image (form 3)
  * - ui for image browsing
  * - geolocation (places of wine, reverse backmapping by name)
