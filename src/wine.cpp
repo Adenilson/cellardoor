@@ -8,14 +8,14 @@
 class WineDataPrivate
 {
 public:
-    WineDataPrivate(): id(-1), type(0), year(2011),
+    WineDataPrivate(): id(-1), type("red"), year(2011),
                        price(1.99), rate(10)
     { }
 
     int id;
     QString name;
     QString grape;
-    char type;
+    QString type;
     QString producer;
     QString region;
     uint year;
@@ -105,12 +105,12 @@ void WineData::setGrape(const QString &agrape)
     dptr->grape = agrape;
 }
 
-char WineData::type() const
+QString WineData::type() const
 {
     return dptr->type;
 }
 
-void WineData::setType(const char &atype)
+void WineData::setType(const QString &atype)
 {
     dptr->type = atype;
 }

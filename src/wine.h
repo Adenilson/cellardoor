@@ -12,7 +12,7 @@ class WineData: public QObject
     Q_PROPERTY(int db_id READ id WRITE setId)
     Q_PROPERTY(QString db_name READ name WRITE setName)
     Q_PROPERTY(QString db_grape READ grape WRITE setGrape)
-    Q_PROPERTY(char db_type READ type WRITE setType)
+    Q_PROPERTY(QString db_type READ type WRITE setType)
 
     Q_PROPERTY(QString db_producer READ producer WRITE setProducer)
     Q_PROPERTY(QString db_region READ region  WRITE setRegion)
@@ -51,8 +51,8 @@ public:
     QString grape() const;
     void setGrape(const QString &agrape);
 
-    char type() const;
-    void setType(const char &atype);
+    QString type() const;
+    void setType(const QString &atype);
 
     QString producer() const;
     void setProducer(const QString &aproducer);

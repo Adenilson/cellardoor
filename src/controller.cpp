@@ -103,6 +103,7 @@ void CellarController::createNewWine()
     qDebug() << "Creating a new wine...";
     WineData obj;
     obj.setName((*m_map)["name"].toString());
+    obj.setType((*m_map)["type"].toString());
     obj.setGrape((*m_map)["grape"].toString());
     //TODO: missing in the UI
     //obj.setType((*m_map)["type"]);
@@ -176,6 +177,7 @@ void CellarController::fillStorage(int id)
 
     obj = items[tmp];
     global["name"] = obj.name();
+    global["type"] = obj.type();
     global["grape"] = obj.grape();
     global["producer"] = obj.producer();
     global["year"] = obj.year();
@@ -196,6 +198,7 @@ void CellarController::editWine(int id)
     WineData obj;
     obj.setId(id);
     obj.setName((*m_map)["name"].toString());
+    obj.setType((*m_map)["type"].toString());
     obj.setGrape((*m_map)["grape"].toString());
     //TODO: missing in the UI
     //obj.setType((*m_map)["type"]);
