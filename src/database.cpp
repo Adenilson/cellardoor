@@ -180,6 +180,19 @@ error:
 }
 
 template <class Type>
+void Database<Type>::filter(const QString &query)
+{
+
+    if (!m_wineModel) {
+        qCritical() << "Unable to filter table!";
+        return;
+    }
+
+    m_wineModel->setFilter(query);
+    m_wineModel->select();
+}
+
+template <class Type>
 bool Database<Type>::setType(const Type &data, int row, bool hasAutoIncrement)
 {
     QStringList propertiesList;

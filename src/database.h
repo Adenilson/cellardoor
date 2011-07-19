@@ -31,6 +31,8 @@ public:
     bool updateType(const Type &wine);
     bool deleteTypeById(int id);
 
+    void filter(const QString &query = "grape = \"Merlot\"");
+
     QList<Type> retrieveTypes(Filter arg=NoFilter) const;
 
 protected:
