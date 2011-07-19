@@ -1,9 +1,26 @@
 import Qt 4.7
 
 Rectangle {
+    id: wdgParent
     width: 150
     height: 100
     color: "red"
+
+    signal enabled();
+    signal disabled();
+
+    MouseArea {
+        anchors.fill: parent
+        onPressed: {
+            if (wdgParent.state == "disabled") {
+                wdgParent.state = "enabled";
+                wdgParent.enabled();
+            } else {
+                wdgParent.state = "disabled";
+                wdgParent.disabled();
+            }
+        }
+    }
 
     Rectangle {
         id: wdgRect
@@ -24,6 +41,26 @@ Rectangle {
         anchors.bottom: wdgRect.bottom
     }
 
-    //TODO: add mouse events, 2 states, label
+    state: "enabled"
+    states: [
+        State {
+            name: "enabled"
+            PropertyChanges {
+                target: imgCheck
+                visible: true
+            }
+
+        },
+
+        State {
+            name: "disabled"
+            PropertyChanges {
+                target: imgCheck
+                visible: false
+            }
+        }
+    ]
+
+    //TODO: label
 }
 
