@@ -10,6 +10,8 @@
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 #include <QtCore/QDir>
+#include <QtCore/QStateMachine>
+#include <QtCore/QState>
 
 using namespace Utils;
 
@@ -35,7 +37,8 @@ CellarController::CellarController(QObject *parent, QApplication *application)
     : QObject(parent), m_app(application), m_view(new CellarView),
       m_map(new QDeclarativePropertyMap(this)),
       m_modelWine(new GenericModel<WineData>(this)),
-      m_database(Database<WineData>::instance(this))
+      m_database(Database<WineData>::instance(this)),
+      m_filter(new QStateMachine(this))
 {
     m_view->rootContext()->setContextProperty("Controller", this);
     connect(m_map, SIGNAL(valueChanged(const QString &, const QVariant &)),
@@ -47,6 +50,7 @@ CellarController::CellarController(QObject *parent, QApplication *application)
     connect(m_view->engine(), SIGNAL(quit()), this, SLOT(quit()));
 
     fillStorageProperties();
+    setupFilterStates();
 }
 
 CellarController::~CellarController()
@@ -89,6 +93,43 @@ void CellarController::initUI()
 
     //TODO: set it within QML and only when required
     QTimer::singleShot(4000, this, SLOT(setScreen()));
+}
+
+void CellarController::setupFilterStates()
+{
+    QState *s0 = new QState;
+    s0->assignProperty(m_database, "filter", "id > -1");
+
+    QState *s2 = new QState;
+    s2->assignProperty(m_database, "filter", "type = \"red\"");
+
+    //XXX: not sure if this is the best approach
+    s0->addTransition(this, SIGNAL(onlyRed()), s2);
+    s2->addTransition(this, SIGNAL(allWines()), s0);
+
+    m_filter->addState(s0);
+    m_filter->addState(s2);
+
+    m_filter->setInitialState(s0);
+    m_filter->start();
+}
+
+void CellarController::filter(const QString &state)
+{
+    //TODO: implement state machine
+    qDebug() << "state: " << state;
+
+    if (state == "s2") {
+        emit onlyRed();
+    } else if (state == "s0") {
+        emit allWines();
+    }
+
+    QList<WineData> dataItems(m_database->retrieveTypes());
+    if (dataItems.count()) {
+        m_modelWine->clear();
+        m_modelWine->addItems(dataItems);
+    }
 }
 
 void CellarController::updateStorage(const QString &key, const QVariant &value)

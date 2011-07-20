@@ -26,6 +26,8 @@ Screen {
         anchors.top: imgBarmiddle.top
         anchors.topMargin: 15
         anchors.left: imgBarmiddle.left
+        onDisabled: Controller.filter("s2");
+        onEnabled: Controller.filter("s0");
     }
 
     CheckBox {
