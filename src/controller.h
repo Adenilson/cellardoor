@@ -32,7 +32,7 @@ public slots:
     int system();
 
 
-    void filter(const QString &state);
+    void filter(const int &state);
 
 signals:
     void onlyRed();

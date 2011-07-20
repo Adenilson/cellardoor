@@ -114,12 +114,19 @@ void CellarController::setupFilterStates()
     m_filter->start();
 }
 
-void CellarController::filter(const QString &state)
+void CellarController::filter(const int &state)
 {
-    if (state == "s2") {
-        emit onlyRed();
-    } else if (state == "s0") {
+    switch (state) {
+    case 0:
         emit allWines();
+        break;
+
+    case 2:
+        emit onlyRed();
+        break;
+
+    default:
+        return;
     }
 
     QList<WineData> dataItems(m_database->retrieveTypes());
