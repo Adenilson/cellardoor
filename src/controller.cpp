@@ -100,15 +100,37 @@ void CellarController::setupFilterStates()
     QState *s0 = new QState;
     s0->assignProperty(m_database, "filter", "id > -1");
 
+    QState *s1 = new QState;
+    s1->assignProperty(m_database, "filter", "type = \"red\" OR type = \"white\"");
+
     QState *s2 = new QState;
     s2->assignProperty(m_database, "filter", "type = \"red\"");
 
+    QState *s3 = new QState;
+    s3->assignProperty(m_database, "filter", "type != \"red\"");
+
+    QState *s6 = new QState;
+    s6->assignProperty(m_database, "filter", "type != \"white\"");
+
+
     //XXX: not sure if this is the best approach
-    s0->addTransition(this, SIGNAL(onlyRed()), s2);
-    s2->addTransition(this, SIGNAL(allWines()), s0);
+    s0->addTransition(this, SIGNAL(red()), s2);
+    s0->addTransition(this, SIGNAL(redWhite()), s1);
+    s0->addTransition(this, SIGNAL(whiteOther()), s3);
+    s0->addTransition(this, SIGNAL(redOther()), s6);
+
+
+    s2->addTransition(this, SIGNAL(all()), s0);
+    s1->addTransition(this, SIGNAL(all()), s0);
+    s3->addTransition(this, SIGNAL(all()), s0);
+    s6->addTransition(this, SIGNAL(all()), s0);
 
     m_filter->addState(s0);
+    m_filter->addState(s1);
     m_filter->addState(s2);
+    m_filter->addState(s3);
+    m_filter->addState(s6);
+
 
     m_filter->setInitialState(s0);
     m_filter->start();
@@ -118,18 +140,32 @@ void CellarController::filter(const int &state)
 {
     switch (state) {
     case 0:
-        emit allWines();
+        emit all();
+        break;
+
+    case 1:
+        emit redWhite();
         break;
 
     case 2:
-        emit onlyRed();
+        emit red();
+        break;
+
+    case 3:
+        emit whiteOther();
+        break;
+
+
+    case 6:
+        emit redOther();
         break;
 
     default:
         return;
     }
 
-    QList<WineData> dataItems(m_database->retrieveTypes());
+    QList<WineData> dataItems;
+    dataItems = m_database->retrieveTypes();
     if (dataItems.count()) {
         m_modelWine->clear();
         m_modelWine->addItems(dataItems);

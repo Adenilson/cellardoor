@@ -35,8 +35,13 @@ public slots:
     void filter(const int &state);
 
 signals:
-    void onlyRed();
-    void allWines();
+    void red();
+    void all();
+    void redWhite();
+    void whiteOther();
+    void redOther();
+    void white();
+    void other();
 
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);

@@ -26,7 +26,7 @@ Screen {
         anchors.top: imgBarmiddle.top
         anchors.topMargin: 15
         anchors.left: imgBarmiddle.left
-        onDisabled: Controller.filter(2);
+        onDisabled: Controller.filter(3);
         onEnabled: Controller.filter(0);
     }
 
@@ -36,6 +36,9 @@ Screen {
         anchors.top: imgBarmiddle.top
         anchors.topMargin: 15
         anchors.horizontalCenter: imgBarmiddle.horizontalCenter
+        onDisabled: Controller.filter(6);
+        onEnabled: Controller.filter(0);
+
     }
 
     CheckBox {
@@ -44,6 +47,9 @@ Screen {
         anchors.top: imgBarmiddle.top
         anchors.topMargin: 15
         anchors.right: imgBarmiddle.right
+        onDisabled: Controller.filter(1);
+        onEnabled: Controller.filter(0);
+
     }
 
 
