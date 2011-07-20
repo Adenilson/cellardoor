@@ -8,14 +8,25 @@ class QSqlTableModel;
 
 class DatabaseWorkaround: public QObject
 {
-Q_OBJECT
-    public:
-Q_ENUMS(Filter)
+    Q_OBJECT
+    Q_PROPERTY(QString filter READ filter WRITE setFilter)
+
+public:
+    Q_ENUMS(Filter)
     enum Filter { NoFilter, OrderByAgeDesc };
+
+public slots:
+virtual void setFilter(const QString &query) = 0;
+QString filter() const
+{
+    return m_filter;
+}
 
 protected:
 DatabaseWorkaround(QObject *parent = 0): QObject(parent)
 { }
+
+QString m_filter;
 
 };
 
@@ -31,9 +42,9 @@ public:
     bool updateType(const Type &wine);
     bool deleteTypeById(int id);
 
-    void filter(const QString &query = "grape = \"Merlot\"");
-
     QList<Type> retrieveTypes(Filter arg=NoFilter) const;
+
+    void setFilter(const QString &query = "type = \"Red\"");
 
 protected:
     Database(QObject *parent = 0);

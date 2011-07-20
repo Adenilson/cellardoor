@@ -180,7 +180,7 @@ error:
 }
 
 template <class Type>
-void Database<Type>::filter(const QString &query)
+void Database<Type>::setFilter(const QString &query)
 {
 
     if (!m_wineModel) {
@@ -188,6 +188,7 @@ void Database<Type>::filter(const QString &query)
         return;
     }
 
+    m_filter = query;
     m_wineModel->setFilter(query);
     m_wineModel->select();
 }
