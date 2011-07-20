@@ -116,9 +116,6 @@ void CellarController::setupFilterStates()
 
 void CellarController::filter(const QString &state)
 {
-    //TODO: implement state machine
-    qDebug() << "state: " << state;
-
     if (state == "s2") {
         emit onlyRed();
     } else if (state == "s0") {
