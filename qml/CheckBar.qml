@@ -79,12 +79,28 @@ Item {
         console.log("########## disable: " + name + " state: " + widget.state);
         if (name == "red" && frmParent.currentState == 3) {
             frmParent.currentState = 0
-
         } else if (name == "white" && frmParent.currentState == 6) {
             frmParent.currentState = 0
-
         } else if (name == "other" && frmParent.currentState == 1) {
             frmParent.currentState = 0
+        } else if (name == "red" && frmParent.currentState == 5) {
+            frmParent.currentState = 6
+        } else if (name == "red" && frmParent.currentState == 4) {
+            frmParent.currentState = 1
+        } else if (name == "red" && frmParent.currentState == 7) {
+            frmParent.currentState = 2
+        } else if (name == "white" && frmParent.currentState == 5) {
+            frmParent.currentState = 3
+        } else if (name == "white" && frmParent.currentState == 2) {
+            frmParent.currentState = 1
+        } else if (name == "white" && frmParent.currentState == 7) {
+            frmParent.currentState = 4
+        } else if (name == "other" && frmParent.currentState == 4) {
+            frmParent.currentState = 3
+        } else if (name == "other" && frmParent.currentState == 2) {
+            frmParent.currentState = 6
+        } else if (name == "other" && frmParent.currentState == 7) {
+            frmParent.currentState = 5
         }
 
         frmParent.filter(frmParent.currentState)
