@@ -9,7 +9,6 @@
 class QDeclarativePropertyMap;
 class CellarView;
 class QApplication;
-class QStateMachine;
 
 class CellarController : public QObject
 {
@@ -31,17 +30,7 @@ public slots:
     QString workingDir();
     int system();
 
-
     void filter(const int &state);
-
-signals:
-    void red();
-    void all();
-    void redWhite();
-    void whiteOther();
-    void redOther();
-    void white();
-    void other();
 
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);
@@ -57,7 +46,6 @@ private:
     QDeclarativePropertyMap *m_map;
     GenericModel<WineData> *m_modelWine;
     Database<WineData> *m_database;
-    QStateMachine *m_filter;
 };
 
 #endif
