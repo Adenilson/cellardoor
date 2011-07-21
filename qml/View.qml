@@ -26,7 +26,10 @@ Screen {
         anchors.top: imgBarmiddle.top
         anchors.left: imgBarmiddle.left
         anchors.right: imgBarmiddle.right
-        onFilter: Controller.filter(state)
+        onFilter: {
+            Controller.filter(state)
+            txtPosition.updateLabel(0)
+        }
     }
 
     Text {
@@ -65,7 +68,12 @@ Screen {
             //BUG: currentIndex returns the same value
             //txtPosition.text = lstWine.currentIndex + 1 + " / " + Controller.wineCount();
             if (index != -1) {
-                txtPosition.text = index + 1 + " / " + Controller.wineCount();
+                if (Controller.wineCount() > 0) {
+                    txtPosition.text = index + 1 + " / " +
+                    Controller.wineCount();
+                } else {
+                    txtPosition.text = "0 / 0"
+                }
             } else {
                 txtPosition.text = "0 / 0"
             }
