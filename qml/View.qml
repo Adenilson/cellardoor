@@ -64,7 +64,11 @@ Screen {
         function updateLabel(index) {
             //BUG: currentIndex returns the same value
             //txtPosition.text = lstWine.currentIndex + 1 + " / " + Controller.wineCount();
-            txtPosition.text = index + 1 + " / " + Controller.wineCount();
+            if (index != -1) {
+                txtPosition.text = index + 1 + " / " + Controller.wineCount();
+            } else {
+                txtPosition.text = "0 / 0"
+            }
         }
     }
 
