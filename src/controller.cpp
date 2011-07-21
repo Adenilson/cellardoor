@@ -97,42 +97,87 @@ void CellarController::initUI()
 
 void CellarController::setupFilterStates()
 {
-    QState *s0 = new QState;
+    QState *initial = new QState;
+    QState *s0 = new QState(initial);
     s0->assignProperty(m_database, "filter", "id > -1");
 
-    QState *s1 = new QState;
+    QState *s1 = new QState(initial);
     s1->assignProperty(m_database, "filter", "type = \"red\" OR type = \"white\"");
 
-    QState *s2 = new QState;
+    QState *s2 = new QState(initial);
     s2->assignProperty(m_database, "filter", "type = \"red\"");
 
-    QState *s3 = new QState;
+    QState *s3 = new QState(initial);
     s3->assignProperty(m_database, "filter", "type != \"red\"");
 
-    QState *s6 = new QState;
+    QState *s4 = new QState(initial);
+    s4->assignProperty(m_database, "filter", "type = \"white\"");
+
+    QState *s5 = new QState(initial);
+    s5->assignProperty(m_database, "filter", "type != \"red\" AND type != \"white\"");
+
+    QState *s6 = new QState(initial);
     s6->assignProperty(m_database, "filter", "type != \"white\"");
 
 
     //XXX: not sure if this is the best approach
-    s0->addTransition(this, SIGNAL(red()), s2);
+    initial->addTransition(this, SIGNAL(all()), s0);
+
     s0->addTransition(this, SIGNAL(redWhite()), s1);
+    s0->addTransition(this, SIGNAL(red()), s2);
     s0->addTransition(this, SIGNAL(whiteOther()), s3);
+    s0->addTransition(this, SIGNAL(white()), s4);
+    s0->addTransition(this, SIGNAL(other()), s5);
     s0->addTransition(this, SIGNAL(redOther()), s6);
 
+    s1->addTransition(this, SIGNAL(red()), s2);
+    s1->addTransition(this, SIGNAL(whiteOther()), s3);
+    s1->addTransition(this, SIGNAL(white()), s4);
+    s1->addTransition(this, SIGNAL(other()), s5);
+    s1->addTransition(this, SIGNAL(redOther()), s6);
 
-    s2->addTransition(this, SIGNAL(all()), s0);
-    s1->addTransition(this, SIGNAL(all()), s0);
-    s3->addTransition(this, SIGNAL(all()), s0);
-    s6->addTransition(this, SIGNAL(all()), s0);
+    s2->addTransition(this, SIGNAL(redWhite()), s1);
+    s2->addTransition(this, SIGNAL(whiteOther()), s3);
+    s2->addTransition(this, SIGNAL(white()), s4);
+    s2->addTransition(this, SIGNAL(other()), s5);
+    s2->addTransition(this, SIGNAL(redOther()), s6);
 
+
+    s3->addTransition(this, SIGNAL(redWhite()), s1);
+    s3->addTransition(this, SIGNAL(red()), s2);
+    s3->addTransition(this, SIGNAL(white()), s4);
+    s3->addTransition(this, SIGNAL(other()), s5);
+    s3->addTransition(this, SIGNAL(redOther()), s6);
+
+    s4->addTransition(this, SIGNAL(redWhite()), s1);
+    s4->addTransition(this, SIGNAL(red()), s2);
+    s4->addTransition(this, SIGNAL(whiteOther()), s3);
+    s4->addTransition(this, SIGNAL(other()), s5);
+    s4->addTransition(this, SIGNAL(redOther()), s6);
+
+    s5->addTransition(this, SIGNAL(redWhite()), s1);
+    s5->addTransition(this, SIGNAL(red()), s2);
+    s5->addTransition(this, SIGNAL(whiteOther()), s3);
+    s5->addTransition(this, SIGNAL(white()), s4);
+    s5->addTransition(this, SIGNAL(redOther()), s6);
+
+    s6->addTransition(this, SIGNAL(redWhite()), s1);
+    s6->addTransition(this, SIGNAL(red()), s2);
+    s6->addTransition(this, SIGNAL(whiteOther()), s3);
+    s6->addTransition(this, SIGNAL(white()), s4);
+    s6->addTransition(this, SIGNAL(other()), s5);
+
+    initial->setInitialState(s0);
+    m_filter->addState(initial);
     m_filter->addState(s0);
     m_filter->addState(s1);
     m_filter->addState(s2);
     m_filter->addState(s3);
+    m_filter->addState(s4);
+    m_filter->addState(s5);
     m_filter->addState(s6);
+    m_filter->setInitialState(initial);
 
-
-    m_filter->setInitialState(s0);
     m_filter->start();
 }
 
