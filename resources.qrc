@@ -23,6 +23,7 @@
     	       <file>qml/InputOne.qml</file>
     	       <file>qml/InputSecond.qml</file>
     	       <file>qml/CheckBox.qml</file>
+    	       <file>qml/CheckBar.qml</file>
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
