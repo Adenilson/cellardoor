@@ -200,12 +200,20 @@ void CellarController::filter(const int &state)
         emit whiteOther();
         break;
 
+    case 4:
+        emit white();
+        break;
+
+    case 5:
+        emit other();
+        break;
 
     case 6:
         emit redOther();
         break;
 
     default:
+        m_modelWine->clear();
         return;
     }
 
