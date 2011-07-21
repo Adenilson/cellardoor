@@ -247,6 +247,7 @@ Screen {
         } else {
             Controller.createNewWine()
             txtPosition.updateLabel(0)
+            txtCounter.updateText()
         }
 
         widget.visible = false
