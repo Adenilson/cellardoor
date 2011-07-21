@@ -246,7 +246,7 @@ Screen {
             Controller.editWine(frmSplash.selectedId)
         } else {
             Controller.createNewWine()
-            txtCounter.updateText()
+            txtPosition.updateLabel(0)
         }
 
         widget.visible = false
