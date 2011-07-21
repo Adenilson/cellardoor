@@ -24,7 +24,6 @@ Screen {
     CheckBar {
         id: chkBar
         anchors.top: imgBarmiddle.top
-        anchors.topMargin: 15
         anchors.left: imgBarmiddle.left
         anchors.right: imgBarmiddle.right
         onFilter: Controller.filter(state)
