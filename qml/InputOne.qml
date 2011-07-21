@@ -35,7 +35,7 @@ Item {
 
     function cleanup() {
         wdgName.text = "Wine name here"
-        wdgColor.text = "Red"
+        wdgColor.text = "red"
         wdgType.text = "Grape type e.g Merlot"
         wdgProducer.text = "Vineyard"
         wdgYear.text = "YYYY"
@@ -73,7 +73,7 @@ Item {
     InputWidget {
         id: wdgColor
         title: qsTr("Color")
-        text: "Red"
+        text: "red"
         height: 50; width: 120
         anchors.top: wdgName.bottom
         anchors.topMargin: 5
