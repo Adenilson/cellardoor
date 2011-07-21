@@ -6,7 +6,7 @@
 #include "utils.h"
 
 static const char s_applicationName[] = "celladoor";
-static const char s_applicationVersion[] = "0.50";
+static const char s_applicationVersion[] = "0.51";
 
 int main(int argc, char *argv[])
 {
