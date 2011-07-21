@@ -21,37 +21,14 @@ Screen {
         source: "imgs/main_middle_bar.png"
     }
 
-    CheckBox {
-        id: chkRed
+    CheckBar {
+        id: chkBar
         anchors.top: imgBarmiddle.top
         anchors.topMargin: 15
         anchors.left: imgBarmiddle.left
-        onDisabled: Controller.filter(3);
-        onEnabled: Controller.filter(0);
-    }
-
-    CheckBox {
-        id: chkWhite
-        label: qsTr("White")
-        anchors.top: imgBarmiddle.top
-        anchors.topMargin: 15
-        anchors.horizontalCenter: imgBarmiddle.horizontalCenter
-        onDisabled: Controller.filter(6);
-        onEnabled: Controller.filter(0);
-
-    }
-
-    CheckBox {
-        id: chkOther
-        label: qsTr("Other")
-        anchors.top: imgBarmiddle.top
-        anchors.topMargin: 15
         anchors.right: imgBarmiddle.right
-        onDisabled: Controller.filter(1);
-        onEnabled: Controller.filter(0);
-
+        onFilter: Controller.filter(state)
     }
-
 
     Text {
         id: txtCellar
