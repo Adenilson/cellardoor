@@ -12,6 +12,7 @@
     	       <file>qml/List.qml</file>
     	       <file>qml/Model.qml</file>
     	       <file>qml/Delegate.qml</file>
+    	       <file>qml/InputBase.qml</file>
     	       <file>qml/InputWidget.qml</file>
     	       <file>qml/Button.qml</file>
     	       <file>qml/Submenu.qml</file>
