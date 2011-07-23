@@ -78,6 +78,18 @@ Item {
     }
 
     InputWidget {
+        id: wdgRate
+        title: qsTr("Rating")
+        text: "1 to 5"
+        height: 50; width: 150
+        anchors.top: wdgWhere.bottom
+        anchors.topMargin: 5
+        anchors.right: bkgItem.right
+        anchors.bottom: bkgItem.bottom
+        anchors.bottomMargin: 5
+    }
+
+    InputCalendar {
         id: wdgWhen
         title: qsTr("Date consumed")
         text: "DD-MM-YY"
@@ -89,16 +101,5 @@ Item {
         anchors.bottomMargin: 5
     }
 
-    InputWidget {
-        id: wdgRate
-        title: qsTr("Rating")
-        text: "1 to 5"
-        height: 50; width: 150
-        anchors.top: wdgWhere.bottom
-        anchors.topMargin: 5
-        anchors.right: bkgItem.right
-        anchors.bottom: bkgItem.bottom
-        anchors.bottomMargin: 5
-    }
 
 }
