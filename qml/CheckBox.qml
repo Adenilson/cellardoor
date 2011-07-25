@@ -38,6 +38,8 @@ Item {
     Image {
         id: imgCheck
         source: "imgs/check_mark.png"
+        smooth: true
+        width: 39; height: 39
         anchors.left: wdgRect.left
         anchors.top: wdgRect.top
         anchors.bottom: wdgRect.bottom
