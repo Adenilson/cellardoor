@@ -92,7 +92,7 @@ Item {
     InputCalendar {
         id: wdgWhen
         title: qsTr("Date consumed")
-        text: "DD-MM-YY"
+        date: "DD-MM-YY"
         height: 50; width: 150
         anchors.top: wdgWhere.bottom
         anchors.topMargin: 5
