@@ -1,8 +1,9 @@
 import Qt 4.7
 import "js/calendar.js" as CalendarFunctions
 
-Item {
+Rectangle {
     id: calendar
+    color: "grey"
     clip: true
     width: 353; height: 360
     FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
