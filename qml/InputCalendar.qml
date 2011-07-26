@@ -25,7 +25,7 @@ InputBase {
                     wdgCalendar.visible = false
                 } else {
                     wdgCalendar.visible = true
-                    wdgCalendar.y = imgBackground.y - wdgCalendar.height + 50
+                    wdgCalendar.y = imgBackground.y - wdgCalendar.height
                 }
             }
         }
