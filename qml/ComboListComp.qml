@@ -46,7 +46,7 @@ Rectangle {
                color: "#697e85"
                Image {
                    width: 25; height: 21
-                   source: "imgs/simple_check.png"
+                   source: "imgs/check_mark.png"
                    anchors.verticalCenter: parent.verticalCenter
                    anchors.right: parent.right; anchors.rightMargin: 15
                }
