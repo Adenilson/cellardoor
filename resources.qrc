@@ -38,6 +38,7 @@
     	       <file>qml/InputCombo.qml</file>
     	       <file>qml/InputComboWidget.qml</file>
     	       <file>qml/ModelWineColor.qml</file>
+    	       <file>qml/ModelGrape.qml</file>
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
