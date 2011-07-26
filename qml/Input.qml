@@ -9,7 +9,7 @@ Screen {
     signal finish();
     signal cancel();
 
-    lowerBar.height: 90
+    lowerBar.height: 80
 
     function cleanup() {
         wdgFirst.cleanup()
@@ -111,21 +111,21 @@ Screen {
         id: wdgFirst
         //A tad verbose but better than hardcoded
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 0.87
+        imgLine.height + txtSteps.height) * 0.92
         visible: true
     }
 
     InputSecond {
         id: wdgSecond
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 0.87
+        imgLine.height + txtSteps.height) * 0.92
         visible: false
     }
 
     CameraWidget {
         id: wdgThird
         upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 0.87
+        imgLine.height + txtSteps.height) * 0.92
         onSnaped: console.log("#### I got an image!")
         visible: false
     }

@@ -7,13 +7,13 @@ Screen {
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
     //width: 360; height: 640
-    lowerBar.height: 75
+    lowerBar.height: 65
     property int selectedId: 0
     property bool editing: false
     Image {
         id: imgBarmiddle
         width: parent.width
-        height: 165
+        height: 155
         anchors.bottom: lowerBar.top
         anchors.left: frmSplash.left
         anchors.right: frmSplash.right
@@ -174,6 +174,7 @@ Screen {
         pressed: "imgs/button_bkg.png"
         focused: "imgs/button_bkg.png"
         anchors.bottom: lowerBar.bottom
+        anchors.bottomMargin: -8
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
             var object = List.retrieve("inputone")
