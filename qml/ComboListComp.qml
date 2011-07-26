@@ -9,8 +9,8 @@ Rectangle {
 
     signal comboBoxItemSelected()
 
-    width: parent.width
-    height: parent.height
+    width: 100
+    height: 100
     color: "#000"
     opacity:  0.0
 
@@ -37,7 +37,7 @@ Rectangle {
         width: 360
         height: { currentListHeight > maxHeight ? maxHeight : currentListHeight }
         model: parent.currentModel
-        anchors.centerIn: parent
+        anchors.fill: parent
         clip: true
         delegate: comboItem
         currentIndex: currentModelIndex
@@ -82,7 +82,8 @@ Rectangle {
         //FIXME: this must be a property parameter
         color: "#FFFFFF"
         anchors.horizontalCenter: optionList.horizontalCenter
-        anchors.bottom: optionList.top
+        anchors.top: optionList.top
+        anchors.topMargin: 2
     }
 
     Rectangle {
@@ -91,5 +92,6 @@ Rectangle {
         color: "#FFFFFF"
         anchors.horizontalCenter: optionList.horizontalCenter
         anchors.bottom: optionList.bottom
+        anchors.bottomMargin: 2
     }
 }
