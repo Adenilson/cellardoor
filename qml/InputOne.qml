@@ -108,7 +108,7 @@ Item {
         title: qsTr("Kind of Wine")
         itemLabel: "Grape type e.g Merlot"
         height: 50; width: 250
-        listHeight: 200
+        listHeight: parent.height * 0.8
         listWidth: 250
         anchors.top: wdgName.bottom
         anchors.topMargin: 5
