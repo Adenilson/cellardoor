@@ -36,7 +36,7 @@ Item {
     function cleanup() {
         wdgName.text = "Wine name here"
         wdgColor.itemLabel = "red"
-        wdgType.text = "Grape type e.g Merlot"
+        wdgType.itemLabel = "Grape type e.g Merlot"
         wdgProducer.text = "Vineyard"
         wdgYear.text = "YYYY"
         wdgPrice.text = "$bucks"
@@ -45,7 +45,7 @@ Item {
     function setter(storage) {
         wdgName.text = storage.name
         wdgColor.itemLabel = storage.type
-        wdgType.text = storage.grape
+        wdgType.itemLabel = storage.grape
         wdgProducer.text = storage.producer
         wdgYear.text = storage.year
         wdgPrice.text = "$" + storage.price
@@ -54,7 +54,7 @@ Item {
     function getter(storage) {
         storage.name = wdgName.text;
         storage.type = wdgColor.itemLabel
-        storage.grape = wdgType.text;
+        storage.grape = wdgType.itemLabel;
         storage.producer = wdgProducer.text
         storage.year = wdgYear.text
 
@@ -66,17 +66,6 @@ Item {
         }
         storage.price = tmp
 
-    }
-
-    InputWidget {
-        id: wdgType
-        title: qsTr("Kind of Wine")
-        text: "Grape type e.g Merlot"
-        anchors.top: wdgName.bottom
-        anchors.topMargin: 5
-        anchors.left: wdgColor.right
-        anchors.leftMargin: 10
-        anchors.right: bkgItem.right
     }
 
     InputWidget {
@@ -114,8 +103,24 @@ Item {
     }
 
     InputComboWidget {
+        id: wdgType
+        model: ModelGrape { id: m2 }
+        title: qsTr("Kind of Wine")
+        itemLabel: "Grape type e.g Merlot"
+        height: 50; width: 250
+        listHeight: 200
+        listWidth: 250
+        anchors.top: wdgName.bottom
+        anchors.topMargin: 5
+        anchors.left: wdgColor.right
+        anchors.leftMargin: -10
+        anchors.right: bkgItem.right
+    }
+
+
+    InputComboWidget {
         id: wdgColor
-        model: ModelWineColor { id: foobie }
+        model: ModelWineColor { id: m1 }
         title: qsTr("Color")
         itemLabel: qsTr("wine color")
         height: 50; width: 120
@@ -126,6 +131,4 @@ Item {
         anchors.left: bkgItem.left
 
     }
-
-
 }
