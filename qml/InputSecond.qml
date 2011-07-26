@@ -37,7 +37,7 @@ Item {
         wdgTaste.text = "How it tastes here"
         wdgComparison.text = "How it compare"
         wdgWhere.text = "Your current location"
-        wdgWhen.text = "DD-MM-YY"
+        wdgWhen.date = "DD-MM-YY"
         wdgRate.text = "1 to 5"
     }
 
@@ -45,7 +45,7 @@ Item {
         wdgTaste.text = storage.tasting
         wdgComparison.text = storage.comparison
         wdgWhere.text = storage.location
-        wdgWhen.text = storage.date
+        wdgWhen.date = storage.date
         wdgRate.text = storage.rate
     }
 
@@ -53,7 +53,7 @@ Item {
         storage.tasting = wdgTaste.text;
         storage.comparison = wdgComparison.text;
         storage.location = wdgWhere.text
-        storage.date = wdgWhen.text
+        storage.date = wdgWhen.date
         storage.rate = wdgRate.text
     }
 
