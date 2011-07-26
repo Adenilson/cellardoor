@@ -26,9 +26,15 @@ InputBase {
         anchors.verticalCenter: imgBackground.verticalCenter
         MouseArea {
             anchors.fill: parent
-            onClicked: {
+            onClicked: click()
 
+            onPressed: {
+                wdgCombo.opacity = 0.70
             }
+            onReleased: {
+                wdgCombo.opacity = 1.0
+            }
+
         }
     }
 
