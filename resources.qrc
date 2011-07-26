@@ -33,7 +33,7 @@
     	       <file>qml/MonthButton.qml</file>
 
     	       <file>qml/ComboComp.qml</file>
-    	       <file>qml/ComboListComp.qml</file>
+    	       <file>qml/InputCombo.qml</file>
     	       <file>qml/ComboListItemComp.qml</file>
 
       <!-- JS FILES -->
