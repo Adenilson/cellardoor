@@ -7,7 +7,9 @@ Item {
     //width: 480; height: 800
     //width: 1024; height: 600
     //width: 1280; height: 600
-    //width:540; height:960
+    //width: 1280; height: 720
+    //width: 540; height: 960
+    //width: 480; height: 854
 
     Splash {
         id: wdgSplash
