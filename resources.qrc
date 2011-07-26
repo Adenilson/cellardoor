@@ -32,6 +32,10 @@
     	       <file>qml/ImageButton.qml</file>
     	       <file>qml/MonthButton.qml</file>
 
+    	       <file>qml/ComboComp.qml</file>
+    	       <file>qml/ComboListComp.qml</file>
+    	       <file>qml/ComboListItemComp.qml</file>
+
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
 	       <file>qml/js/list.js</file>
