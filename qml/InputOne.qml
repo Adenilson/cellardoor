@@ -53,7 +53,6 @@ Item {
 
     function getter(storage) {
         storage.name = wdgName.text;
-        //TODO: this must be a combobox
         storage.type = wdgColor.itemLabel
         storage.grape = wdgType.text;
         storage.producer = wdgProducer.text
@@ -67,7 +66,6 @@ Item {
         }
         storage.price = tmp
 
-        //TODO: region, tasting, etc
     }
 
     InputWidget {
