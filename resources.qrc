@@ -33,8 +33,11 @@
     	       <file>qml/MonthButton.qml</file>
 
     	       <file>qml/ComboComp.qml</file>
-    	       <file>qml/InputCombo.qml</file>
     	       <file>qml/ComboListItemComp.qml</file>
+    	       <file>qml/ComboListComp.qml</file>
+    	       <file>qml/InputCombo.qml</file>
+    	       <file>qml/InputComboWidget.qml</file>
+    	       <file>qml/ModelWineColor.qml</file>
 
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
