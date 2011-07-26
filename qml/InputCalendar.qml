@@ -20,12 +20,12 @@ InputBase {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                if (wdgCalendar.visible == true) {
-                    wdgCalendar.y = imgBackground.y + 50
-                    wdgCalendar.visible = false
+                if (wdgCalendar.opacity == 0.8) {
+                    wdgCalendar.y = imgBackground.y
+                    wdgCalendar.opacity = 0.0
                 } else {
-                    wdgCalendar.visible = true
-                    wdgCalendar.y = imgBackground.y - wdgCalendar.height
+                    wdgCalendar.opacity = 0.8
+                    wdgCalendar.y = imgBackground.y - wdgCalendar.height + 50
                 }
             }
         }
@@ -34,8 +34,23 @@ InputBase {
     Calendar {
         id: wdgCalendar
         x: imgBackground.x - 5
-        y: imgBackground.y + 50
-        visible: false
-        onClicked: txtDescription.text = wdgCalendar.clickedDate
+        y: imgBackground.y
+        visible: true
+        opacity: 0.0
+        onClicked: {
+            txtDescription.text = wdgCalendar.clickedDate
+            wdgCalendar.y = imgBackground.y
+            wdgCalendar.opacity = 0.0
+        }
+
+        Behavior on opacity {
+            NumberAnimation { duration: 900 }
+        }
+
+        Behavior on y {
+            NumberAnimation { duration: 600 }
+        }
+
+
     }
 }
