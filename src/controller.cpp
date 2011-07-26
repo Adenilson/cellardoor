@@ -17,11 +17,13 @@ using namespace Utils;
  * vs 1.0
  * - persistence of image (form 3)
  * - ui for image browsing
- * - geolocation (places of wine, reverse backmapping by name)
+ * - logo for other grape types (Rose, Riesling, etc)
+ * - detailed view
  * - fancy animations
  *
  * vs 1.1
  * - barcode scan
+ * - geolocation (places of wine, reverse backmapping by name)
  * vs 1.2
  * - google products search
  * vs 1.3
