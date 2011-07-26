@@ -21,11 +21,11 @@ InputBase {
             anchors.fill: parent
             onClicked: {
                 if (wdgCalendar.opacity == 0.8) {
-                    wdgCalendar.y = imgBackground.y
+                    wdgCalendar.height = 0
                     wdgCalendar.opacity = 0.0
                 } else {
                     wdgCalendar.opacity = 0.8
-                    wdgCalendar.y = imgBackground.y - wdgCalendar.height + 50
+                    wdgCalendar.height = 360
                 }
             }
         }
@@ -33,24 +33,23 @@ InputBase {
 
     Calendar {
         id: wdgCalendar
-        x: imgBackground.x - 5
-        y: imgBackground.y
-        visible: true
+        anchors.bottom: imgBackground.bottom
+        anchors.left: imgBackground.left
+        anchors.leftMargin: -5
+        height: 0
         opacity: 0.0
         onClicked: {
             txtDescription.text = wdgCalendar.clickedDate
-            wdgCalendar.y = imgBackground.y
             wdgCalendar.opacity = 0.0
+            wdgCalendar.height = 0
         }
 
         Behavior on opacity {
-            NumberAnimation { duration: 900 }
+            NumberAnimation { duration: 500 }
         }
 
-        Behavior on y {
-            NumberAnimation { duration: 600 }
+        Behavior on height {
+            NumberAnimation { duration: 300 }
         }
-
-
     }
 }
