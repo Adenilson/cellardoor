@@ -7,6 +7,8 @@ Item {
     width: 353; height: 360
     FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
+    signal clicked()
+
     property variant date: new Date()
     property variant clickedDate: calendar.date
     property int _maximumDaysInCalendar: 42
@@ -82,7 +84,9 @@ Item {
                 }
                 var modelObj = monthModel.get(index)
                 clickedDate = new Date(modelObj.year, modelObj.month, modelObj.day,
-                                       clickedDate.getHours(), clickedDate.getMinutes())
+                                       clickedDate.getHours(),
+        clickedDate.getMinutes())
+                calendar.clicked()
             }
          }
     }
