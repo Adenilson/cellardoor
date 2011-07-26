@@ -35,7 +35,7 @@ Item {
 
     function cleanup() {
         wdgName.text = "Wine name here"
-        wdgColor.text = "red"
+        wdgColor.itemLabel = "red"
         wdgType.text = "Grape type e.g Merlot"
         wdgProducer.text = "Vineyard"
         wdgYear.text = "YYYY"
@@ -44,7 +44,7 @@ Item {
 
     function setter(storage) {
         wdgName.text = storage.name
-        wdgColor.text = storage.type
+        wdgColor.itemLabel = storage.type
         wdgType.text = storage.grape
         wdgProducer.text = storage.producer
         wdgYear.text = storage.year
@@ -54,7 +54,7 @@ Item {
     function getter(storage) {
         storage.name = wdgName.text;
         //TODO: this must be a combobox
-        storage.type = wdgColor.text
+        storage.type = wdgColor.itemLabel
         storage.grape = wdgType.text;
         storage.producer = wdgProducer.text
         storage.year = wdgYear.text
@@ -68,16 +68,6 @@ Item {
         storage.price = tmp
 
         //TODO: region, tasting, etc
-    }
-
-    InputWidget {
-        id: wdgColor
-        title: qsTr("Color")
-        text: "red"
-        height: 50; width: 120
-        anchors.top: wdgName.bottom
-        anchors.topMargin: 5
-        anchors.left: bkgItem.left
     }
 
     InputWidget {
@@ -124,5 +114,20 @@ Item {
         anchors.bottom: bkgItem.bottom
         anchors.bottomMargin: 5
     }
+
+    InputComboWidget {
+        id: wdgColor
+        model: ModelWineColor { id: foobie }
+        title: qsTr("Color")
+        itemLabel: qsTr("wine color")
+        height: 50; width: 120
+        listHeight: 200
+        listWidth: 250
+        anchors.top: wdgName.bottom
+        anchors.topMargin: 5
+        anchors.left: bkgItem.left
+
+    }
+
 
 }
