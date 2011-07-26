@@ -47,6 +47,7 @@ Rectangle {
                Image {
                    width: 25; height: 21
                    source: "imgs/check_mark.png"
+                   smooth: true
                    anchors.verticalCenter: parent.verticalCenter
                    anchors.right: parent.right; anchors.rightMargin: 15
                }
