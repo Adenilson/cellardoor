@@ -5,7 +5,7 @@ Rectangle {
     id: calendar
     color: "#dddddd"
     clip: true
-    width: 353; height: 360
+    width: 343; height: 360
     FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
     signal clicked()
