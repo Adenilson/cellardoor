@@ -25,7 +25,7 @@ InputBase {
                     wdgCalendar.opacity = 0.0
                 } else {
                     wdgCalendar.opacity = 0.8
-                    wdgCalendar.height = 360
+                    wdgCalendar.height = 386
                 }
             }
         }

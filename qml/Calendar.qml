@@ -3,7 +3,7 @@ import "js/calendar.js" as CalendarFunctions
 
 Rectangle {
     id: calendar
-    color: "grey"
+    color: "#dddddd"
     clip: true
     width: 353; height: 360
     FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
@@ -51,7 +51,7 @@ Rectangle {
             Text {
                 width: 50
                 font { family: nsRegular.name; pixelSize: 19 }
-                color: "#FFFFFF"
+                color: "#5e5e5e"
                 horizontalAlignment: Text.AlignHCenter
                 text: week
             }
