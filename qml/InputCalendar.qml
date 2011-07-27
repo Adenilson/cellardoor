@@ -34,6 +34,7 @@ InputBase {
     Calendar {
         id: wdgCalendar
         anchors.bottom: imgBackground.bottom
+        anchors.bottomMargin: -25
         anchors.left: imgBackground.left
         anchors.leftMargin: -5
         height: 0
