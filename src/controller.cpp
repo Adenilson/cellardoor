@@ -81,7 +81,7 @@ void CellarController::initUI()
         if (Utils::fullscreen())
             m_view->showFullScreen();
         else
-            m_view->show();
+            m_view->showFullScreen();
         break;
     }
 

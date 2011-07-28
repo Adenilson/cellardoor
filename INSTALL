@@ -1,6 +1,7 @@
 == Compiling ==
 
 ./configure
+qmake
 make
 ./cellar
 
