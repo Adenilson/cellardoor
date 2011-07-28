@@ -12,8 +12,10 @@
 #endif
 
 #ifndef Q_WS_WIN
+#ifndef Q_WS_MAC
 #include <QSystemDeviceInfo>
 QTM_USE_NAMESPACE
+#endif
 #endif
 
 namespace Utils {
@@ -83,13 +85,14 @@ bool fullscreen()
     bool result = false;
 //FIXME: most probably will fail in OSX
 #ifndef Q_WS_WIN
+#ifndef Q_WS_MAC
     QSystemDeviceInfo m_sysInfo;
     QString tmp(m_sysInfo.model());
 
     if (tmp.contains("Atom")) {
         result = true;
     }
-
+#endif
 #endif
 
     return result;
