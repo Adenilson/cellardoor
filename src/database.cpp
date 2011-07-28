@@ -139,8 +139,6 @@ bool Database<Type>::insertType(Type &wine)
     } else
         qDebug() << "Failed to update the ID";
 
-
-error:
     return hasError;
 }
 
