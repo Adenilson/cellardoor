@@ -34,7 +34,7 @@ Screen {
 
     Text {
         id: txtCellar
-        text: "CellaDoor"
+        text: "CellarDoor"
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 28; }
         anchors.verticalCenter: upperBar.verticalCenter
