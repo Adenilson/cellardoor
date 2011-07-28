@@ -1,0 +1,12 @@
+== Compiling ==
+
+./configure
+make
+./cellar
+
+you are done
+
+
+== Requirements ==
+
+Qt 4.7.x, Mobility 1.1 (if in Linux plus gstreamer), sqlite3
