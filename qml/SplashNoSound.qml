@@ -21,9 +21,7 @@ Frame {
     id: frmSplash
     signal hideDone()
 
-    FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
     FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
-
 
     BorderImage {
         id: imgBar

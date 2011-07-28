@@ -21,7 +21,6 @@ import "js/list.js" as List
 Screen {
     id: frmInput1
     //width: 360; height: 640
-	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
     signal finish();
     signal cancel();

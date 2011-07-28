@@ -21,7 +21,6 @@ Frame {
     id: frmSplash
     signal hideDone()
 
-	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
     Effect {
@@ -82,7 +81,7 @@ Frame {
         id: txtWelcome
         text: qsTr("Welcome to")
     	color: "#FFFFFF"
-	    font { family: vgRounded.name; pixelSize: 21; italic: true }
+	    font { family: nsRegular.name; pixelSize: 21; italic: true }
         anchors.horizontalCenter: imgBar.horizontalCenter
         anchors.top: imgBar.top
         anchors.topMargin: 50
@@ -121,7 +120,7 @@ Frame {
         id: txtWelcome2
         text: qsTr("your personal wine journal")
     	color: "#FFFFFF"
-	    font { family: vgRounded.name; pixelSize: 21; italic: true }
+	    font { family: nsRegular.name; pixelSize: 21; italic: true }
         anchors.horizontalCenter: imgBar.horizontalCenter
         anchors.top: imgBar.bottom
         anchors.topMargin: -100

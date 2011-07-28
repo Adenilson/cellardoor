@@ -23,7 +23,6 @@ Item {
     //width: 360; height: 640
     property int upperBorder: 50
     width: parent.width; height: parent.height * 0.6
-	FontLoader { id: vgRounded; source: "fonts/VAG_Rounded.ttf" }
 	FontLoader { id: nsRegular; source: "fonts/Nokia_Sans_Regular.ttf" }
 
     BorderImage {
