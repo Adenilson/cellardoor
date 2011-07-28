@@ -83,7 +83,6 @@
 
       <!-- FONT FILES -->
 	       <file>qml/fonts/Nokia_Sans_Regular.ttf</file>
-	       <file>qml/fonts/VAG_Rounded.ttf</file>
 
       <!-- AUDIO FILES -->
 	       <file>qml/audio/creaky_door_2.WAV</file>
