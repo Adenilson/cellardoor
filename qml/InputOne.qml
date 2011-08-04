@@ -50,12 +50,12 @@ Item {
     }
 
     function cleanup() {
-        wdgName.text = "Wine name here"
-        wdgColor.itemLabel = "red"
-        wdgType.itemLabel = "Grape type e.g Merlot"
-        wdgProducer.text = "Vineyard"
+        wdgName.text = qsTr("Wine name here")
+        wdgColor.itemLabel = qsTr("red")
+        wdgType.itemLabel = qsTr("Grape type e.g Merlot")
+        wdgProducer.text = qsTr("Vineyard")
         wdgYear.text = "YYYY"
-        wdgPrice.text = "$bucks"
+        wdgPrice.text = qsTr("$bucks")
     }
 
     function setter(storage) {
@@ -87,7 +87,7 @@ Item {
     InputWidget {
         id: wdgProducer
         title: qsTr("Producer")
-        text: "Vineyard"
+        text: qsTr("Vineyard")
         anchors.top: wdgType.bottom
         anchors.topMargin: 5
         anchors.left: bkgItem.left
