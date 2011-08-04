@@ -16,6 +16,18 @@
     </message>
 
 
+    <name>SplashNoSound</name>
+    <message>
+        <location filename="SplashNoSound.qml" line="77"/>
+        <source>Welcome to</source>
+        <translation type="unfinished">Bem vindo ao</translation>
+    </message>
+    <message>
+        <location filename="SplashNoSound.qml" line="114"/>
+        <source>your personal wine journal</source>
+         <translation type="unfinished">seu diario pessoal de vinhos</translation>
+    </message>
+
     <name>View</name>
     <message>
         <location filename="View.qml" line="63"/>
