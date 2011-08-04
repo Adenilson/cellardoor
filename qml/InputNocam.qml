@@ -111,7 +111,7 @@ Screen {
 
     Text {
         id: txtSteps
-        text: qsTr("Step 1 of 2")
+        text: qsTr("Step 1")
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 28; }
         anchors.top: imgLine.bottom
@@ -173,7 +173,7 @@ Screen {
 
             PropertyChanges {
                 target: txtSteps
-                text: qsTr("Step 1 of 2")
+                text: qsTr("Step 1")
             }
 
             PropertyChanges {
@@ -197,7 +197,7 @@ Screen {
 
             PropertyChanges {
                 target: txtSteps
-                text: qsTr("Step 2 of 2")
+                text: qsTr("Step 2")
             }
 
             PropertyChanges {

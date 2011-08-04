@@ -68,6 +68,51 @@
         <translation type="unfinished">vinhos</translation>
     </message>
 
+    <name>Input</name>
+    <message>
+        <location filename="Input.qml" line="56"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancela</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="75"/>
+        <source>Back</source>
+        <translation type="unfinished">Voltar</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="99"/>
+        <source>Adding a new wine to your Cellar</source>
+        <translation type="unfinished">Adicionando novo vinho</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="118"/>
+        <location filename="Input.qml" line="202"/>
+        <source>Step 1</source>
+        <translation type="unfinished">Passo 1</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="153"/>
+        <location filename="Input.qml" line="197"/>
+        <location filename="Input.qml" line="226"/>
+        <source>Next</source>
+        <translation type="unfinished">Proximo</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="231"/>
+        <source>Step 2</source>
+        <translation type="unfinished">Passo 2</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="255"/>
+        <source>Finish</source>
+        <translation type="unfinished">Finaliza</translation>
+    </message>
+    <message>
+        <location filename="Input.qml" line="260"/>
+        <source>Step 3</source>
+        <translation type="unfinished">Passo 3</translation>
+    </message>
+
 
 </context>
 </TS>
