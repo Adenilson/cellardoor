@@ -14,5 +14,22 @@
         <source>your personal wine journal</source>
         <translation type="unfinished">seu diario pessoal de vinhos</translation>
     </message>
+
+
+    <name>View</name>
+    <message>
+        <location filename="View.qml" line="63"/>
+        <source>Exit</source>
+        <translatorcomment>Sair</translatorcomment>
+        <translation type="unfinished">Sair</translation>
+    </message>
+    <message>
+        <location filename="View.qml" line="186"/>
+        <source>add new wine</source>
+        <translatorcomment>Adicionar vinho</translatorcomment>
+        <translation type="unfinished">Adicionar vinho</translation>
+    </message>
+
+
 </context>
 </TS>
