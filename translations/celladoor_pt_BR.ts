@@ -130,5 +130,18 @@
         <translation type="unfinished">Outro</translation>
     </message>
 
+    <name>Delegate</name>
+    <message>
+        <location filename="Delegate.qml" line="118"/>
+        <source>Producer</source>
+        <translation type="unfinished">Produtor</translation>
+    </message>
+    <message>
+        <location filename="Delegate.qml" line="128"/>
+        <source>Region</source>
+        <translation type="unfinished">Regiao</translation>
+    </message>
+
+
 </context>
 </TS>
