@@ -29,6 +29,32 @@
         <translatorcomment>Adicionar vinho</translatorcomment>
         <translation type="unfinished">Adicionar vinho</translation>
     </message>
+    <message>
+        <location filename="View.qml" line="238"/>
+        <source>Holly Grapes! You haven&apos;t tasted a</source>
+        <translation type="unfinished">Nossa! Ainda sem experimentar</translation>
+    </message>
+    <message>
+        <location filename="View.qml" line="239"/>
+        <source>single wine, let&apos;s fix it!</source>
+        <translation type="unfinished">nenhum vinho?</translation>
+    </message>
+    <message>
+        <location filename="View.qml" line="241"/>
+        <location filename="View.qml" line="244"/>
+        <source>You have tasted</source>
+        <translation type="unfinished">Experimentou</translation>
+    </message>
+    <message>
+        <location filename="View.qml" line="242"/>
+        <source>wine</source>
+        <translation type="unfinished">vinho</translation>
+    </message>
+    <message>
+        <location filename="View.qml" line="245"/>
+        <source>wines</source>
+        <translation type="unfinished">vinhos</translation>
+    </message>
 
 
 </context>
