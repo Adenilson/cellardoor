@@ -115,7 +115,7 @@ BorderImage {
 
     Text {
         id: txtProducer
-        text: "<b>Producer: </b>"+ "<i>" + producer + "</i>"
+        text: "<b>" + qsTr("Producer") + ": </b>"+ "<i>" + producer + "</i>"
         color: "#000000"
         font { family: nsRegular.name; pixelSize: 14; }
         anchors.top: txtType.bottom
@@ -125,7 +125,7 @@ BorderImage {
 
     Text {
         id: txtRegion
-        text: "<b>Region: </b>" + "<i>" + region + "</i>"
+        text: "<b>" + qsTr("Region") + ": </b>" + "<i>" + region + "</i>"
         color: "#000000"
         font { family: nsRegular.name; pixelSize: 14; }
         anchors.top: txtProducer.bottom
