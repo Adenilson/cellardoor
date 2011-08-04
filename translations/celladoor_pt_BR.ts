@@ -219,6 +219,30 @@
         <translation type="unfinished">Comente sobre o sabor</translation>
     </message>
     <message>
+        <location filename="InputSecond.qml" line="45"/>
+        <location filename="InputSecond.qml" line="53"/>
+        <source>How it tastes here</source>
+        <translation type="unfinished">Como se parece</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="54"/>
+        <location filename="InputSecond.qml" line="79"/>
+        <source>How it compare</source>
+        <translation type="unfinished">Como se compara</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="55"/>
+        <location filename="InputSecond.qml" line="89"/>
+        <source>Your current location</source>
+        <translation type="unfinished">Sua localizacao atual</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="57"/>
+        <location filename="InputSecond.qml" line="99"/>
+        <source>1 to 5</source>
+        <translation type="unfinished">1 a 5</translation>
+    </message>
+    <message>
         <location filename="InputSecond.qml" line="78"/>
         <source>Comparisons</source>
         <translation type="unfinished">Faca comparacoes</translation>
