@@ -26,6 +26,7 @@ Item {
 
     CheckBox {
         id: chkRed
+        label: qsTr("Red")
         anchors.top: frmParent.top
         anchors.topMargin: 15
         anchors.left: frmParent.left
