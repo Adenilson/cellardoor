@@ -33,6 +33,9 @@ using namespace Utils;
 
 /* TODOs:
  * vs 1.0
+ * - handle internationalization of fields (wine color)
+ * - MSI package (missing DLLs, test againt IUA, use real ID, handle signing)
+ * - internationalization: french, deutch, spanish)
  * - persistence of image (form 3)
  * - ui for image browsing
  * - logo for other grape types (Rose, Riesling, etc)
