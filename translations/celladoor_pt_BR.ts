@@ -212,5 +212,33 @@
         <translation type="unfinished">tipo do vinho</translation>
     </message>
 
+    <name>InputSecond</name>
+    <message>
+        <location filename="InputSecond.qml" line="44"/>
+        <source>Tasting comments</source>
+        <translation type="unfinished">Comente sobre o sabor</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="78"/>
+        <source>Comparisons</source>
+        <translation type="unfinished">Faca comparacoes</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="88"/>
+        <source>Place</source>
+        <translation type="unfinished">Lugar</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="98"/>
+        <source>Rating</source>
+        <translation type="unfinished">Nota</translation>
+    </message>
+    <message>
+        <location filename="InputSecond.qml" line="110"/>
+        <source>Date consumed</source>
+        <translation type="unfinished">Data do consumo</translation>
+    </message>
+
+
 </context>
 </TS>
