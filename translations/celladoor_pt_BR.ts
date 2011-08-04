@@ -142,6 +142,75 @@
         <translation type="unfinished">Regiao</translation>
     </message>
 
+    <name>InputOne</name>
+    <message>
+        <location filename="InputOne.qml" line="44"/>
+        <source>Name</source>
+        <translation type="unfinished">Nome</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="45"/>
+        <location filename="InputOne.qml" line="53"/>
+        <source>Wine name here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="53"/>
+        <source>Wine name here</source>
+        <translation type="unfinished">Nome do vinho</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="54"/>
+        <source>red</source>
+        <translation type="unfinished">tinto</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="55"/>
+        <source>Grape type e.g Merlot</source>
+        <translation type="unfinished">A uva e.x. Merlot</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="56"/>
+        <location filename="InputOne.qml" line="90"/>
+        <source>Vineyard</source>
+        <translation type="unfinished">Vinicola</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="58"/>
+        <source>$bucks</source>
+        <translation type="unfinished">$valor</translation>
+    </message>
+
+    <message>
+        <location filename="InputOne.qml" line="89"/>
+        <source>Producer</source>
+        <translation type="unfinished">Produtor</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="99"/>
+        <source>Vintage Year</source>
+        <translation type="unfinished">Ano</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="111"/>
+        <source>Price</source>
+        <translation type="unfinished">Valor</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="124"/>
+        <source>Kind of Wine</source>
+        <translation type="unfinished">Tipo de vinho</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="140"/>
+        <source>Color</source>
+        <translation type="unfinished">Cor</translation>
+    </message>
+    <message>
+        <location filename="InputOne.qml" line="141"/>
+        <source>wine color</source>
+        <translation type="unfinished">tipo do vinho</translation>
+    </message>
 
 </context>
 </TS>
