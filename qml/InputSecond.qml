@@ -42,7 +42,7 @@ Item {
     InputWidget {
         id: wdgTaste
         title: qsTr("Tasting comments")
-        text: "How it tastes here"
+        text: qsTr("How it tastes here")
         anchors.top: bkgItem.top
         anchors.topMargin: 5
         anchors.left: bkgItem.left
@@ -50,11 +50,11 @@ Item {
     }
 
     function cleanup() {
-        wdgTaste.text = "How it tastes here"
-        wdgComparison.text = "How it compare"
-        wdgWhere.text = "Your current location"
+        wdgTaste.text = qsTr("How it tastes here")
+        wdgComparison.text = qsTr("How it compare")
+        wdgWhere.text = qsTr("Your current location")
         wdgWhen.date = "DD-MM-YY"
-        wdgRate.text = "1 to 5"
+        wdgRate.text = qsTr("1 to 5")
     }
 
     function setter(storage) {
@@ -76,7 +76,7 @@ Item {
     InputWidget {
         id: wdgComparison
         title: qsTr("Comparisons")
-        text: "How it compare"
+        text: qsTr("How it compare")
         anchors.top: wdgTaste.bottom
         anchors.topMargin: 5
         anchors.left: bkgItem.left
@@ -86,7 +86,7 @@ Item {
     InputWidget {
         id: wdgWhere
         title: qsTr("Place")
-        text: "Your current location"
+        text: qsTr("Your current location")
         anchors.top: wdgComparison.bottom
         anchors.topMargin: 5
         anchors.left: bkgItem.left
@@ -96,7 +96,7 @@ Item {
     InputWidget {
         id: wdgRate
         title: qsTr("Rating")
-        text: "1 to 5"
+        text: qsTr("1 to 5")
         height: 50; width: 150
         anchors.top: wdgWhere.bottom
         anchors.topMargin: 5
