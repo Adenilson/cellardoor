@@ -113,6 +113,22 @@
         <translation type="unfinished">Passo 3</translation>
     </message>
 
+    <name>CheckBar</name>
+    <message>
+        <location filename="CheckBar.qml" line="29"/>
+        <source>Red</source>
+        <translation type="unfinished">Tinto</translation>
+    </message>
+    <message>
+        <location filename="CheckBar.qml" line="39"/>
+        <source>White</source>
+        <translation type="unfinished">Branco</translation>
+    </message>
+    <message>
+        <location filename="CheckBar.qml" line="50"/>
+        <source>Other</source>
+        <translation type="unfinished">Outro</translation>
+    </message>
 
 </context>
 </TS>
