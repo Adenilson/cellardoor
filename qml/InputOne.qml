@@ -42,7 +42,7 @@ Item {
     InputWidget {
         id: wdgName
         title: qsTr("Name")
-        text: "Wine name here"
+        text: qsTr("Wine name here")
         anchors.top: bkgItem.top
         anchors.topMargin: 5
         anchors.left: bkgItem.left
@@ -109,7 +109,7 @@ Item {
     InputWidget {
         id: wdgPrice
         title: qsTr("Price")
-        text: "$bucks"
+        text: qsTr("$bucks")
         height: 50; width: 150
         anchors.top: wdgProducer.bottom
         anchors.topMargin: 5
@@ -122,7 +122,7 @@ Item {
         id: wdgType
         model: ModelGrape { id: m2 }
         title: qsTr("Kind of Wine")
-        itemLabel: "Grape type e.g Merlot"
+        itemLabel: qsTr("Grape type e.g Merlot")
         height: 50; width: 250
         listHeight: parent.height * 0.8
         listWidth: 250
