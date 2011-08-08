@@ -40,7 +40,7 @@ RESOURCES += \
 INCLUDEPATH += \
                src
 
-TRANSLATIONS = translations/celladoor_pt_BR.ts
+TRANSLATIONS = translations/celladoor_pt_BR.ts translations/celladoor_it_IT.ts
 
 symbian: {
 
@@ -67,7 +67,7 @@ symbian: {
 
     ICON = icon.svg
 
-    addFiles.sources = translations/celladoor_pt_BR.qm
+    addFiles.sources = translations/celladoor_pt_BR.qm translations/celladoor_it_IT.qm
     addFiles.path = .
     DEPLOYMENT += addFiles
 }
