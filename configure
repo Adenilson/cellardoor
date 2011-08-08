@@ -56,4 +56,4 @@ source $relpath/scripts/generate_translations $relpath
 
 qmake $relpath/celladoor.pro
 make translations
-echo "Done! Now run \"make-symbian\" to build."
+echo "Done! Now run \"make\" to build."
