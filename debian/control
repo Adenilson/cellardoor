@@ -1,0 +1,17 @@
+Source: cellardoor
+Section: user/network
+Priority: extra
+Maintainer: Milton Soares Filho <milton.soares.filho@gmail.com>
+Build-Depends: cdbs, debhelper (>= 7.0.50~), qt4-qmake, qtmobility-dev
+Standards-Version: 3.8.4
+Homepage: http://code.google.com/p/cellardoor
+#Vcs-Git: git://git.debian.org/collab-maint/cellar.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/cellar.git;a=summary
+
+Package: cellardoor
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Your wine journal.
+ Cellardoor is an app that allows you to create wine cards to document any wine
+ you have experienced, making easy to share this information with your friends.
+ It currently runs in Linux/Meego/Win7/Symbian and is written in C++ Qt/QML.

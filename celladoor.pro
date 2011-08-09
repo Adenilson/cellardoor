@@ -71,3 +71,9 @@ symbian: {
     addFiles.path = .
     DEPLOYMENT += addFiles
 }
+
+target.path = $${PREFIX}/bin
+INSTALLS += target
+
+deb.commands = dpkg-buildpackage -rfakeroot -uc -us -sa -I.git $(DEB_EXTRA_OPTIONS)
+QMAKE_EXTRA_TARGETS += deb
