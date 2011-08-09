@@ -75,5 +75,9 @@ symbian: {
 target.path = $${PREFIX}/bin
 INSTALLS += target
 
+i18n.files = $${SOURCE_TREE}/celladoor_pt_BR.qm $${SOURCE_TREE}/celladoor_it_IT.qm
+i18n.path = $${PREFIX}/share/$${TARGET}/i18n
+INSTALLS += i18n
+
 deb.commands = dpkg-buildpackage -rfakeroot -uc -us -sa -I.git $(DEB_EXTRA_OPTIONS)
 QMAKE_EXTRA_TARGETS += deb
