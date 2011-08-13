@@ -24,7 +24,7 @@ ListModel {
     ListElement { name: "Cabernet Sauvignon"; value: 2; selected: false }
     ListElement { name: "Cabernet Sauvignon Blanc"; value: 3; selected: false }
     ListElement { name: "Pinot Noir"; value: 4; selected: false }
-    ListElement { name: "Porto"; value: 5; selected: false }
+    ListElement { name: "Port"; value: 5; selected: false }
     ListElement { name: "Multi"; value: 6; selected: false }
     ListElement { name: "Chiraz"; value: 7; selected: false }
     ListElement { name: "Malbec"; value: 8; selected: false }
