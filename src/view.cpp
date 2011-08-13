@@ -15,7 +15,6 @@
  *
  */
 
-#include "controller.h"
 #include "view.h"
 
 #include <QtDeclarative/QDeclarativeContext>

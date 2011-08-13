@@ -16,10 +16,10 @@
  */
 
 #include "utils.h"
-#include <QtGlobal>
-#include <QtCore/QStringList>
 #include <QtCore/QMetaObject>
 #include <QtCore/QMetaProperty>
+#include <QtCore/QStringList>
+#include <QtGlobal>
 
 //TODO: conditional compilation module instead of ifdef's
 #ifdef Q_OS_SYMBIAN

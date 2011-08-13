@@ -17,17 +17,17 @@
 
 
 #include "controller.h"
-#include "view.h"
 #include "database.h"
 #include "utils.h"
-#include <QtGui/QApplication>
-#include <QtDeclarative/QDeclarativeContext>
-#include <QtDeclarative/QDeclarativePropertyMap>
-#include <QtDeclarative/QDeclarativeEngine>
-#include <QtGlobal>
+#include "view.h"
 #include <QtCore/QDebug>
-#include <QtCore/QTimer>
 #include <QtCore/QDir>
+#include <QtCore/QTimer>
+#include <QtDeclarative/QDeclarativeContext>
+#include <QtDeclarative/QDeclarativeEngine>
+#include <QtDeclarative/QDeclarativePropertyMap>
+#include <QtGlobal>
+#include <QtGui/QApplication>
 
 using namespace Utils;
 

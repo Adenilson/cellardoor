@@ -18,15 +18,15 @@
 //#include "database.h"
 #include "utils.h"
 
+#include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtGui/QDesktopServices>
 #include <QtSql/QSqlDatabase>
-#include <QtSql/QSqlTableModel>
-#include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
-#include <QtSql/QSqlRecord>
 #include <QtSql/QSqlField>
-#include <QtCore/QCoreApplication>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlRecord>
+#include <QtSql/QSqlTableModel>
 //TODO: support the prefix as a parameter
 const char DB_PREFIX[] = "db_";
 

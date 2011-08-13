@@ -17,9 +17,9 @@
 
 #include "genericmodel.h"
 #include "utils.h"
+#include <QDebug>
 #include <QtCore/QMetaProperty>
 #include <QtCore/QStringList>
-#include <QDebug>
 
 template <class ModelTemplate>
 GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
