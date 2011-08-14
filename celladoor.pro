@@ -40,7 +40,7 @@ RESOURCES += \
 INCLUDEPATH += \
                src
 
-TRANSLATIONS = translations/celladoor_pt_BR.ts translations/celladoor_it_IT.ts
+TRANSLATIONS = translations/celladoor_pt_BR.ts translations/celladoor_it_IT.ts translations/celladoor_de_DE.ts
 
 symbian: {
 
