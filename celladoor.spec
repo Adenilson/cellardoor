@@ -16,12 +16,12 @@ License:        GPL v2
 Summary:        A wine application journal
 Url:            http://cellardoor.googlecode.com
 Group:          Amusement
-Source0:        %{name}-%{version}.tar.gz
+#Source0:        %{name}-%{version}.tar.gz
 Requires:    libqt >= 4.7.0, qt-mobility >= 1.1
 BuildRequires:  libqt-devel
 
 %description
-# Add here description of the package.
+You wine diary: create cards to describe the wines that you have tasted.
 
 %prep
 %setup -q
@@ -53,4 +53,4 @@ make install INSTALL_ROOT=%{buildroot}
 %{_datadir}/icons/hicolor/64x64/apps/*.png
 %{_datadir}/icons/hicolor/128x128/apps/*.png
 
-/*
+
