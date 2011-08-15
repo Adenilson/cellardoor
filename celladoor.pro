@@ -20,6 +20,28 @@ LIBS +=    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libadpruntime.a" \
     "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libxml-security-c.a" \
     "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libcrypto.a"
 
+# Files to be packed and installed
+target.path = /opt/com.cabledogs.cellardoor/
+
+icon.files = Icon/cellardoor.png
+icon.path = /usr/share/icons/
+
+icon16.files = Icon/16/cellardoor.png
+icon16.path = /usr/share/icons/hicolor/16x16/apps/
+
+icon32.files = Icon/32/cellardoor.png
+icon32.path = /usr/share/icons/hicolor/32x32/apps/
+
+icon64.files = Icon/64/cellardoor.png
+icon64.path = /usr/share/icons/hicolor/64x64/apps/
+
+icon128.files = Icon/128/cellardoor.png
+icon128.path = /usr/share/icons/hicolor/128x128/apps/
+
+desktop.files = cellardoor.desktop
+desktop.path = /usr/share/applications
+
+INSTALLS += target icon icon16 icon32 icon64 icon128 desktop
 
 unix:!symbian {
 INCLUDEPATH += /usr/include/QtMultimediaKit
