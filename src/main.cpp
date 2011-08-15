@@ -16,14 +16,56 @@
  */
 
 #include <QtGui/QApplication>
+#include <QtGui/QMessageBox>
 #include <QtCore/QLocale>
 #include <QtCore/QTranslator>
 #include <QDebug>
+#include "adpcppf.h"
 #include "controller.h"
 #include "utils.h"
 
 static const char s_applicationName[] = "celladoor";
 static const char s_applicationVersion[] = "0.51";
+
+bool IsAuthorized()
+{
+#ifdef QT_DEBUG
+    // Do not check authorization for debug version
+    return true;
+#endif
+
+    bool authorized = false;
+
+    QString message;
+
+    com::intel::adp::Application *pApp = NULL;
+
+    try
+    {
+        pApp = new Application(ADP_DEBUG_APPLICATIONID);
+
+        // Authorized successfully
+        authorized = true;
+    }
+    catch (com::intel::adp::AdpException& e)
+    {
+        // Got some error
+        message = QString::fromAscii(e.message());
+    }
+
+    if(pApp != NULL)
+    {
+        delete pApp;
+    }
+
+    if(authorized == false)
+    {
+        QMessageBox msgBox(QMessageBox::Information, "cellardoor", message, QMessageBox::Ok);
+        msgBox.exec();
+    }
+
+    return authorized;
+}
 
 int main(int argc, char *argv[])
 {
