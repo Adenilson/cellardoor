@@ -9,6 +9,18 @@ TEMPLATE = app
 CONFIG += mobility debug warn_on depend_includepath link_pkgconfig
 MOBILITY = organizer systeminfo multimedia
 
+# Add path to Intel AppUp™ SDK headers directory
+INCLUDEPATH +=    "$$(IADP_SDK_DIR_MEEGO)Cpp/include"
+
+# Add required libraries
+LIBS +=    -lxml2 -lpthread
+LIBS +=    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libadpruntime.a" \
+    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libadpcore.a" \
+    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libxerces-c.a" \
+    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libxml-security-c.a" \
+    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libcrypto.a"
+
+
 unix:!symbian {
 INCLUDEPATH += /usr/include/QtMultimediaKit
 #LIBS += -lQtMultimediaKit
