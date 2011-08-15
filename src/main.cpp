@@ -27,7 +27,7 @@
 static const char s_applicationName[] = "celladoor";
 static const char s_applicationVersion[] = "0.51";
 
-bool IsAuthorized()
+bool isAuthorized()
 {
 #ifdef QT_DEBUG
     // Do not check authorization for debug version
@@ -73,6 +73,11 @@ int main(int argc, char *argv[])
     //QApplication::setGraphicsSystem("opengl");
     app.setApplicationName(s_applicationName);
     app.setApplicationVersion(s_applicationVersion);
+
+    if (!isAuthorized()) {
+      app.quit();
+      return 0;
+    }
 
     const QString locale = QLocale::system().name();
     QTranslator translator;
