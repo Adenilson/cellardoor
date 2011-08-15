@@ -6,9 +6,8 @@
 #%define debug_package %{nil}
 # disable automatic dependency processing
 #AutoReqProv: no
+
 %define app_name com.cabledogs.cellardoor
-
-
 Name:           cellardoor
 Version: 0.9
 Release:        1
@@ -17,11 +16,11 @@ Summary:        A wine application journal
 Url:            http://cellardoor.googlecode.com
 Group:          Amusement
 #Source0:        %{name}-%{version}.tar.gz
-Requires:    libqt >= 4.7.0, qt-mobility >= 1.1
+Requires:    libqtdeclarative4 >= 4.7.0, qt-mobility >= 1.1, libqtsql4-sqlite
 BuildRequires:  libqt-devel
 
 %description
-You wine diary: create cards to describe the wines that you have tasted.
+Your wine diary: create cards to describe the wines that you have tasted.
 
 %prep
 %setup -q
@@ -43,14 +42,4 @@ make install INSTALL_ROOT=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-
-
-/opt/%{app_name}
-%{_datadir}/applications/*.desktop
-%{_datadir}/icons/*.png
-%{_datadir}/icons/hicolor/16x16/apps/*.png
-%{_datadir}/icons/hicolor/32x32/apps/*.png
-%{_datadir}/icons/hicolor/64x64/apps/*.png
-%{_datadir}/icons/hicolor/128x128/apps/*.png
-
-
+/*

@@ -2,7 +2,7 @@
 Name=CellarDoor
 GenericName=CellarDoor
 Comment=CellarDoor application
-Exec=/opt/com.cabledogs.cellardoor/cellar
+Exec=/usr/bin/cellar
 Categories=Amusement
 Icon=cellardoor
 Type=Application
