@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=CellarDoor
+GenericName=CellarDoor
+Comment=CellarDoor application
+Exec=/opt/com.cabledogs.cellardoor/cellar
+Categories=Amusement
+Icon=cellardoor
+Type=Application
+Terminal=false
+StartupNotify=true
