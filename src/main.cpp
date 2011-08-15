@@ -24,7 +24,7 @@
 #include "controller.h"
 #include "utils.h"
 
-static const char s_applicationName[] = "celladoor";
+static const char s_applicationName[] = "cellardoor";
 static const char s_applicationVersion[] = "0.51";
 
 bool isAuthorized()
