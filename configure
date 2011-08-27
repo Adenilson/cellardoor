@@ -54,6 +54,6 @@ EOF
 
 source $relpath/scripts/generate_translations $relpath
 
-qmake $relpath/celladoor.pro
+qmake $relpath/cellardoor.pro
 make translations
 echo "Done! Now run \"make\" to build."
