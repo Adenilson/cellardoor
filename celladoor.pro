@@ -2,7 +2,7 @@ include(scripts/scripts.pri)
 
 QT       += core gui network declarative sql
 
-TARGET = cellar
+TARGET = cellardoor
 
 TEMPLATE = app
 
@@ -21,7 +21,7 @@ LIBS +=    "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libadpruntime.a" \
     "$$(IADP_SDK_DIR_MEEGO)Cpp/lib/libcrypto.a"
 
 # Files to be packed and installed
-target.path = /opt/com.cabledogs.cellardoor/
+target.path = /opt/com.cabledogs.cellardoor/bin
 
 icon.files = Icon/cellardoor.png
 icon.path = /usr/share/icons/
