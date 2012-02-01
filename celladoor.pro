@@ -42,6 +42,8 @@ INCLUDEPATH += \
 
 TRANSLATIONS = translations/celladoor_pt_BR.ts translations/celladoor_it_IT.ts translations/celladoor_de_DE.ts translations/celladoor_fr_FR.ts translations/celladoor_es_ES.ts
 
+include(src/profile.pri)
+
 symbian: {
 
     heapSizeRule = \

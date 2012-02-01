@@ -18,6 +18,7 @@
 #include "view.h"
 
 #include <QtDeclarative/QDeclarativeContext>
+#include "qmlprofilerhelper.h"
 
 CellarView::CellarView(QWidget *parent)
  : QDeclarativeView(parent)
@@ -25,6 +26,7 @@ CellarView::CellarView(QWidget *parent)
     connect(this, SIGNAL(statusChanged(QDeclarativeView::Status)), this, SLOT(onStatusChanged(QDeclarativeView::Status)));
     resize(360, 640);
     setResizeMode(SizeRootObjectToView);
+    startProfiler(this, engine());
 }
 
 CellarView::~CellarView()
