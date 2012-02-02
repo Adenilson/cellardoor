@@ -17,11 +17,25 @@
 
 import Qt 4.7
 
-Frame {
+Item {
     id: frmScreen
+    width: parent.width; height: parent.height
 
     property alias upperBar: imgBarup
     property alias lowerBar: imgBarlower
+
+    BorderImage {
+        id: toolbar1
+        width: parent.width; height: parent.height
+        anchors.top: frmScreen.top
+        anchors.bottom: frmScreen.bottom
+        anchors.left: frmScreen.left
+        border { left: 0; top: 0; right: 0; bottom: 0 }
+        horizontalTileMode: BorderImage.Repeat
+        verticalTileMode: BorderImage.Stretch
+        source: "imgs/splash_WOOD.png"
+
+    }
 
     Image {
         id: imgBarup
