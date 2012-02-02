@@ -17,7 +17,7 @@
 
 import Qt 4.7
 
-Rectangle {
+Item {
     id: background
     //This will block any x/y animation
     //anchors.fill: parent
