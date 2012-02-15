@@ -180,15 +180,17 @@ Screen {
                 frmInput1.finish()
                 frmInput1.state = "first"
             } else if (frmInput1.state == "second") {
-                if (wdgThird.source != "CameraWidget.qml")
-                   wdgThird.source = "CameraWidget.qml"
-
+                if (wdgThird.progress == 0.0) {
+                    console.log("Create third!")
+                    wdgThird.source = "CameraWidget.qml"
+                }
                 frmInput1.state = "third"
                 wdgThird.item.start()
             } else if (frmInput1.state == "first") {
-                if (wdgSecond.source != "InputSecond.qml")
-                   wdgSecond.source = "InputSecond.qml"
-
+                if (wdgSecond.source == 0.0) {
+                    console.log("Create second!")
+                    wdgSecond.source = "InputSecond.qml"
+                }
                 frmInput1.state = "second"
             }
         }
