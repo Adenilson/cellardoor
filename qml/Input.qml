@@ -29,17 +29,17 @@ Screen {
 
     function cleanup() {
         wdgFirst.cleanup()
-        wdgSecond.cleanup()
+        wdgSecond.item.cleanup()
     }
 
     function setter(storage) {
         wdgFirst.setter(storage)
-        wdgSecond.setter(storage)
+        wdgSecond.item.setter(storage)
     }
 
     function getter(storage) {
         wdgFirst.getter(storage)
-        wdgSecond.getter(storage)
+        wdgSecond.item.getter(storage)
     }
 
     Text {
@@ -129,13 +129,17 @@ Screen {
         upperBorder: (lowerBar.height + txtAdding.height +
         imgLine.height + txtSteps.height) * 0.92
         visible: true
+        Component.onCompleted: wdgSecond.source = "InputSecond.qml"
     }
 
-    InputSecond {
+    Loader {
         id: wdgSecond
-        upperBorder: (lowerBar.height + txtAdding.height +
-        imgLine.height + txtSteps.height) * 0.92
-        visible: false
+        onLoaded: {
+            wdgSecond.item.upperBorder = (lowerBar.height +
+            txtAdding.height + imgLine.height + txtSteps.height) * 0.92
+            wdgSecond.item.parent = frmInput1
+            wdgSecond.visible = false
+        }
     }
 
     CameraWidget {
