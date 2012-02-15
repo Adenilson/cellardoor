@@ -64,7 +64,7 @@ Screen {
             onPressed: {
                 frmInput1.cancel()
                 frmInput1.state = "first"
-                wdgThird.stop()
+                wdgThird.item.stop()
             }
         }
 
@@ -86,7 +86,7 @@ Screen {
                 } else if (frmInput1.state == "second") {
                     frmInput1.state = "first"
                 } else {
-                    wdgThird.stop()
+                    wdgThird.item.stop()
                     frmInput1.state = "second"
                 }
             }
@@ -138,10 +138,23 @@ Screen {
             wdgSecond.item.upperBorder = (lowerBar.height +
             txtAdding.height + imgLine.height + txtSteps.height) * 0.92
             wdgSecond.item.parent = frmInput1
-            wdgSecond.visible = false
+            wdgSecond.item.visible = false
+        }
+
+        Component.onCompleted: wdgThird.source = "CameraWidget.qml"
+    }
+
+    Loader {
+        id: wdgThird
+        onLoaded: {
+            wdgThird.item.upperBorder = (lowerBar.height +
+            txtAdding.height + imgLine.height + txtSteps.height) * 0.92
+            wdgThird.item.parent = frmInput1
+            wdgThird.item.visible = false
         }
     }
 
+/*
     CameraWidget {
         id: wdgThird
         upperBorder: (lowerBar.height + txtAdding.height +
@@ -149,7 +162,7 @@ Screen {
         onSnaped: console.log("#### I got an image!")
         visible: false
     }
-
+*/
     Button {
         id: btnOk
         imgHeight: 58; imgWidth: 200
@@ -164,12 +177,12 @@ Screen {
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
 	        if (frmInput1.state == "third") {
-                wdgThird.stop()
+                wdgThird.item.stop()
                 frmInput1.finish()
                 frmInput1.state = "first"
             } else if (frmInput1.state == "second") {
                 frmInput1.state = "third"
-                wdgThird.start()
+                wdgThird.item.start()
             } else if (frmInput1.state == "first") {
                 frmInput1.state = "second"
             }
@@ -187,12 +200,12 @@ Screen {
             }
 
             PropertyChanges {
-                target: wdgSecond
+                target: wdgSecond.item
                 visible: false
             }
 
             PropertyChanges {
-                target: wdgThird
+                target: wdgThird.item
                 visible: false
             }
 
@@ -216,12 +229,12 @@ Screen {
             }
 
             PropertyChanges {
-                target: wdgSecond
+                target: wdgSecond.item
                 visible: true
             }
 
             PropertyChanges {
-                target: wdgThird
+                target: wdgThird.item
                 visible: false
             }
 
@@ -245,12 +258,12 @@ Screen {
             }
 
             PropertyChanges {
-                target: wdgSecond
+                target: wdgSecond.item
                 visible: false
             }
 
             PropertyChanges {
-                target: wdgThird
+                target: wdgThird.item
                 visible: true
             }
 
