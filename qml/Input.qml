@@ -129,7 +129,6 @@ Screen {
         upperBorder: (lowerBar.height + txtAdding.height +
         imgLine.height + txtSteps.height) * 0.92
         visible: true
-        Component.onCompleted: wdgSecond.source = "InputSecond.qml"
     }
 
     Loader {
@@ -139,9 +138,8 @@ Screen {
             txtAdding.height + imgLine.height + txtSteps.height) * 0.92
             wdgSecond.item.parent = frmInput1
             wdgSecond.item.visible = false
+            console.log("wdgSecond: loaded.")
         }
-
-        Component.onCompleted: wdgThird.source = "CameraWidget.qml"
     }
 
     Loader {
@@ -151,6 +149,7 @@ Screen {
             txtAdding.height + imgLine.height + txtSteps.height) * 0.92
             wdgThird.item.parent = frmInput1
             wdgThird.item.visible = false
+            console.log("wdgThird: loaded.")
         }
     }
 
@@ -181,9 +180,15 @@ Screen {
                 frmInput1.finish()
                 frmInput1.state = "first"
             } else if (frmInput1.state == "second") {
+                if (wdgThird.source != "CameraWidget.qml")
+                   wdgThird.source = "CameraWidget.qml"
+
                 frmInput1.state = "third"
                 wdgThird.item.start()
             } else if (frmInput1.state == "first") {
+                if (wdgSecond.source != "InputSecond.qml")
+                   wdgSecond.source = "InputSecond.qml"
+
                 frmInput1.state = "second"
             }
         }
