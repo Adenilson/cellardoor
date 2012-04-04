@@ -28,6 +28,7 @@
 #include <QtDeclarative/QDeclarativePropertyMap>
 #include <QtGlobal>
 #include <QtGui/QApplication>
+#include <QtCore/QTranslator>
 
 using namespace Utils;
 
@@ -59,6 +60,7 @@ using namespace Utils;
 CellarController::CellarController(QObject *parent, QApplication *application)
     : QObject(parent), m_app(application), m_view(new CellarView),
       m_map(new QDeclarativePropertyMap(this)),
+      m_translator(new QTranslator(this)),
       m_modelWine(new GenericModel<WineData>(this)),
       m_database(Database<WineData>::instance(this))
 {
@@ -305,3 +307,15 @@ int CellarController::system()
 {
     return Utils::environment();
 }
+
+void CellarController::changeLanguage(const QString &locale)
+{
+    m_app->removeTranslator(m_translator);
+    QString file("celladoor_");
+    file += locale;
+
+    //TODO: search where translator files are located in the filesystem
+    m_translator->load(file, ".");
+    m_app->installTranslator(m_translator);
+}
+

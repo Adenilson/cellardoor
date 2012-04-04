@@ -27,12 +27,28 @@ Item {
     //width: 1280; height: 720
     //width: 540; height: 960
     //width: 480; height: 854
+    Connections {
+        id: cncTranslate
+        onLanguageChange: {
+            Controller.changeLanguage(language)
+            ldlView.source = ""
+            ldlView.source = "View.qml"
+        }
+    }
+
+    Loader {
+        id: ldlView
+        onLoaded: {
+            cncTranslate.target = ldlView.item
+            ldlView.item.width = appWindow.width
+            ldlView.item.height = appWindow.height
+        }
+    }
 
     Splash {
         id: wdgSplash
         onHideDone: {
-            var mainview = new Factory.WidgetLoader()
-            mainview.create("View.qml")
+            ldlView.source = "View.qml"
         }
     }
 

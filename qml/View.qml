@@ -27,6 +27,8 @@ Screen {
     lowerBar.height: 65
     property int selectedId: 0
     property bool editing: false
+    signal languageChange(string language)
+
     Image {
         id: imgBarmiddle
         width: parent.width
@@ -56,6 +58,23 @@ Screen {
         font { family: nsRegular.name; pixelSize: 28; }
         anchors.verticalCenter: upperBar.verticalCenter
         anchors.horizontalCenter: upperBar.horizontalCenter
+    }
+
+    Text {
+        id: txtTranslate
+        text: qsTr("PT")
+        color: "#FFFFFF"
+        font { family: nsRegular.name; pixelSize: 28; }
+        anchors.verticalCenter: upperBar.verticalCenter
+        anchors.left: upperBar.left
+        anchors.leftMargin: 15
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {
+                //TODO: display a box with the language options
+                frmSplash.languageChange("pt_BR.qm")
+            }
+        }
     }
 
     Text {

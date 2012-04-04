@@ -49,6 +49,7 @@ public slots:
     int system();
 
     void filter(const int &state);
+    void changeLanguage(const QString &locale);
 
 protected slots:
     void updateStorage(const QString &key, const QVariant &value);
@@ -62,6 +63,7 @@ private:
     QApplication *m_app;
     CellarView *m_view;
     QDeclarativePropertyMap *m_map;
+    QTranslator *m_translator;
     GenericModel<WineData> *m_modelWine;
     Database<WineData> *m_database;
 };
