@@ -40,8 +40,11 @@ Item {
         id: ldlView
         onLoaded: {
             cncTranslate.target = ldlView.item
-            ldlView.item.width = appWindow.width
-            ldlView.item.height = appWindow.height
+            ldlView.item.parent = appWindow
+            ldlView.item.anchors.left = appWindow.left
+            ldlView.item.anchors.right = appWindow.right
+            ldlView.item.anchors.top = appWindow.top
+            ldlView.item.anchors.bottom = appWindow.bottom
         }
     }
 
