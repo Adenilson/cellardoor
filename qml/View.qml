@@ -62,7 +62,7 @@ Screen {
 
     Text {
         id: txtTranslate
-        text: qsTr("PT")
+        text: qsTr("Lang")
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 28; }
         anchors.verticalCenter: upperBar.verticalCenter
@@ -70,10 +70,7 @@ Screen {
         anchors.leftMargin: 15
         MouseArea {
             anchors.fill: parent
-            onPressed: {
-                //TODO: display a box with the language options
-                frmSplash.languageChange("pt_BR")
-            }
+            onPressed: wdgLanguage.visible = true //TODO: animate
         }
     }
 
@@ -270,6 +267,15 @@ Screen {
 
     }
 
+    LanguageMenu {
+        id: wdgLanguage
+        visible: false
+        anchors { top: txtTranslate.bottom; left: txtTranslate.left }
+        onLanguageSelected: {
+            wdgLanguage.visible = false
+            frmSplash.languageChange(locale)
+        }
+    }
 
     function processInput() {
         console.log("############# Received")

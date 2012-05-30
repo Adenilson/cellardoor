@@ -40,6 +40,8 @@
     	       <file>qml/ModelWineColor.qml</file>
     	       <file>qml/ModelGrape.qml</file>
 
+    	       <file>qml/LanguageMenu.qml</file>
+
       <!-- JS FILES -->
 	       <file>qml/js/viewcreate.js</file>
 	       <file>qml/js/list.js</file>
