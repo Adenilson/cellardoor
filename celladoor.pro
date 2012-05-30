@@ -69,7 +69,7 @@ symbian: {
 
     ICON = icon.svg
 
-    addFiles.sources = translations/celladoor_pt_BR.qm translations/celladoor_it_IT.qm translations/celladoor_de_DE.qm translations/celladoor_fr_FR.qm translations/celladoor_es_ES.ts
+    addFiles.sources = translations/celladoor_pt_BR.qm translations/celladoor_it_IT.qm translations/celladoor_de_DE.qm translations/celladoor_fr_FR.qm translations/celladoor_es_ES.qm
     addFiles.path = .
     DEPLOYMENT += addFiles
 }
@@ -77,7 +77,7 @@ symbian: {
 target.path = $${PREFIX}/bin
 INSTALLS += target
 
-i18n.files = $${SOURCE_TREE}/celladoor_pt_BR.qm $${SOURCE_TREE}/celladoor_it_IT.qm $${SOURCE_TREE}/celladoor_de_DE.qm $${SOURCE_TREE}/celladoor_fr_FR.qm $${SOURCE_TREE}/celladoor_es_ES.ts
+i18n.files = $${SOURCE_TREE}/celladoor_pt_BR.qm $${SOURCE_TREE}/celladoor_it_IT.qm $${SOURCE_TREE}/celladoor_de_DE.qm $${SOURCE_TREE}/celladoor_fr_FR.qm $${SOURCE_TREE}/celladoor_es_ES.qm
 i18n.path = $${PREFIX}/share/$${TARGET}/i18n
 INSTALLS += i18n
 
