@@ -70,7 +70,7 @@ Screen {
         anchors.leftMargin: 15
         MouseArea {
             anchors.fill: parent
-            onPressed: wdgLanguage.visible = true //TODO: animate
+            onPressed: wdgLanguage.visible = !wdgLanguage.visible //TODO: animate
         }
     }
 
