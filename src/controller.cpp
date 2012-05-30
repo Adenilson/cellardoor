@@ -316,7 +316,7 @@ void CellarController::changeLanguage(const QString &locale)
     file += ".qm";
 
     // It will load from .qrc
-    m_translator->load(file, ":/");
-    m_app->installTranslator(m_translator);
+    if (m_translator->load(file, ":/"))
+        m_app->installTranslator(m_translator);
 }
 
