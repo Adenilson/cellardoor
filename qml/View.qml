@@ -72,7 +72,7 @@ Screen {
             anchors.fill: parent
             onPressed: {
                 //TODO: display a box with the language options
-                frmSplash.languageChange("pt_BR.qm")
+                frmSplash.languageChange("pt_BR")
             }
         }
     }

@@ -313,9 +313,10 @@ void CellarController::changeLanguage(const QString &locale)
     m_app->removeTranslator(m_translator);
     QString file("celladoor_");
     file += locale;
+    file += ".qm";
 
-    //TODO: search where translator files are located in the filesystem
-    m_translator->load(file, ".");
+    // It will load from .qrc
+    m_translator->load(file, ":/");
     m_app->installTranslator(m_translator);
 }
 

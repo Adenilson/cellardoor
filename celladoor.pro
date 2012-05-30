@@ -35,7 +35,8 @@ SOURCES += \
            src/main.cpp
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    translations.qrc
 
 INCLUDEPATH += \
                src
@@ -69,6 +70,7 @@ symbian: {
 
     ICON = icon.svg
 
+    # TODO: test if symbian still needs this
     addFiles.sources = translations/celladoor_pt_BR.qm translations/celladoor_it_IT.qm translations/celladoor_de_DE.qm translations/celladoor_fr_FR.qm translations/celladoor_es_ES.qm
     addFiles.path = .
     DEPLOYMENT += addFiles
