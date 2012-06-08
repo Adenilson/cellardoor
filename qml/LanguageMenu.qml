@@ -15,10 +15,10 @@ Rectangle {
         right: parent.right; bottom: parent.bottom;
         topMargin: 30}
         model: ListModel {
-            ListElement { language: "Portugues"; locale: "pt_BR" }
+            ListElement { language: "Português"; locale: "pt_BR" }
             ListElement { language: "Deutch"; locale: "de_DE" }
-            ListElement { language: "Francais"; locale: "fr_FR" }
-            ListElement { language: "Espanol"; locale: "es_ES" }
+            ListElement { language: "Français"; locale: "fr_FR" }
+            ListElement { language: "Español"; locale: "es_ES" }
             ListElement { language: "Italiano"; locale: "it_IT" }
             ListElement { language: "English"; locale: "en_US" }
         }
