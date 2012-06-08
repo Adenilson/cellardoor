@@ -27,6 +27,13 @@ CellarView::CellarView(QWidget *parent)
     resize(360, 640);
     setResizeMode(SizeRootObjectToView);
     startProfiler(this, engine());
+    // Avoids to repaint background widget
+    /* XXX: will break animated splashscreen
+    setAttribute(Qt::WA_OpaquePaintEvent);
+    setAttribute(Qt::WA_NoSystemBackground);
+    viewport()->setAttribute(Qt::WA_OpaquePaintEvent);
+    viewport()->setAttribute(Qt::WA_NoSystemBackground);
+    */
 }
 
 CellarView::~CellarView()
