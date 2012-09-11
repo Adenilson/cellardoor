@@ -23,9 +23,15 @@ Item {
     width: 362; height: 642
     SplashNoSound {
         id: wdgSplash
-        onHideDone: {
-            var mainview = new Factory.WidgetLoader()
-            mainview.create("View.qml", appWindow)
+        onHideDone: ldlView.source = "View.qml"
+    }
+
+    // FIXME: for some reason, in Qt5 the Factory is borked
+    Loader {
+        id: ldlView
+        onLoaded: {
+            ldlView.item.parent = appWindow
+            ldlView.item.anchors.fill = parent
         }
     }
 
