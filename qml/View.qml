@@ -15,7 +15,7 @@
  *
  */
 
-import Qt 4.7
+import QtQuick 2.0
 import "js/viewcreate.js" as Factory
 import "js/list.js" as List
 

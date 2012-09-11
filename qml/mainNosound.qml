@@ -15,7 +15,7 @@
  *
  */
 
-import Qt 4.7
+import QtQuick 2.0
 import "js/viewcreate.js" as Factory
 
 Item {
@@ -25,7 +25,7 @@ Item {
         id: wdgSplash
         onHideDone: {
             var mainview = new Factory.WidgetLoader()
-            mainview.create("View.qml")
+            mainview.create("View.qml", appWindow)
         }
     }
 
