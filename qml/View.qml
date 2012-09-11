@@ -168,7 +168,7 @@ Screen {
                 if (sysenv > 2) {
                     input.create("InputNocam.qml")
                 } else {
-                    input.create("Input.qml")
+                    input.create("InputNoCam.qml")
                 }
 
                 input.mView.finish.connect(frmSplash.processInput)
@@ -221,7 +221,7 @@ Screen {
                 if (sysenv > 2) {
                     input.create("InputNocam.qml")
                 } else {
-                    input.create("Input.qml")
+                    input.create("InputNocam.qml")
                 }
 
                 input.mView.finish.connect(frmSplash.processInput)
