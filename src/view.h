@@ -20,23 +20,23 @@
 
 #include <QtCore/QObject>
 
-#include <QtQuick1/QDeclarativeView>
+#include <QtQuick/QQuickView>
 
 class QDeclarativeContext;
 
-class CellarView : public QDeclarativeView
+class CellarView : public QQuickView
 {
     Q_OBJECT
 public:
-    CellarView(QWidget *parent = 0);
+    CellarView(QWindow *parent = 0);
     ~CellarView();
 
 private Q_SLOTS:
-    void onStatusChanged(QDeclarativeView::Status status);
+    void onStatusChanged(QQuickView::Status status);
     bool event(QEvent *event);
 
 private:
-    QDeclarativeContext *m_context;
+
 };
 
 #endif

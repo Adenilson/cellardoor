@@ -24,7 +24,7 @@
 #include "wine.h"
 #include "database.h"
 
-class QDeclarativePropertyMap;
+class QQmlPropertyMap;
 class CellarView;
 class QApplication;
 
@@ -62,7 +62,7 @@ protected:
 private:
     QApplication *m_app;
     CellarView *m_view;
-    QDeclarativePropertyMap *m_map;
+    QQmlPropertyMap *m_map;
     QTranslator *m_translator;
     GenericModel<WineData> *m_modelWine;
     Database<WineData> *m_database;

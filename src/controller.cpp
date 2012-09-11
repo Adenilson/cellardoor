@@ -23,9 +23,10 @@
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QTimer>
-#include <QtQuick1/QDeclarativeContext>
-#include <QtQuick1/QDeclarativeEngine>
-#include <QtQuick1/QDeclarativePropertyMap>
+#include <QtQml/QQmlContext>
+#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlProperty>
+#include <QtQml/QQmlPropertyMap>
 #include <QtGlobal>
 #include <QtWidgets/QApplication>
 #include <QtCore/QTranslator>
@@ -59,7 +60,7 @@ using namespace Utils;
 
 CellarController::CellarController(QObject *parent, QApplication *application)
     : QObject(parent), m_app(application), m_view(new CellarView),
-      m_map(new QDeclarativePropertyMap(this)),
+      m_map(new QQmlPropertyMap(this)),
       m_translator(new QTranslator(this)),
       m_modelWine(new GenericModel<WineData>(this)),
       m_database(Database<WineData>::instance(this))
@@ -236,7 +237,7 @@ void CellarController::deleteWine(int id)
 void CellarController::fillStorage(int id)
 {
     WineData obj;
-    QDeclarativePropertyMap &global = *m_map;
+    QQmlPropertyMap &global = *m_map;
     QList<WineData> &items = m_modelWine->items();
     int tmp;
 
