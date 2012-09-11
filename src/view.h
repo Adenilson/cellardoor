@@ -20,7 +20,7 @@
 
 #include <QtCore/QObject>
 
-#include <QtDeclarative/QDeclarativeView>
+#include <QtQuick1/QDeclarativeView>
 
 class QDeclarativeContext;
 

@@ -23,11 +23,11 @@
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QTimer>
-#include <QtDeclarative/QDeclarativeContext>
-#include <QtDeclarative/QDeclarativeEngine>
-#include <QtDeclarative/QDeclarativePropertyMap>
+#include <QtQuick1/QDeclarativeContext>
+#include <QtQuick1/QDeclarativeEngine>
+#include <QtQuick1/QDeclarativePropertyMap>
 #include <QtGlobal>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtCore/QTranslator>
 
 using namespace Utils;

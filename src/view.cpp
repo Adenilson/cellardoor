@@ -17,7 +17,7 @@
 
 #include "view.h"
 
-#include <QtDeclarative/QDeclarativeContext>
+#include <QtQuick1/QDeclarativeContext>
 #include "qmlprofilerhelper.h"
 
 CellarView::CellarView(QWidget *parent)

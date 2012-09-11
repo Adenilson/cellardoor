@@ -15,7 +15,7 @@
  *
  */
 
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtCore/QLocale>
 #include <QtCore/QTranslator>
 #include <QDebug>
