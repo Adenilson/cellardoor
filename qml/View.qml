@@ -147,6 +147,23 @@ Screen {
         //onFlickStarted: txtPosition.updateLabel()
     }
 
+    Loader {
+        id: ldlInput
+        property variant data: null
+        onLoaded: {
+            ldlInput.item.parent = frmSplash
+            ldlInput.item.anchors.fill = frmSplash
+            ldlInput.item.finish.connect(frmSplash.processInput)
+            ldlInput.item.cancel.connect(frmSplash.cancel)
+            setter(data)
+        }
+
+        function setter(data) {
+            ldlInput.item.setter(data)
+        }
+    }
+
+    // FIXME: for some reason, in Qt5 the Factory is borked
     Submenu {
         id: wdgSubmenu
         visible: false
@@ -154,37 +171,15 @@ Screen {
             wdgSubmenu.visible = false
             console.log("########## edit");
             Controller.fillStorage(frmSplash.selectedId);
-
-            //TODO: this code must be moved to a common function
-            var object = List.retrieve("inputone")
-            var widget = null
-            if (object == null) {
-                console.log("##### Not found, creating the input now!")
-                var input = new Factory.WidgetLoader()
-                frmSplash.visible = false;
-                //XXX: If the environment lacks Camera, go with no cam form
-                var sysenv = Controller.system()
-                //It is WIN or OSX
-                if (sysenv > 2) {
-                    input.create("InputNocam.qml")
-                } else {
-                    input.create("InputNoCam.qml")
-                }
-
-                input.mView.finish.connect(frmSplash.processInput)
-                input.mView.cancel.connect(frmSplash.cancel)
-                List.append("inputone", input)
-                widget = input.mView
-
+            frmSplash.visible = false
+            if (ldlInput.progress == 0.0) {
+                ldlInput.source = "InputNocam.qml"
+                ldlInput.data = MainStorage
             } else {
-                widget = object.mView
-                console.log("### Found: " + widget.height)
-                frmSplash.visible = false;
-                //TODO: show with style
-                widget.visible = true
+                ldlInput.item.visible = true
+                ldlInput.setter()
             }
 
-            widget.setter(MainStorage)
             frmSplash.editing = true
         }
 
@@ -210,29 +205,13 @@ Screen {
         anchors.bottomMargin: -8
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
-            var object = List.retrieve("inputone")
-            if (object == null) {
-                console.log("##### Not found, creating the input now!")
-                var input = new Factory.WidgetLoader()
-                frmSplash.visible = false;
-                //XXX: If the environment lacks Camera, go with no cam form
-                var sysenv = Controller.system()
-                //It is WIN or OSX
-                if (sysenv > 2) {
-                    input.create("InputNocam.qml")
-                } else {
-                    input.create("InputNocam.qml")
-                }
-
-                input.mView.finish.connect(frmSplash.processInput)
-                input.mView.cancel.connect(frmSplash.cancel)
-                List.append("inputone", input)
+            frmSplash.visible = false
+            if (ldlInput.progress == 0.0) {
+                ldlInput.source = "InputNocam.qml"
+                ldlInput.data = MainStorage
             } else {
-                var widget = object.mView
-                console.log("### Found: " + widget.height)
-                frmSplash.visible = false;
-                //TODO: show with style
-                widget.visible = true
+                ldlInput.item.visible = true
+                ldlInput.setter()
             }
         }
 
