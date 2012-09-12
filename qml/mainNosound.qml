@@ -21,6 +21,15 @@ import "js/viewcreate.js" as Factory
 Item {
     id: appWindow
     width: 362; height: 642
+    Connections {
+        id: cncTranslate
+        onLanguageChange: {
+            Controller.changeLanguage(language)
+            ldlView.source = ""
+            ldlView.source = "View.qml"
+        }
+    }
+
     SplashNoSound {
         id: wdgSplash
         onHideDone: ldlView.source = "View.qml"
@@ -30,6 +39,7 @@ Item {
     Loader {
         id: ldlView
         onLoaded: {
+            cncTranslate.target = ldlView.item
             ldlView.item.parent = appWindow
             ldlView.item.anchors.fill = parent
         }
