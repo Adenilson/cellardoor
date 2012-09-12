@@ -70,7 +70,7 @@ Rectangle {
                }
         }
         highlightMoveDuration: 0
-        highlightMoveSpeed: -1
+        highlightMoveVelocity: -1
         focus: true
     }
 
