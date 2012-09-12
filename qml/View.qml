@@ -155,11 +155,10 @@ Screen {
             ldlInput.item.anchors.fill = frmSplash
             ldlInput.item.finish.connect(frmSplash.processInput)
             ldlInput.item.cancel.connect(frmSplash.cancel)
-            setter(data)
         }
 
-        function setter(data) {
-            ldlInput.item.setter(data)
+        function setter() {
+            ldlInput.item.setter(ldlInput.data)
         }
     }
 
@@ -169,9 +168,7 @@ Screen {
         visible: false
         onEditOption: {
             wdgSubmenu.visible = false
-            console.log("########## edit");
             Controller.fillStorage(frmSplash.selectedId);
-            frmSplash.visible = false
             if (ldlInput.progress == 0.0) {
                 ldlInput.source = "InputNocam.qml"
                 ldlInput.data = MainStorage
@@ -205,7 +202,6 @@ Screen {
         anchors.bottomMargin: -8
         anchors.horizontalCenter: lowerBar.horizontalCenter
         onButtonClicked: {
-            frmSplash.visible = false
             if (ldlInput.progress == 0.0) {
                 ldlInput.source = "InputNocam.qml"
                 ldlInput.data = MainStorage
@@ -258,8 +254,7 @@ Screen {
 
     function processInput() {
         console.log("############# Received")
-        var object = List.retrieve("inputone")
-        var widget = object.mView
+        var widget = ldlInput.item
         widget.getter(MainStorage)
         widget.cleanup()
 
@@ -273,7 +268,7 @@ Screen {
         }
 
         widget.visible = false
-        frmSplash.visible = true;
+
         //XXX: symbian slows down scrolling in main view when camera
         //widget was created.
         if (Controller.system() == 1) {
@@ -284,10 +279,8 @@ Screen {
     }
 
     function cancel() {
-        var object = List.retrieve("inputone")
-        var widget = object.mView
+        var widget = ldlInput.item
         widget.visible = false
-        frmSplash.visible = true;
         widget.cleanup()
         //XXX: symbian slows down scrolling in main view when camera
         //widget was created.
