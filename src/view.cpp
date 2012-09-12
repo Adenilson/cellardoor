@@ -22,7 +22,7 @@
 CellarView::CellarView(QWindow *parent)
  : QQuickView(parent)
 {
-    connect(this, SIGNAL(statusChanged(QDeclarativeView::Status)), this, SLOT(onStatusChanged(QDeclarativeView::Status)));
+    connect(this, SIGNAL(statusChanged(QQuickView::Status)), this, SLOT(onStatusChanged(QQuickView::Status)));
     resize(360, 640);
     setResizeMode(SizeRootObjectToView);
 }
