@@ -25,6 +25,7 @@ CellarView::CellarView(QWindow *parent)
     connect(this, SIGNAL(statusChanged(QQuickView::Status)), this, SLOT(onStatusChanged(QQuickView::Status)));
     resize(360, 640);
     setResizeMode(SizeRootObjectToView);
+    setWindowTitle("Cellardoor");
 }
 
 CellarView::~CellarView()
