@@ -26,7 +26,6 @@ GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
     : GenericModelBase(parent), m_cleanup(cleanupPrefix), m_propertyCount(0)
 {
     const ModelTemplate object;
-    QHash<int, QByteArray> roles;
 
     QStringList properties;
     ModelTemplate tmp;
@@ -34,10 +33,9 @@ GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
 
     m_propertyCount = properties.count();
     for (int i = 0; i < m_propertyCount; ++i) {
-        roles[i] = properties[i].toUtf8();
+        m_roles[i] = properties[i].toUtf8();
     }
 
-    setRoleNames(roles);
 }
 
 template <class ModelTemplate>

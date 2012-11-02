@@ -19,6 +19,7 @@
 #define __GENERICMODELBASE_H__
 
 #include <QtCore/QAbstractListModel>
+#include <QtCore/QHash>
 
 class GenericModelBase : public QAbstractListModel
 {
@@ -27,6 +28,7 @@ class GenericModelBase : public QAbstractListModel
 public:
     GenericModelBase(QObject *parent = 0);
     virtual ~GenericModelBase();
+    QHash<int, QByteArray> roleNames() const { return m_roles; }
 
 public Q_SLOTS:
     void getByIndex(int index);
@@ -36,6 +38,7 @@ Q_SIGNALS:
 
 protected:
     virtual const QObject *accessDataByIndex(int index) = 0;
+    QHash<int, QByteArray> m_roles;
 };
 
 #endif

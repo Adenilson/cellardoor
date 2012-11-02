@@ -20,7 +20,7 @@
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
-#include <QtGui/QDesktopServices>
+#include <QtCore/QStandardPaths>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlField>
@@ -37,7 +37,7 @@ Database<Type>::Database(QObject *parent)
   : DatabaseWorkaround(parent)
 {
     QSqlDatabase db(QSqlDatabase::addDatabase("QSQLITE"));
-    const QDir dbDir(QDesktopServices::storageLocation(QDesktopServices::DataLocation));
+    const QDir dbDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
     const QString databaseName = QString("wine_" + QCoreApplication::applicationVersion() + ".db");
 
 #ifndef Q_OS_SYMBIAN
