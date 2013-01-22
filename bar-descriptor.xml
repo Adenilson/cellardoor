@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+    <id>ID</id>
+    <name>cellardoor</name>
+    <versionNumber>1.0.3</versionNumber>
+    <description>DESCRIPTION</description>
+    <initialWindow>
+        <systemChrome>none</systemChrome>
+        <transparent>false</transparent>
+        <autoOrients>false</autoOrients>
+        <aspectRatio>portrait</aspectRatio>
+    </initialWindow>
+
+    <author>Cabledogs</author>
+    <authorId>gYAAgHB4pTrHz3Lk-U8YV8stLks</authorId>
+
+    <arg>-platform</arg>
+    <arg>blackberry</arg>
+    <action system="true">run_native</action>
+    <action>play_audio</action>
+    <action>access_internet</action>
+    <action>use_camera</action>
+    <asset path="cellar" type="Qnx/Elf" entry="true">cellar</asset>
+    <env var="LD_LIBRARY_PATH" value="/usr/lib/qt4/lib"/>
+</qnx>
