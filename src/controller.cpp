@@ -85,6 +85,9 @@ void CellarController::initUI()
 {
     Environment tmp = static_cast<Environment>(Utils::environment());
 
+      m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
+      m_view->showFullScreen();
+/*
     switch (tmp) {
     case SYMBIAN:
         m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
@@ -110,6 +113,7 @@ void CellarController::initUI()
             m_view->show();
         break;
     }
+ */
 
     QList<WineData> dataItems(m_database->retrieveTypes());
     if (dataItems.count())
