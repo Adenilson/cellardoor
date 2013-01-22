@@ -165,11 +165,11 @@ Screen {
                 //XXX: If the environment lacks Camera, go with no cam form
                 var sysenv = Controller.system()
                 //It is WIN or OSX
-                if (sysenv > 2) {
+//                if (sysenv > 2) {
                     input.create("InputNocam.qml")
-                } else {
-                    input.create("Input.qml")
-                }
+                // } else {
+                //     input.create("Input.qml")
+                // }
 
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
@@ -218,11 +218,11 @@ Screen {
                 //XXX: If the environment lacks Camera, go with no cam form
                 var sysenv = Controller.system()
                 //It is WIN or OSX
-                if (sysenv > 2) {
+                // if (sysenv > 2) {
                     input.create("InputNocam.qml")
-                } else {
-                    input.create("Input.qml")
-                }
+                // } else {
+                //     input.create("Input.qml")
+                // }
 
                 input.mView.finish.connect(frmSplash.processInput)
                 input.mView.cancel.connect(frmSplash.cancel)
