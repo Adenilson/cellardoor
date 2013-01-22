@@ -27,6 +27,11 @@
     <permission>play_audio</permission>
 
     <!-- <asset path="cellar" type="Qnx/Elf" entry="true">cellar</asset> -->
+    <configuration name="Default">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="cellar" entry="true" type="Qnx/Elf">cellar</asset>
+    </configuration>
+
     <configuration name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="cellar" entry="true" type="Qnx/Elf">cellar</asset>
