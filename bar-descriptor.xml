@@ -1,9 +1,11 @@
 <?xml version='1.0' encoding='utf-8' standalone='no'?>
 <qnx xmlns="http://www.qnx.com/schemas/application/1.0">
-    <id>ID</id>
-    <name>cellardoor</name>
-    <versionNumber>1.0.3</versionNumber>
-    <description>DESCRIPTION</description>
+    <id>com.cabledogs.cellardoor</id>
+    <name>cellar</name>
+    <versionNumber>1.0.0</versionNumber>
+    <buildId>1</buildId>
+    <description>A wine journal application</description>
+
     <initialWindow>
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>
@@ -14,12 +16,32 @@
     <author>Cabledogs</author>
     <authorId>gYAAgHB4pTrHz3Lk-U8YV8stLks</authorId>
 
-    <arg>-platform</arg>
-    <arg>blackberry</arg>
-    <action system="true">run_native</action>
-    <action>play_audio</action>
-    <action>access_internet</action>
-    <action>use_camera</action>
-    <asset path="cellar" type="Qnx/Elf" entry="true">cellar</asset>
-    <env var="LD_LIBRARY_PATH" value="/usr/lib/qt4/lib"/>
+    <icon>
+        <image>icon.png</image>
+    </icon>
+
+    <permission system="true">run_native</permission>
+    <permission>read_geolocation</permission>
+    <permission>use_camera</permission>
+    <permission>access_shared</permission>
+    <permission>play_audio</permission>
+
+    <!-- <asset path="cellar" type="Qnx/Elf" entry="true">cellar</asset> -->
+    <configuration name="Device-Release">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="cellar" entry="true" type="Qnx/Elf">cellar</asset>
+    </configuration>
+
+    <configuration name="Device-Debug">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="cellar" entry="true" type="Qnx/Elf">cellar</asset>
+    </configuration>
+
+    <asset path="icon.png">icon.png</asset>
+    <asset path="translations" dest="qm">
+      <include name="*.qm"/>
+    </asset>
+
+    <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
+
 </qnx>
