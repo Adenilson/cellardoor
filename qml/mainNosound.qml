@@ -21,11 +21,32 @@ import "js/viewcreate.js" as Factory
 Item {
     id: appWindow
     width: 362; height: 642
+
+    Connections {
+        id: cncTranslate
+        onLanguageChange: {
+            Controller.changeLanguage(language)
+            ldlView.source = ""
+            ldlView.source = "View.qml"
+        }
+    }
+
+    Loader {
+        id: ldlView
+        onLoaded: {
+            cncTranslate.target = ldlView.item
+            ldlView.item.parent = appWindow
+            ldlView.item.anchors.left = appWindow.left
+            ldlView.item.anchors.right = appWindow.right
+            ldlView.item.anchors.top = appWindow.top
+            ldlView.item.anchors.bottom = appWindow.bottom
+        }
+    }
+
     SplashNoSound {
         id: wdgSplash
         onHideDone: {
-            var mainview = new Factory.WidgetLoader()
-            mainview.create("View.qml")
+            ldlView.source = "View.qml"
         }
     }
 
