@@ -15,7 +15,7 @@
  *
  */
 
-import Qt 4.7
+import QtQuick 1.1
 import "js/list.js" as List
 
 Item {
