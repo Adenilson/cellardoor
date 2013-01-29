@@ -28,7 +28,7 @@
 #include <QtQml/QQmlProperty>
 #include <QtQml/QQmlPropertyMap>
 #include <QtGlobal>
-#include <QtWidgets/QApplication>
+#include <QtGui/QGuiApplication>
 #include <QtCore/QTranslator>
 
 using namespace Utils;
@@ -58,7 +58,7 @@ using namespace Utils;
  * - a catalog of wine types and information
  */
 
-CellarController::CellarController(QObject *parent, QApplication *application)
+CellarController::CellarController(QObject *parent, QGuiApplication *application)
     : QObject(parent), m_app(application), m_view(new CellarView),
       m_map(new QQmlPropertyMap(this)),
       m_translator(new QTranslator(this)),

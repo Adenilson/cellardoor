@@ -26,13 +26,13 @@
 
 class QQmlPropertyMap;
 class CellarView;
-class QApplication;
+class QGuiApplication;
 
 class CellarController : public QObject
 {
     Q_OBJECT
 public:
-    CellarController(QObject *parent = 0, QApplication *application = 0);
+    CellarController(QObject *parent = 0, QGuiApplication *application = 0);
     ~CellarController();
 
     void initUI();
@@ -60,7 +60,7 @@ protected:
     void setupFilterStates();
 
 private:
-    QApplication *m_app;
+    QGuiApplication *m_app;
     CellarView *m_view;
     QQmlPropertyMap *m_map;
     QTranslator *m_translator;

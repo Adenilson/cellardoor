@@ -15,7 +15,7 @@
  *
  */
 
-#include <QtWidgets/QApplication>
+#include <QtGui/QGuiApplication>
 #include <QtCore/QLocale>
 #include <QtCore/QTranslator>
 #include <QDebug>
@@ -27,7 +27,7 @@ static const char s_applicationVersion[] = "0.51";
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
     //QApplication::setGraphicsSystem("opengl");
     app.setApplicationName(s_applicationName);
     app.setApplicationVersion(s_applicationVersion);
