@@ -74,8 +74,6 @@ Item {
             //wdgCamera.picture = path
             if (Controller.system() == 0) {
                 wdgCamera.picture = Controller.workingDir() + path
-            } else if (Controller.system() == 1) {
-                wdgCamera.picture = path
             } else {
                 console.log("### Need to test in windows...")
             }

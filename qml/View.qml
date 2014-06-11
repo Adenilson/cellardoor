@@ -268,27 +268,12 @@ Screen {
         }
 
         widget.visible = false
-
-        //XXX: symbian slows down scrolling in main view when camera
-        //widget was created.
-        if (Controller.system() == 1) {
-            widget.destroy(1000);
-            List.remove("inputone");
-        }
-
     }
 
     function cancel() {
         var widget = ldlInput.item
         widget.visible = false
         widget.cleanup()
-        //XXX: symbian slows down scrolling in main view when camera
-        //widget was created.
-        if (Controller.system() == 1) {
-            widget.destroy(1000);
-            List.remove("inputone");
-        }
-
     }
 
 }

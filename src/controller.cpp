@@ -87,21 +87,10 @@ void CellarController::initUI()
     Environment tmp = static_cast<Environment>(Utils::environment());
 
     switch (tmp) {
-    case SYMBIAN:
-        m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
-        m_view->showFullScreen();
-        break;
-
-    case MAEMO:
-        m_view->setSource(QUrl("qrc:/qml/main.qml"));
-        m_view->showFullScreen();
-        break;
-
     case WINDOWS: case OSX:
       m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
       m_view->show();
       break;
-
 
     default:
         m_view->setSource(QUrl("qrc:/qml/mainNosound.qml"));
