@@ -15,6 +15,7 @@
  *
  */
 
+/* TODO: test this with linux and port to Qt5. */
 import Qt 4.7
 import QtMultimediaKit 1.1
 
