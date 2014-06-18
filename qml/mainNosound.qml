@@ -21,10 +21,17 @@ import "js/viewcreate.js" as Factory
 Item {
     id: appWindow
     width: 362; height: 642
+    property variant controller: Controller
     Connections {
         id: cncTranslate
         onLanguageChange: {
-            Controller.changeLanguage(language)
+            if (controller == undefined) {
+                console.log("### Sorry, I have no real Controller " +
+                "object. Can't load new language.");
+                return
+            }
+
+            controller.changeLanguage(language)
             ldlView.source = ""
             ldlView.source = "View.qml"
         }

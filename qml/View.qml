@@ -27,6 +27,7 @@ Screen {
     lowerBar.height: 65
     property int selectedId: 0
     property bool editing: false
+    property variant controller: Controller
     signal languageChange(string language)
 
     Image {
@@ -46,7 +47,13 @@ Screen {
         anchors.left: imgBarmiddle.left
         anchors.right: imgBarmiddle.right
         onFilter: {
-            Controller.filter(state)
+            if (controller == undefined) {
+                console.log("### Sorry, I have no real Controller " +
+                "object. Can't filter.");
+                return
+            }
+
+            controller.filter(state)
             txtPosition.updateLabel(0)
         }
     }
@@ -91,7 +98,7 @@ Screen {
 
     Text {
         id: txtPosition
-        text: lstWine.currentIndex + 1 + " / " + Controller.wineCount()
+        text: lstWine.currentIndex + 1 + " / " + controller.wineCount()
         color: "#FFFFFF"
         font { family: nsRegular.name; pixelSize: 22; italic: true }
         anchors.top: upperBar.bottom
@@ -101,9 +108,9 @@ Screen {
             //BUG: currentIndex returns the same value
             //txtPosition.text = lstWine.currentIndex + 1 + " / " + Controller.wineCount();
             if (index != -1) {
-                if (Controller.wineCount() > 0) {
+                if (controller.wineCount() > 0) {
                     txtPosition.text = index + 1 + " / " +
-                    Controller.wineCount();
+                    controller.wineCount();
                 } else {
                     txtPosition.text = "0 / 0"
                 }
@@ -168,7 +175,7 @@ Screen {
         visible: false
         onEditOption: {
             wdgSubmenu.visible = false
-            Controller.fillStorage(frmSplash.selectedId);
+            controller.fillStorage(frmSplash.selectedId);
             if (ldlInput.progress == 0.0) {
                 ldlInput.source = "InputNocam.qml"
                 ldlInput.data = MainStorage
@@ -183,7 +190,7 @@ Screen {
         onDeleteOption: {
             wdgSubmenu.visible = false
             console.log("########## delete");
-            Controller.deleteWine(frmSplash.selectedId);
+            controller.deleteWine(frmSplash.selectedId);
             txtCounter.updateText()
         }
     }
@@ -224,7 +231,7 @@ Screen {
 
         function updateText() {
             var result;
-            var counter = Controller.wineCount()
+            var counter = controller.wineCount()
             if (counter == 0) {
                 result = qsTr("Holly Grapes! You haven't tasted a") + "\n" +
                 qsTr("single wine, let's fix it!")
@@ -260,9 +267,9 @@ Screen {
 
         if (frmSplash.editing) {
             frmSplash.editing = false
-            Controller.editWine(frmSplash.selectedId)
+            controller.editWine(frmSplash.selectedId)
         } else {
-            Controller.createNewWine()
+            controller.createNewWine()
             txtPosition.updateLabel(0)
             txtCounter.updateText()
         }
