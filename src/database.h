@@ -33,18 +33,15 @@ public:
     enum Filter { NoFilter, OrderByAgeDesc };
 
 public slots:
-virtual void setFilter(const QString &query) = 0;
-QString filter() const
-{
-    return m_filter;
-}
+    virtual void setFilter(const QString &query) = 0;
+    QString filter() const
+    {
+        return m_filter;
+    }
 
 protected:
-DatabaseWorkaround(QObject *parent = 0): QObject(parent)
-{ }
-
-QString m_filter;
-
+    DatabaseWorkaround(QObject *parent = 0): QObject(parent) { }
+    QString m_filter;
 };
 
 template <typename Type>
