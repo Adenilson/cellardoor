@@ -18,7 +18,7 @@
 #ifndef __M_UTILS__
 #define __M_UTILS__
 
-class QMetaObject;
+struct QMetaObject;
 class QStringList;
 
 namespace Utils {

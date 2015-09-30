@@ -25,6 +25,9 @@ namespace Utils {
 
 void setOrientation(const Orientation &arg)
 {
+    // TODO: add platform specific code (if needed) to fix orientation
+    // (e.g. portrait in iOS).
+    Q_UNUSED(arg);
     return;
 }
 
