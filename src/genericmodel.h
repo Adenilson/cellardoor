@@ -23,7 +23,7 @@
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QList>
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 class GenericModel : public GenericModelBase
 {
 

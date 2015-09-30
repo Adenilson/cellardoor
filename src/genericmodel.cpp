@@ -21,7 +21,7 @@
 #include <QtCore/QMetaProperty>
 #include <QtCore/QStringList>
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
     : GenericModelBase(parent), m_cleanup(cleanupPrefix), m_propertyCount(0)
 {
@@ -38,13 +38,13 @@ GenericModel<ModelTemplate>::GenericModel(QObject *parent, bool cleanupPrefix)
 
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 GenericModel<ModelTemplate>::~GenericModel()
 {
     m_items.clear();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 void GenericModel<ModelTemplate>::addItem(const ModelTemplate &item)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
@@ -52,7 +52,7 @@ void GenericModel<ModelTemplate>::addItem(const ModelTemplate &item)
     endInsertRows();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 void GenericModel<ModelTemplate>::prependItem(const ModelTemplate &item)
 {
     beginInsertRows(QModelIndex(), 0, 0);
@@ -60,7 +60,7 @@ void GenericModel<ModelTemplate>::prependItem(const ModelTemplate &item)
     endInsertRows();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 void GenericModel<ModelTemplate>::addItems(const QList<ModelTemplate> &items)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount() + items.size() - 1);
@@ -68,7 +68,7 @@ void GenericModel<ModelTemplate>::addItems(const QList<ModelTemplate> &items)
     endInsertRows();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 void GenericModel<ModelTemplate>::removeItem(const ModelTemplate &item)
 {
     const int index = m_items.indexOf(item);
@@ -77,7 +77,7 @@ void GenericModel<ModelTemplate>::removeItem(const ModelTemplate &item)
     endRemoveRows();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 void GenericModel<ModelTemplate>::clear()
 {
     beginRemoveRows(QModelIndex(), 0, rowCount());
@@ -85,7 +85,7 @@ void GenericModel<ModelTemplate>::clear()
     endRemoveRows();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 int GenericModel<ModelTemplate>::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -93,7 +93,7 @@ int GenericModel<ModelTemplate>::rowCount(const QModelIndex &parent) const
     return m_items.count();
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 QVariant GenericModel<ModelTemplate>::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() > m_items.count())
@@ -114,7 +114,7 @@ QVariant GenericModel<ModelTemplate>::data(const QModelIndex &index, int role) c
     return dataValue;
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 bool GenericModel<ModelTemplate>::setData(const QModelIndex & index, const QVariant & value, int role)
 {
     if (!index.isValid())
@@ -127,7 +127,7 @@ bool GenericModel<ModelTemplate>::setData(const QModelIndex & index, const QVari
     return true;
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 bool GenericModel<ModelTemplate>::updateItem(const ModelTemplate &item)
 {
     int pos = m_items.indexOf(item);
@@ -144,21 +144,21 @@ bool GenericModel<ModelTemplate>::updateItem(const ModelTemplate &item)
     return true;
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 QModelIndex GenericModel<ModelTemplate>::indexOfObject(const ModelTemplate &object)
 {
     const int indexElement = m_items.indexOf(object);
     return index(indexElement);
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 const QObject *GenericModel<ModelTemplate>::accessDataByIndex(int index)
 {
     //XXX: check if object exists
     return qobject_cast<const QObject *>(&m_items.at(index));
 }
 
-template <class ModelTemplate>
+template <typename ModelTemplate>
 QList<ModelTemplate>& GenericModel<ModelTemplate>::items()
 {
     return m_items;
