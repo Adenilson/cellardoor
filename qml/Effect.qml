@@ -15,12 +15,11 @@
  *
  */
 
-import Qt 4.7
-//import Qt.multimedia 1.0
-import QtMultimediaKit 1.1
+import QtQuick 2.0
+import QtMultimedia 5.0
 
 
-SoundEffect {
+Audio {
     id: audioPlayer
     source: "audio/creaky_door_2.WAV"
     volume: 1.0

@@ -15,19 +15,13 @@
  *
  */
 
-import Qt 4.7
+import QtQuick 2.0
 import "js/viewcreate.js" as Factory
 
 Item {
     id: appWindow
     width: 362; height: 642
     property variant controller: Controller
-    //width: 480; height: 800
-    //width: 1024; height: 600
-    //width: 1280; height: 600
-    //width: 1280; height: 720
-    //width: 540; height: 960
-    //width: 480; height: 854
     Connections {
         id: cncTranslate
         onLanguageChange: {
@@ -43,22 +37,18 @@ Item {
         }
     }
 
+    Splash {
+        id: wdgSplash
+        onHideDone: ldlView.source = "View.qml"
+    }
+
+    // FIXME: for some reason, in Qt5 the Factory is borked
     Loader {
         id: ldlView
         onLoaded: {
             cncTranslate.target = ldlView.item
             ldlView.item.parent = appWindow
-            ldlView.item.anchors.left = appWindow.left
-            ldlView.item.anchors.right = appWindow.right
-            ldlView.item.anchors.top = appWindow.top
-            ldlView.item.anchors.bottom = appWindow.bottom
-        }
-    }
-
-    Splash {
-        id: wdgSplash
-        onHideDone: {
-            ldlView.source = "View.qml"
+            ldlView.item.anchors.fill = parent
         }
     }
 
