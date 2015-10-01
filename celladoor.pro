@@ -1,6 +1,6 @@
 include(scripts/scripts.pri)
 
-QT       += core gui network quick sql
+QT       += core gui network quick sql multimedia
 
 TARGET = cellar
 
