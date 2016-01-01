@@ -15,9 +15,10 @@
  *
  */
 
-#include <QtGui/QGuiApplication>
 #include <QtCore/QLocale>
 #include <QtCore/QTranslator>
+#include <QtCore/QtGlobal>
+#include <QtGui/QGuiApplication>
 #include <QDebug>
 #include "controller.h"
 #include "utils.h"
@@ -27,8 +28,13 @@ static const char s_applicationVersion[] = "0.51";
 
 int main(int argc, char *argv[])
 {
+#if QT_VERSION >= 0x050600
+    // Enable support for high DPI:
+    // https://doc-snapshots.qt.io/qt5-5.6/qtlabscontrols-highdpi.html
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
     QGuiApplication app(argc, argv);
-    //QApplication::setGraphicsSystem("opengl");
     app.setApplicationName(s_applicationName);
     app.setApplicationVersion(s_applicationVersion);
 
